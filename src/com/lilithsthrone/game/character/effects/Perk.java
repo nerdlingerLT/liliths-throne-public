@@ -39,6 +39,7 @@ public class Perk {
 			PresetColour.BASE_PINK,
 			Util.newHashMapOfValues(),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return ".";//TODO
@@ -52,10 +53,12 @@ public class Perk {
 			"perks/jobs/npc_harpy_matriarch",
 			PresetColour.RACE_HARPY,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.DAMAGE_LUST, 25),
-					new Value<>(Attribute.MAJOR_CORRUPTION, 5),
-					new Value<>(Attribute.MAJOR_PHYSIQUE, 5)),
+					new Value<>(Attribute.DAMAGE_LUST, 10),
+					new Value<>(Attribute.MAJOR_CORRUPTION, 20),
+					new Value<>(Attribute.MAJOR_PHYSIQUE, 5),
+                                        new Value<>(Attribute.HEALTH_MAXIMUM, 20)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameHasFull] risen to the position of matriarch of a harpy flock through a combination of [npc.her] natural beauty and willingness to do anything it takes to rule.");
@@ -71,8 +74,9 @@ public class Perk {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.DAMAGE_LUST, 10),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 5),
-					new Value<>(Attribute.MAJOR_PHYSIQUE, 1)),
+                                        new Value<>(Attribute.MAJOR_PHYSIQUE, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameIsFull] the member of a harpy flock, and as such has considerable experience in both flattering and backstabbing others.");
@@ -95,10 +99,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 10),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 10)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Inspector' in the Enforcer's Frontline Patrol division, and has received a moderate amount of combat training.");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -122,10 +128,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 5),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Sergeant' in the Enforcer's Frontline Patrol division, and has received a limited amount of combat training.");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -149,10 +157,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 5),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Constable' in the Enforcer's Frontline Patrol division, and has received a very limited amount of combat training.");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -177,10 +187,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 35),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 35)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Superintendent' in the Enforcer's 'Special Weapons and Operations Response Department', and has received an extensive amount of combat training.");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -205,10 +217,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 30),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 30)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Chief Inspector' in the Enforcer's 'Special Weapons and Operations Response Department', and has received an extensive amount of combat training.");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -233,10 +247,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 25),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 25)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Inspector' in the Enforcer's 'Special Weapons and Operations Response Department', and has received an extensive amount of combat training.");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -261,6 +277,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 20),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 20)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Sergeant' in the Enforcer's 'Special Weapons and Operations Response Department', and has received a significant amount of combat training.");
@@ -289,10 +306,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 15),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 15)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Constable' in the Enforcer's 'Special Weapons and Operations Response Department', and has received a good amount of combat training.");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -319,10 +338,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 10),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 10)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Inspector' in the Enforcer's 'Office of Realm Intelligence, Counter-Espionage, and Logistics', and knows many ways in which to get someone to talk...");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -349,10 +370,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 5),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Sergeant' in the Enforcer's 'Office of Realm Intelligence, Counter-Espionage, and Logistics', and knows many ways in which to get someone to talk...");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -379,10 +402,12 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 5),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] holds the rank of 'Constable' in the Enforcer's 'Office of Realm Intelligence, Counter-Espionage, and Logistics', and knows many ways in which to get someone to talk...");
 		}
+
 		@Override
 		public String getSVGString(GameCharacter owner) {
 			if(owner.isFeminine()) {
@@ -405,6 +430,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_SPELLS, 25),
 					new Value<>(Attribute.DAMAGE_LUST, 50)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -423,6 +449,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_PHYSICAL, 25),
 					new Value<>(Attribute.RESISTANCE_LUST, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -441,6 +468,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_PHYSICAL, 15),
 					new Value<>(Attribute.HEALTH_MAXIMUM, 25)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -458,6 +486,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_LUST, 15),
 					new Value<>(Attribute.RESISTANCE_LUST, 2)),
 			null) {
+
 		@Override
 		public String getName(GameCharacter owner) {
 			if(owner==null) {
@@ -468,6 +497,7 @@ public class Perk {
 			}
 			return "barman";
 		}
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -485,6 +515,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_LUST, 15),
 					new Value<>(Attribute.RESISTANCE_LUST, 2)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -501,6 +532,7 @@ public class Perk {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.DAMAGE_LUST, 50)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -519,6 +551,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_SPELLS, 50),
 					new Value<>(Attribute.SPELL_COST_MODIFIER, 50)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -536,6 +569,7 @@ public class Perk {
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5),
 					new Value<>(Attribute.ENERGY_SHIELDING, 1)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -554,6 +588,7 @@ public class Perk {
 				new Value<>(Attribute.RESISTANCE_LUST, 20),
 				new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] training has given [npc.herHim] some defence against Lilith's forces.");
@@ -566,8 +601,11 @@ public class Perk {
 			PerkCategory.JOB,
 			"perks/jobs/npc_office_worker",
 			PresetColour.CURRENCY_GOLD,
-			Util.newHashMapOfValues(new Value<>(Attribute.MAJOR_PHYSIQUE, 5)),
+			Util.newHashMapOfValues(
+					new Value<>(Attribute.MAJOR_PHYSIQUE, 2),
+					new Value<>(Attribute.CRITICAL_DAMAGE, 50)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "The constant pressure of meeting targets and managing difficult colleagues and clients has built up [npc.namePos] endurance.");
@@ -584,6 +622,7 @@ public class Perk {
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 25),
 					new Value<>(Attribute.RESISTANCE_ICE, 5)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -615,6 +654,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_POISON, 250),
 					new Value<>(Attribute.RESISTANCE_LUST, 250)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -634,6 +674,7 @@ public class Perk {
 			null,
 			null,
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -648,9 +689,10 @@ public class Perk {
 			"perks/jobs/npc_slime_queen_guard",
 			PresetColour.RACE_REINDEER_MORPH,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 25),
+					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 15),
 					new Value<>(Attribute.HEALTH_MAXIMUM, 25)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -668,6 +710,7 @@ public class Perk {
 					new Value<>(Attribute.FERTILITY, 100),
 					new Value<>(Attribute.VIRILITY, 100)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -691,6 +734,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_POISON, 10)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -714,6 +758,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_POISON, 10)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -737,6 +782,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_POISON, 5)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -758,6 +804,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_PHYSICAL, 5)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -781,6 +828,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 50)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -799,6 +847,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_PHYSICAL, 5)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -820,6 +869,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_LUST, 5)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -837,6 +887,7 @@ public class Perk {
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 10)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -861,6 +912,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_PHYSICAL, 5)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner,
@@ -881,6 +933,7 @@ public class Perk {
 					new Value<>(Attribute.RESISTANCE_PHYSICAL, 2),
 					new Value<>(Attribute.RESISTANCE_LUST, 2)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameHasFull] steeled [npc.her] body and mind to help [npc.herHim] deal with the fact that [npc.sheIs] just someone else's property.");
@@ -897,6 +950,7 @@ public class Perk {
 					new Value<>(Attribute.MAJOR_PHYSIQUE, -5),
 					new Value<>(Attribute.HEALTH_MAXIMUM, -25)),
 			null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameHasFull] been kidnapped and is being illegally held prisoner against [npc.her] will.");
@@ -914,6 +968,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_LUST, 25),
 					new Value<>(Attribute.RESISTANCE_LUST, 2)),
 			Util.newArrayListOfValues("[style.boldExcellent(Doubles)] all slave and self-prostitution income")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameIsFull] experienced at selling [npc.her] body to strangers in order to make a living. After having sex so many times, it takes a lot to get [npc.herHim] really turned on.");
@@ -930,6 +985,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_PHYSICAL, 10),
 					new Value<>(Attribute.HEALTH_MAXIMUM, 15)),
 			Util.newArrayListOfValues("[style.boldExcellent(Triples)] all mugging income")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] [npc.verb(live)] a life of crime, stealing from the rich and poor alike.");
@@ -946,6 +1002,7 @@ public class Perk {
 					new Value<>(Attribute.CRITICAL_DAMAGE, 25),
 					new Value<>(Attribute.HEALTH_MAXIMUM, 15)),
 			Util.newArrayListOfValues("[style.boldExcellent(-50%)] chance of enemy escape")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameIsFull] an expert at tracking down and capturing fugitives, and as such, enemies have a hard time escaping from [npc.herHim] in combat.");
@@ -963,6 +1020,7 @@ public class Perk {
 					new Value<>(Attribute.HEALTH_MAXIMUM, 15)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameHasFull] [npc.verb(spent)] a while working in the construction industry, helping to build and repair both infrastructure and property.");
@@ -977,9 +1035,10 @@ public class Perk {
 			Util.newArrayListOfValues(PresetColour.CLOTHING_PURPLE, PresetColour.CLOTHING_BLACK),
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.MAJOR_ARCANE, 10),
-					new Value<>(Attribute.MANA_MAXIMUM, 25)),
+					new Value<>(Attribute.MANA_MAXIMUM, 50)),
 			null,
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "Being able to harness the arcane, and therefore able to telekinetically manipulate manner, [npc.nameIsFull] a very valuable asset for construction firms to have in their employ.");
@@ -1002,6 +1061,7 @@ public class Perk {
 					new Value<>(Attribute.DAMAGE_UNARMED, 5),
 					new Value<>(Attribute.DAMAGE_PHYSICAL, 5)),
 			Util.newArrayListOfValues("[style.boldExcellent(Boosts)] 'Well Rested' bonus")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "With so much free time on [npc.herPos] hands, [npc.nameHas] managed to improve [npc.herself] in several different ways."
@@ -1016,8 +1076,10 @@ public class Perk {
 			"perks/jobs/officeWorker",
 			PresetColour.BASE_BROWN,
 			Util.newHashMapOfValues(
+					new Value<>(Attribute.MAJOR_PHYSIQUE, 2),
 					new Value<>(Attribute.CRITICAL_DAMAGE, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(+25%)] all slave income")) {
+
 		@Override
 		public String getName(GameCharacter owner) {
 			if(owner!=null && owner.isFeminine()) {
@@ -1026,6 +1088,7 @@ public class Perk {
 				return "The Salaryman";
 			}
 		}
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "From [npc.herPos] considerable office experience, [npc.name] [npc.verb(know)] exactly how to motivate those working beneath [npc.herPro]."
@@ -1042,6 +1105,7 @@ public class Perk {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.MAJOR_ARCANE, 10)),
 			Util.newArrayListOfValues("[style.boldExcellent(25%)] discount in all stores")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] student discount has never failed [npc.herPro] before!"
@@ -1057,7 +1121,9 @@ public class Perk {
 			PresetColour.BASE_GREY,
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.DAMAGE_LUST, 25)),
-			Util.newArrayListOfValues("[style.boldExcellent(Double)] length of all spell effects")) {
+			Util.newArrayListOfValues("Your first seduction attempts receive [style.boldExcellent(increased)] effectiveness",
+                                                  "[style.boldExcellent(Double)] length of all spell effects")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] [npc.verb(find)] that [npc.herPos] abilities as a musician translate quite well into the art of seduction."
@@ -1073,7 +1139,9 @@ public class Perk {
 			PresetColour.BASE_BLUE_LIGHT,
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.SPELL_COST_MODIFIER, 10)),
-			Util.newArrayListOfValues("[style.boldExcellent(Triple)] all slave obedience gains")) {
+			Util.newArrayListOfValues("Your first offensive spells cast in combat deal [style.boldExcellent(increased)] damage",
+                                                  "[style.boldExcellent(Triple)] all slave obedience gains")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] [npc.verb(know)] exactly how to deal with unruly students."
@@ -1090,6 +1158,7 @@ public class Perk {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.DAMAGE_SPELLS, 25)),
 			Util.newArrayListOfValues("[style.boldExcellent(+25%)] to all experience gains")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] [npc.verb(keep)] a diary of [npc.herPos] personal thoughts and encounters, allowing [npc.herPro] to reflect upon and learn from [npc.herPos] experiences."
@@ -1108,6 +1177,7 @@ public class Perk {
 			Util.newArrayListOfValues(
 					"[style.boldExcellent(Double)] duration of all potion effects",
 					"[style.boldExcellent(Doubles)] potion effect limit")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "Thanks to spending a considerable amount of time tasting food, [npc.name] [npc.has] both a significant resistance to poison, as well as the ability to make culinary marvels out of basic ingredients.");
@@ -1123,9 +1193,10 @@ public class Perk {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5),
 					new Value<>(Attribute.HEALTH_MAXIMUM, 10),
-					new Value<>(Attribute.DAMAGE_PHYSICAL, 5)),
+					new Value<>(Attribute.DAMAGE_PHYSICAL, 10)),
 			Util.newArrayListOfValues("[style.boldExcellent(Halves)] cost of all room upgrades"),
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "Thanks to [npc.her] considerable experience in the industry, [npc.name] [npc.verb(know)] how to efficiently manage construction projects."
@@ -1141,11 +1212,11 @@ public class Perk {
 			"perks/jobs/soldier",
 			PresetColour.BASE_GREEN,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.MAJOR_PHYSIQUE, 5),
+					new Value<>(Attribute.MAJOR_PHYSIQUE, 10),
 					new Value<>(Attribute.HEALTH_MAXIMUM, 25),
-					new Value<>(Attribute.RESISTANCE_PHYSICAL, 5),
-					new Value<>(Attribute.DAMAGE_PHYSICAL, 10)),
-			Util.newArrayListOfValues("Your first strike in combat deals [style.boldExcellent(double)] damage")) {
+					new Value<>(Attribute.RESISTANCE_PHYSICAL, 10)),
+			Util.newArrayListOfValues("Your first strikes in combat deal [style.boldExcellent(increased)] damage")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameHas] spent a considerable amount of time training to fight, and as a result, [npc.she] [npc.is] far stronger and healthier than a normal person."
@@ -1160,8 +1231,10 @@ public class Perk {
 			"perks/jobs/athlete",
 			PresetColour.BASE_TEAL,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.MAJOR_PHYSIQUE, 10)),
+					new Value<>(Attribute.MAJOR_PHYSIQUE, 10),
+                                        new Value<>(Attribute.HEALTH_MAXIMUM, 50)),
 			Util.newArrayListOfValues("All non-zero escape chances in combat are boosted to [style.boldExcellent(100%)]")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] [npc.is] a world-class sprinter, and [npc.has] a guaranteed 100% success of escaping any combat situation where running away is an option.");
@@ -1181,6 +1254,7 @@ public class Perk {
 			Util.newArrayListOfValues(
 					"All [style.colourCorruption(corruption)] gains are [style.colourBad(doubled)]",
 					"[style.colourGood(+0.25)] to [style.colourExcellent(all resistances)] per 1 corruption")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameIsFull] from an ancient aristocratic family, and [npc.has] been given the best education money can buy."
@@ -1201,6 +1275,7 @@ public class Perk {
 			Util.newArrayListOfValues(
 					"[style.boldExcellent(Boosted)] Maid's set bonuses",
 					"[style.boldExcellent(Double)] slave income from maids and butlers")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] [npc.is] the perfect example of a hard-working maid, and while wearing a complete set of maid's clothes, the bonus that [npc.she] [npc.verb(receive)] is considerably boosted."
@@ -1220,6 +1295,7 @@ public class Perk {
 			Util.newArrayListOfValues(
 					"[style.boldExcellent(Boosted)] Butler's set bonuses",
 					"[style.boldExcellent(Double)] slave income from maids and butlers")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.Name] [npc.is] the perfect example of a hard-working butler, and while wearing a complete set of butler's clothes, the bonus that [npc.she] [npc.verb(receive)] is considerably boosted."
@@ -1239,6 +1315,7 @@ public class Perk {
 					"All incorrect English spellings are [style.boldExcellent(automatically fixed)]",
 					"Enemies are blinded by your [style.colourFreedom(freedom)] for [style.colourExcellent(-1)] <span style='color:"+Attribute.ACTION_POINTS.getColour().toWebHexString()+";'>"+Attribute.ACTION_POINTS.getName()+"</span>",
 					"Burger effects are [style.colourGood(doubled)]")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.speech(Excuse me! I'm an American! Do you speak English?! My visa expires in four days, where's the embassy?!)]");
@@ -1416,9 +1493,9 @@ public class Perk {
 			"perks/beserk",
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.DAMAGE_PHYSICAL, 20),
+					new Value<>(Attribute.DAMAGE_UNARMED, 20),
 					new Value<>(Attribute.CRITICAL_DAMAGE, 20),
-					new Value<>(Attribute.RESISTANCE_PHYSICAL, -2),
+					new Value<>(Attribute.ENERGY_SHIELDING, -10),
 					new Value<>(Attribute.DAMAGE_SPELLS, -15),
 					new Value<>(Attribute.DAMAGE_LUST, -15)),
 			null) {
@@ -1492,7 +1569,7 @@ public class Perk {
 			PerkCategory.ARCANE,
 			"perks/resource_boost",
 			PresetColour.ATTRIBUTE_MANA,
-			Util.newHashMapOfValues(new Value<>(Attribute.MANA_MAXIMUM, 5)),
+			Util.newHashMapOfValues(new Value<>(Attribute.MANA_MAXIMUM, 30)),
 			null) {
 
 		@Override
@@ -1507,7 +1584,7 @@ public class Perk {
 			PerkCategory.PHYSICAL,
 			"perks/resource_boost",
 			PresetColour.ATTRIBUTE_HEALTH,
-			Util.newHashMapOfValues(new Value<>(Attribute.HEALTH_MAXIMUM, 5)),
+			Util.newHashMapOfValues(new Value<>(Attribute.HEALTH_MAXIMUM, 10)),
 			null) {
 
 		@Override
@@ -1523,8 +1600,8 @@ public class Perk {
 			"perks/resource_boost_drain_aura",
 			PresetColour.ATTRIBUTE_HEALTH,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.HEALTH_MAXIMUM, 20),
-					new Value<>(Attribute.MANA_MAXIMUM, -25)),
+					new Value<>(Attribute.HEALTH_MAXIMUM, 100),
+					new Value<>(Attribute.MANA_MAXIMUM, -75)),
 			null) {
 
 		@Override
@@ -1848,8 +1925,8 @@ public class Perk {
 			"perks/sacrificial_shielding",
 			PresetColour.ATTRIBUTE_MANA,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.HEALTH_MAXIMUM, -10),
-					new Value<>(Attribute.ENERGY_SHIELDING, 2)),
+					new Value<>(Attribute.HEALTH_MAXIMUM, -50),
+					new Value<>(Attribute.ENERGY_SHIELDING, 20)),
 			null) {
 
 		@Override
@@ -1883,11 +1960,11 @@ public class Perk {
 			"perks/physical_brawler",
 			PresetColour.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(
+                                        new Value<>(Attribute.MAJOR_PHYSIQUE, 10),
 					new Value<>(Attribute.DAMAGE_UNARMED, 5),
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 5),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 5),
-					new Value<>(Attribute.DAMAGE_PHYSICAL, 10),
-					new Value<>(Attribute.RESISTANCE_PHYSICAL, 2)),
+					new Value<>(Attribute.RESISTANCE_PHYSICAL, 5)),
 			null) {
 
 		@Override
@@ -1903,7 +1980,7 @@ public class Perk {
 			PerkCategory.PHYSICAL,
 			"perks/misc_observant",
 			PresetColour.GENERIC_ARCANE,
-			Util.newHashMapOfValues(new Value<>(Attribute.DAMAGE_PHYSICAL, 5)),
+			Util.newHashMapOfValues(new Value<>(Attribute.CRITICAL_DAMAGE, 5)),
 			Util.newArrayListOfValues(
 					"<span style='color:"+ PresetColour.GENERIC_SEX.toWebHexString()+ ";'>Gender detection</span>")) {
 		@Override
@@ -2167,8 +2244,10 @@ public class Perk {
 			PerkCategory.PHYSICAL,
 			"perks/fitness_runner_2",
 			PresetColour.ATTRIBUTE_PHYSIQUE,
-			Util.newHashMapOfValues(new Value<>(Attribute.HEALTH_MAXIMUM, 5)),
-			Util.newArrayListOfValues("<span style='color:"+ PresetColour.ATTRIBUTE_PHYSIQUE.toWebHexString()+ ";'>Improved escape chance</span>")) {
+			Util.newHashMapOfValues(new Value<>(Attribute.HEALTH_MAXIMUM, 50)),
+			Util.newArrayListOfValues("<span style='color:"+ PresetColour.ATTRIBUTE_PHYSIQUE.toWebHexString()+ ";'>Improved escape chance</span>",
+                                                 "[style.boldExcellent(Regenerate 2%)] total [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")] per turn in combat")) {
+
 		@Override
 		public String getName(GameCharacter character) {
 			if (character!=null && character.isFeminine()) {
@@ -2190,8 +2269,9 @@ public class Perk {
 			PerkCategory.PHYSICAL,
 			"perks/regeneration",
 			PresetColour.ATTRIBUTE_PHYSIQUE,
-			Util.newHashMapOfValues(new Value<>(Attribute.MANA_MAXIMUM, -25)),
-			Util.newArrayListOfValues("[style.boldExcellent(Regenerate 5%)] total [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")] per turn in combat")) {
+			Util.newHashMapOfValues(new Value<>(Attribute.MANA_MAXIMUM, -50)),
+			Util.newArrayListOfValues("[style.boldExcellent(Regenerate 8%)] total [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")] per turn in combat")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "At the expense of some of [npc.namePos] "+Attribute.MANA_MAXIMUM.getName()+", the arcane's natural healing properties will now be amplified when in the presence of [npc.her] adrenaline.");
@@ -2205,8 +2285,14 @@ public class Perk {
 			PerkCategory.PHYSICAL,
 			"perks/unarmed_training",
 			PresetColour.ATTRIBUTE_PHYSIQUE,
-			Util.newHashMapOfValues(new Value<>(Attribute.CRITICAL_DAMAGE, 25)),
-			Util.newArrayListOfValues("[style.colourUnarmed(Base unarmed damage)] [style.colourExcellent(doubled)]")) {
+			Util.newHashMapOfValues(
+					new Value<>(Attribute.HEALTH_MAXIMUM, -50),
+                                        new Value<>(Attribute.DAMAGE_UNARMED, 15)),
+			Util.newArrayListOfValues(
+                                                "[style.colourUnarmed(Base unarmed damage)] [style.colourExcellent(increased)]",
+                                                "and [style.colourGood(Unlocks)] new Combat Moves",
+                                                "for non-Ferals")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameHasFull] received formal training in martial arts, allowing [npc.herHim] to deal just as much damage in unarmed combat as [npc.her] strongest foe.");
@@ -2221,6 +2307,7 @@ public class Perk {
 			PresetColour.FEMININE,
 			null, Util.newArrayListOfValues("+10% <span style='color:" + Attribute.DAMAGE_LUST.getColour().toWebHexString() + ";'>lust damage</span>"
 					+ " vs <span style='color:" + PresetColour.FEMININE.toWebHexString()+ ";'>feminine opponents</span>")) {
+
 		@Override
 		public String applyPerkGained(GameCharacter character) {
 			return UtilText.parsePlayerThought("");
@@ -2246,6 +2333,7 @@ public class Perk {
 			PresetColour.MASCULINE,
 			null, Util.newArrayListOfValues("+10% <span style='color:" + Attribute.DAMAGE_LUST.getColour().toWebHexString() + ";'>lust damage</span>"
 					+ " vs <span style='color:" + PresetColour.MASCULINE.toWebHexString()+ ";'>masculine opponents</span>")) {
+
 		@Override
 		public String applyPerkGained(GameCharacter character) {
 			return UtilText.parsePlayerThought("");
@@ -2274,6 +2362,7 @@ public class Perk {
 					"Requests made during normal sex scenes are always granted",
 					"Unlocks positioning actions in all normal sex scenes"),
 			null, null, null) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameHasFull] mastered the art of sexual persuasion, and [npc.is] able to convince even the cruelest of dominant partners to do as [npc.she] [npc.verb(ask)].");
@@ -2289,6 +2378,7 @@ public class Perk {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.DAMAGE_LUST, 1)),
 			Util.newArrayListOfValues("All partners in sex require [style.colourSex(+1 orgasm)] before being satisfied")) {
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NameIsFull] so astoundingly "+(owner.getFemininity()==Femininity.ANDROGYNOUS?"attractive":(owner.isFeminine()?"beautiful":"handsome"))
@@ -2648,7 +2738,7 @@ public class Perk {
 			"perks/attSeduction3",
 			PresetColour.ATTRIBUTE_LUST,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.DAMAGE_LUST, 15),
+					new Value<>(Attribute.DAMAGE_LUST, 10),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 40)),
 			null) {
 
@@ -2673,8 +2763,8 @@ public class Perk {
 			"perks/attSeduction3",
 			PresetColour.ATTRIBUTE_LUST,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.DAMAGE_LUST, 25),
-					new Value<>(Attribute.MAJOR_CORRUPTION, 75)),
+					new Value<>(Attribute.DAMAGE_LUST, 10),
+					new Value<>(Attribute.MAJOR_CORRUPTION, 50)),
 			null) {
 
 		@Override
@@ -2698,8 +2788,7 @@ public class Perk {
 			"perks/attIntelligence3",
 			PresetColour.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.MAJOR_ARCANE, 10),
-					new Value<>(Attribute.DAMAGE_SPELLS, 20)),
+					new Value<>(Attribute.MAJOR_ARCANE, 10)),
 			null) {
 
 		@Override
@@ -2773,7 +2862,7 @@ public class Perk {
 			"perks/attStrength3",
 			PresetColour.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.MAJOR_PHYSIQUE, 25)),
+					new Value<>(Attribute.HEALTH_MAXIMUM, 50)),
 			null) {
 
 		@Override
@@ -2797,7 +2886,9 @@ public class Perk {
 			"perks/attStrength3",
 			PresetColour.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.MAJOR_PHYSIQUE, 10)),
+					new Value<>(Attribute.DAMAGE_UNARMED, 15),
+					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 15),
+					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 15)),
 			null) {
 
 		@Override
@@ -2958,7 +3049,7 @@ public class Perk {
 					"The essence of Lyssieth's power has been infused into your arcane aura."
 					+ (owner.getSubspeciesOverride()==Subspecies.DEMON
 							?" Her power has additionally enabled you to transform your demonic body into that of a regular human!"
-							:" If you were a demon, this power would enable you to transform your body parts into those of a regular human!"));
+							:" If you were a demon, this power would enable you to transform your body parts into those of a regular humanaur!"));
 		}
 		
 		@Override
