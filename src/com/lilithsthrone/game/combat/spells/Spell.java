@@ -57,9 +57,9 @@ public enum Spell {
 			"Fireball",
 			"fireball",
 			"Summons a ball of arcane flames that can be launched at a target.",
-			30,
+			25,
 			DamageVariance.LOW,
-			75,
+			40,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.FIREBALL_1,
@@ -68,20 +68,30 @@ public enum Spell {
 			null, null) {
 		
 		@Override
+		public int getCooldown() {
+			return 1;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 5;
+                }
+
+		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_1)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.LINGERING_FLAMES, 2));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.LINGERING_FLAMES, 3));
 			} else {
-				return new HashMap<>();
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.LINGERING_FLAMES, 2));
 			}
 		}
 		
 		@Override
 		public int getDamage(GameCharacter caster) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_2) && !caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_3)) {
-				return 15;
+				return 12;
 			}
-			return 30;
+			return 15;
 		}
 		
 		@Override
@@ -177,11 +187,26 @@ public enum Spell {
 			Util.newArrayListOfValues("[style.colourExcellent(Dazzles)] the target for [style.colourTerrible(-1)] [style.colourActionPoints(action points)]!")) {
 		
 		@Override
+		public int getAPCost() {
+			return 1;
+                }
+
+                @Override
+		public int getCooldown() {
+			return 4;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 4;
+                }
+
+		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FLASH_1)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.FLASH_1, 1));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.FLASH_1, 3));
 			} else {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.FLASH, 1));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.FLASH, 2));
 			}
 		}
 		
@@ -197,7 +222,7 @@ public enum Spell {
 		@Override
 		public String getBasicEffectsString(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FLASH_1)) {
-				return "Dazzles for [style.colourTerrible(-2)] action points!";
+				return "Dazzles for [style.colourTerrible(-1)] action points!";
 			}
 			return "Dazzles for [style.colourTerrible(-1)] action points!";
 		}
@@ -276,29 +301,39 @@ public enum Spell {
 			0,
 			DamageVariance.LOW,
 			50,
-			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES, 3)),
+			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES, 4)),
 			Util.newArrayListOfValues(
 					SpellUpgrade.CLOAK_OF_FLAMES_1,
 					SpellUpgrade.CLOAK_OF_FLAMES_2,
 					SpellUpgrade.CLOAK_OF_FLAMES_3),
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.RESISTANCE_FIRE, 5),
-					new Value<>(Attribute.RESISTANCE_ICE, 10)),
+					new Value<>(Attribute.RESISTANCE_FIRE, 15),
+					new Value<>(Attribute.RESISTANCE_ICE, 20)),
 			Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
+
+                @Override
+		public int getCooldown() {
+			return 3;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 4;
+                }
 
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_3)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_3, 3));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_3, 4));
 				
 			} else if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_2)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_2, 3));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_2, 4));
 				
 			} else if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_1)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_1, 3));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_1, 4));
 				
 			} else {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES, 3));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES, 4));
 			}
 		}
 		
@@ -468,13 +503,20 @@ public enum Spell {
 			"Ice Shard",
 			"ice_shard",
 			"Summons a shard of ice that can be launched at a target.",
-			25,
+			15,
 			DamageVariance.LOW,
-			35,
+			20,
 			null, Util.newArrayListOfValues(
 							SpellUpgrade.ICE_SHARD_1,
 							SpellUpgrade.ICE_SHARD_2,
-							SpellUpgrade.ICE_SHARD_3), null, null) {
+							SpellUpgrade.ICE_SHARD_3),
+                        null,
+                        null) {
+
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 4;
+                }
 
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
@@ -565,15 +607,22 @@ public enum Spell {
 			"Summons a small cloud of arcane-enchanted rain above the target's head, which saps their ability to cast spells.",
 			0,
 			DamageVariance.LOW,
-			33,
+			50,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.RAIN_CLOUD_1,
 					SpellUpgrade.RAIN_CLOUD_2,
 					SpellUpgrade.RAIN_CLOUD_3),
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.SPELL_COST_MODIFIER, -25)), Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
+					new Value<>(Attribute.SPELL_COST_MODIFIER, -25),
+					new Value<>(Attribute.DAMAGE_FIRE, -25)),
+			Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
 		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 3;
+                }
+
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
@@ -645,7 +694,7 @@ public enum Spell {
 			"Summons an orb of soothing arcane-infused water, which restores the "+Attribute.HEALTH_MAXIMUM.getName()+" of anyone who drinks it.",
 			0,
 			DamageVariance.LOW,
-			100,
+			40,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.SOOTHING_WATERS_1_CLEAN,
@@ -653,11 +702,23 @@ public enum Spell {
 					SpellUpgrade.SOOTHING_WATERS_1,
 					SpellUpgrade.SOOTHING_WATERS_2,
 					SpellUpgrade.SOOTHING_WATERS_3),
-			null, Util.newArrayListOfValues("[style.boldGood(Restores)] 20% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]")) {
+			null, Util.newArrayListOfValues("[style.boldGood(Restores)] 60% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]")) {
+
+		@Override
+		public int getAPCost() {
+			return 2;
+                }
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 0.5f;
+                }
+
 		@Override
 		public Map<Integer, List<TreeEntry<SpellSchool, SpellUpgrade>>> getSpellUpgradeTree() {
 			return Spell.soothingWatersUpgradeTree;
 		}
+
 		@Override
 		public Value<Boolean, String> getSpellCastOutOfCombatDescription(GameCharacter owner, GameCharacter target) {
 			if(!owner.hasSpell(this)) {
@@ -687,14 +748,12 @@ public enum Spell {
 				return new Value<>(true, UtilText.parse(owner, target, description+"<br/>"+cost));
 			}
 		}
-		@Override
-		public int getAPCost() {
-			return 3;
-		}
+
 		@Override
 		public String getBasicEffectsString(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
 			return "Heals the target.";
 		}
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies, boolean isHit, boolean isCritical) {
 
@@ -722,9 +781,9 @@ public enum Spell {
 
 					descriptionSB.append("<br/>"
 								+ "The orb of water heals "+UtilText.parse(target,"[npc.name]")+" for a total of "
-									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
+									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
 									+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!");
-					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f));
+					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
 					
 //					descriptionSB.append("<br/>"
@@ -740,10 +799,10 @@ public enum Spell {
 						for(GameCharacter combatant : alliesPlusCaster) {
 							descriptionSB.append("<br/>"
 									+ UtilText.parse(combatant, "One of the small orbs flies towards [npc.name], healing [npc.herHim] for a total of "
-																+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-																+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!"));
+																+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
+																+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!"));
 							descriptionSB.append(applyDamage(caster, combatant, -combatant.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f));
-							combatant.incrementMana(combatant.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f);
+							combatant.incrementMana(combatant.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
 							if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_1_CLEAN)) {
 								descriptionSB.append(UtilText.parse(combatant, "<br/>[npc.NamePos] body and all of [npc.her] worn clothing is [style.colourAqua(cleaned)] by the spell!"));
 								combatant.cleanAllClothing(false, false);
@@ -765,26 +824,26 @@ public enum Spell {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<br/>"
 								+ "The orb of water heals "+UtilText.parse(target,"[npc.name]")+" for a total of "
-									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
+									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*1f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
 									+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!");
-					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f));
+					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*1f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_1)) {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<br/>"
 								+"The orb of water heals "+UtilText.parse(target,"[npc.name]")+" for a total of "
-									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
+									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
 									+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!");
-					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f));
+					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
 					
 				} else {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<br/>"
 								+ "The orb of water heals "+UtilText.parse(target,"[npc.name]")+" for a total of "
-									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+"!");
-					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f));
+									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+"!");
+					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f));
 				}
 				if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_1_CLEAN)) {
 					descriptionSB.append(UtilText.parse(target, "<br/>[npc.NamePos] body and all of [npc.her] worn clothing is [style.colourAqua(cleaned)] by the spell!"));
@@ -925,16 +984,33 @@ public enum Spell {
 			"Poison Vapours",
 			"poison_vapours",
 			"Summons a cloud of poisonous gas around a target.",
-			0,
+			10,
 			DamageVariance.LOW,
-			50,
+			35,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.POISON_VAPOURS_1,
 					SpellUpgrade.POISON_VAPOURS_2,
 					SpellUpgrade.POISON_VAPOURS_3),
 			null,
-			Util.newArrayListOfValues("<b>25</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(3 turns)]")) {
+			Util.newArrayListOfValues(
+					"<b>-12</b> "+Attribute.MAJOR_PHYSIQUE.getColouredName("b"),
+                                        "and <b>Minimal</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" per turn</b>")) {
+
+		@Override
+		public int getAPCost() {
+			return 1;
+                }
+
+                @Override
+		public int getCooldown() {
+			return 1;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 3;
+                }
 
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
@@ -1004,7 +1080,7 @@ public enum Spell {
 			"Vacuum",
 			"vacuum",
 			"Creates a void in the air, dealing a small amount of initial damage as it sucks in the target, before lingering around to continue to disrupt their movements.",
-			5,
+			10,
 			DamageVariance.LOW,
 			60,
 			null,
@@ -1013,7 +1089,27 @@ public enum Spell {
 					SpellUpgrade.VACUUM_2,
 					SpellUpgrade.VACUUM_3),
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.ENERGY_SHIELDING, -5)), Util.newArrayListOfValues("Lasts for [style.colourGood(4 turns)]")) {
+					new Value<>(Attribute.ENERGY_SHIELDING, -5),
+					new Value<>(Attribute.DAMAGE_UNARMED, -25),
+                                        new Value<>(Attribute.DAMAGE_MELEE_WEAPON, -25),
+                                        new Value<>(Attribute.DAMAGE_RANGED_WEAPON, -25),
+                                        new Value<>(Attribute.DAMAGE_SPELLS, -25)),
+			Util.newArrayListOfValues("Lasts for [style.colourGood(4 turns)]")) {
+		
+		@Override
+		public int getAPCost() {
+			return 1;
+                }
+
+                @Override
+		public int getCooldown() {
+			return 1;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 1;
+                }
 
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
@@ -1087,31 +1183,41 @@ public enum Spell {
 			"Summons a benevolent wind to protect the target, as well as to help guide their attacks.",
 			0,
 			DamageVariance.LOW,
-			50,
+			40,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.PROTECTIVE_GUSTS_1,
 					SpellUpgrade.PROTECTIVE_GUSTS_2,
 					SpellUpgrade.PROTECTIVE_GUSTS_3),
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.RESISTANCE_POISON, 5),
-					new Value<>(Attribute.ENERGY_SHIELDING, 1)),
-			Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
+					new Value<>(Attribute.RESISTANCE_POISON, 15),
+					new Value<>(Attribute.ENERGY_SHIELDING, 10)),
+			Util.newArrayListOfValues("Lasts for [style.colourGood(4 turns)]")) {
 		
+		@Override
+		public int getCooldown() {
+			return 3;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 4;
+                }
+
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_3)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 5));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 8));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_2)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 3));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 4));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_1)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_GUIDING_WIND, 3));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_GUIDING_WIND, 4));
 					
 				} else {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS, 3));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS, 4));
 				}
 			}
 			return new HashMap<>();
@@ -1274,12 +1380,27 @@ public enum Spell {
 			"Summons a crushing wave of force that slams down onto a target.",
 			40,
 			DamageVariance.LOW,
-			60,
+			40,
 			null, Util.newArrayListOfValues(
 							SpellUpgrade.SLAM_1,
 							SpellUpgrade.SLAM_2,
 							SpellUpgrade.SLAM_3), null, null) {
 		
+		@Override
+		public int getAPCost() {
+			return 2;
+                }
+		
+		@Override
+		public int getCooldown() {
+			return 4;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 4;
+                }
+
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
@@ -1362,14 +1483,24 @@ public enum Spell {
 			"Lifts any small objects in the surrounding area into the air, before hurling them at the target.",
 			0,
 			DamageVariance.LOW,
-			125,
+			25,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.TELEKENETIC_SHOWER_1,
 					SpellUpgrade.TELEKENETIC_SHOWER_2,
 					SpellUpgrade.TELEKENETIC_SHOWER_3),
-			null, Util.newArrayListOfValues("<b>25</b> [style.colourPhysical(Physical Damage)] per turn for [style.colourGood(3 turns)]")) {
+			null, Util.newArrayListOfValues("<b>35</b> [style.colourPhysical(Physical Damage)] per turn for [style.colourGood(3 turns)]")) {
 		
+		@Override
+		public int getCooldown() {
+			return 4;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 10;
+                }
+
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
@@ -1439,29 +1570,40 @@ public enum Spell {
 			"Summons a protective layer of stone around the target.",
 			0,
 			DamageVariance.LOW,
-			25,
+			30,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.STONE_SHELL_1,
 					SpellUpgrade.STONE_SHELL_2,
 					SpellUpgrade.STONE_SHELL_3),
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.RESISTANCE_PHYSICAL, 5)), Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
+					new Value<>(Attribute.RESISTANCE_PHYSICAL, 15)),
+                        Util.newArrayListOfValues("Lasts for [style.colourGood(4 turns)]")) {
 		
+		@Override
+		public int getCooldown() {
+			return 3;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 3;
+                }
+
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_3)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_EXPLOSIVE_FINISH, 3));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_EXPLOSIVE_FINISH, 4));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_2)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_HARDENED_CARAPACE, 3));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_HARDENED_CARAPACE, 4));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_1)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_SHIFTING_SANDS, 3));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_SHIFTING_SANDS, 4));
 					
 				} else {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL, 3));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL, 4));
 				}
 			}
 			return new HashMap<>();
@@ -1621,13 +1763,28 @@ public enum Spell {
 			"Arcane Arousal",
 			"arcane_arousal",
 			"Causes the target to witness a highly arousing arcane vision.",
-			15,
+			10,
 			DamageVariance.LOW,
-			50,
+			40,
 			null, Util.newArrayListOfValues(
 							SpellUpgrade.ARCANE_AROUSAL_1,
 							SpellUpgrade.ARCANE_AROUSAL_2,
 							SpellUpgrade.ARCANE_AROUSAL_3), null, null) {
+
+		@Override
+		public int getAPCost() {
+			return 2;
+                }
+		
+		@Override
+		public int getCooldown() {
+			return 3;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 4;
+                }
 
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
@@ -1635,10 +1792,7 @@ public enum Spell {
 				if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_3)) {
 					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_DIRTY_PROMISES, 3));
 					
-				} else if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_LUSTFUL_DISTRACTION, 2));
-					
-				}
+				} else 	return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_LUSTFUL_DISTRACTION, 3));
 			}
 			return new HashMap<>();
 		}
@@ -1646,9 +1800,9 @@ public enum Spell {
 		@Override
 		public int getDamage(GameCharacter caster) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_1)) {
-				return 30;
+				return 20;
 			}
-			return 15;
+			return 10;
 		}
 		
 		@Override
@@ -1707,7 +1861,7 @@ public enum Spell {
 			"The caster projects seductive voices into the mind of the target.",
 			0,
 			DamageVariance.LOW,
-			75,
+			30,
 			null,
 			Util.newArrayListOfValues(
 					SpellUpgrade.TELEPATHIC_COMMUNICATION_1,
@@ -1716,6 +1870,16 @@ public enum Spell {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.DAMAGE_LUST, 15)), Util.newArrayListOfValues("Lasts for [style.colourGood(5 turns)]")) {
 		
+		@Override
+		public int getCooldown() {
+			return 4;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 0f;
+                }
+
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
@@ -1734,7 +1898,7 @@ public enum Spell {
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String getBasicEffectsString(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
 			return "Speak directly into the target's mind.";
@@ -2490,13 +2654,28 @@ public enum Spell {
 			"Places an arcane seal upon the target, completely preventing them from moving.",
 			0,
 			DamageVariance.NONE,
-			80,
-			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.WITCH_SEAL, 1)),
+			50,
+			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.WITCH_SEAL, 3)),
 			null,
 			null,
 			Util.newArrayListOfValues(
 					"[style.colourExcellent(Seals)] the target for [style.colourTerrible(-3)] [style.colourActionPoints(action points)]!")) {
 		
+		@Override
+		public int getAPCost() {
+			return 2;
+                }
+
+                @Override
+		public int getCooldown() {
+			return 4;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 10;
+                }
+
 		@Override
 		public boolean isSpellBook() {
 			return false;
@@ -2504,7 +2683,7 @@ public enum Spell {
 		
 		@Override
 		public String getBasicEffectsString(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
-			return "Seals for [style.colourTerrible(-3)] action points!";
+			return "Seals for [style.colourTerrible(-2)] action points!";
 		}
 		
 		public String applyEffect(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies, boolean isHit, boolean isCritical) {
@@ -2537,9 +2716,9 @@ public enum Spell {
 	
 	WITCH_CHARM(false,
 			SpellSchool.ARCANE,
-			SpellType.DEFENSIVE_STATUS_EFFECT,
+			SpellType.OFFENSIVE_STATUS_EFFECT,
 			DamageType.MISC,
-			true,
+			false,
 			"Witch's Charm",
 			"spell_witch_charm",
 			"Places an arcane enchantment upon the target, causing them to appear irresistibly beautiful to anyone who looks upon them.",
@@ -2549,8 +2728,25 @@ public enum Spell {
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.WITCH_CHARM, 5)),
 			null,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.DAMAGE_LUST, 25)), Util.newArrayListOfValues("Lasts for [style.colourGood(5 turns)]")) {
+					new Value<>(Attribute.MAJOR_ARCANE, -16),
+                                        new Value<>(Attribute.RESISTANCE_LUST, -25)),
+                        Util.newArrayListOfValues("Lasts for [style.colourGood(5 turns)]")) {
 		
+		@Override
+		public int getAPCost() {
+			return 1;
+                }
+
+                @Override
+		public int getCooldown() {
+			return 3;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 4;
+                }
+
 		@Override
 		public boolean isSpellBook() {
 			return false;
@@ -2599,15 +2795,30 @@ public enum Spell {
 			"Siren's Call",
 			"dark_siren_sirens_call",
 			"Unleashes a reverberating scream, the power of which causes the ground to split open. From this fissure, poisonous vapours rise to choke and stifle all nearby enemies.",
-			10,
+			70,
 			DamageVariance.NONE,
-			200,
+			70,
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.BANEFUL_FISSURE, 10)),
 			null,
 			null,
 			Util.newArrayListOfValues(
-					"<b>25</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(10 turns)]",
+					"<b>50</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(10 turns)]",
 					"Affects [style.colourExcellent(all enemies)]")) {
+
+		@Override
+		public int getAPCost() {
+			return 1;
+                }
+
+                @Override
+		public int getCooldown() {
+			return 5;
+		}
+		
+		@Override
+                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+                        return 10;
+                }
 
 		@Override
 		public boolean isSpellBook() {
