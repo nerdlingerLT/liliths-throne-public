@@ -10,7 +10,7 @@
 		<description><![CDATA[A long, wooden-shafted spear, almost [style.sizes(300)] from tip to butt. The arcane blade on the end has a leaf-like shape, while an arcane, spiked counterpart on the opposite end, known as a 'sauroter', acts as a counter-weight.]]></description> 
 		<attackDescriptor>skewer</attackDescriptor>
 		<attackTooltipDescription>Thrust your dory at [npc2.name] and skewer [npc2.herHim]!</attackTooltipDescription>
-		<rarity>COMMON</rarity> 
+		<rarity>RARE</rarity> 
 		<weaponSet/> 
 		<equipText><![CDATA[[npc.Name] [npc.verb(take)] hold of [npc.her] dory as [npc.she] [npc.verb(ready)] [npc.herself] to use it in combat.]]></equipText>
 		<unequipText><![CDATA[[npc.Name] [npc.verb(put)] away [npc.her] dory.]]></unequipText>

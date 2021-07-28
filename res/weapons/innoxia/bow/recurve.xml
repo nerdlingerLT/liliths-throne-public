@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <weapon>
 	<coreAttributes>
-		<value>2500</value>
+		<value>10000</value>
 		<melee>false</melee>
 		<twoHanded>true</twoHanded>
 		<determiner><![CDATA[an]]></determiner>
@@ -10,7 +10,7 @@
 		<description><![CDATA[This bow's limbs curve away from the archer when unstrung, allowing it to store and deliver more energy than an equivalent straight-limbed bow. When drawn, an arcane bolt is formed from the archer's stored essences, which acts as the arrow.]]></description>
 		<attackDescriptor>shoot</attackDescriptor>
 		<attackTooltipDescription>Shoot at [npc.name] with your recurve bow.</attackTooltipDescription>
-		<rarity>COMMON</rarity>
+		<rarity>EPIC</rarity>
 		<weaponSet/>
 		<equipText><![CDATA[[npc.Name] [npc.verb(ready)] [npc.her] recurve bow.]]></equipText>
 		<unequipText><![CDATA[[npc.Name] [npc.verb(put)] [npc.her] recurve bow away.]]></unequipText>
