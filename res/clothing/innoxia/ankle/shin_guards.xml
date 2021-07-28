@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <clothing>
 	<coreAttributes>
-		<value>250</value>
+		<value>500</value>
 		<determiner><![CDATA[a pair of]]></determiner>
 		<name><![CDATA[shin guard]]></name>
 		<namePlural pluralByDefault="true"><![CDATA[shin guards]]></namePlural>
@@ -9,12 +9,16 @@
 		<physicalResistance>1</physicalResistance> 
 		<femininity>ANDROGYNOUS</femininity> 
 		<slot>ANKLE</slot> 
-		<rarity>COMMON</rarity> 
-		<clothingSet/> 
+		<rarity>EPIC</rarity> 
+		<clothingSet>nerdlinger_martial_artist</clothingSet> 
 		<imageName>shin_guards.svg</imageName>
 		<imageEquippedName/>
 		<enchantmentLimit/>
-		<effects/>
+		
+		<effects>
+              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="CRITICAL_DAMAGE" timer="0"/>
+		</effects>
+		
 		<blockedPartsList> 
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType> 
@@ -30,10 +34,6 @@
 		</blockedPartsList>
 		<incompatibleSlots/> 
 		<primaryColours>
-			<colour>CLOTHING_BLACK</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours>
 			<colour>CLOTHING_WHITE</colour>
 			<colour>CLOTHING_RED_DARK</colour>
 			<colour>CLOTHING_GREEN</colour>
@@ -41,12 +41,16 @@
 			<colour>CLOTHING_BLUE</colour>
 			<colour>CLOTHING_ORANGE</colour>
 			<colour>CLOTHING_PINK</colour>
+		</primaryColours>
+		<primaryColoursDye values="ALL"/>
+		<secondaryColours>
+			<colour>CLOTHING_BLACK</colour>
 		</secondaryColours>
 		<secondaryColoursDye values="ALL"/>
 		<tertiaryColours/>
 		<tertiaryColoursDye/>
 		<itemTags> 
-			<tag>SOLD_BY_NYAN</tag>
+			<tag>SOLD_BY_VICKY</tag>
 		</itemTags>
 	</coreAttributes>
 
