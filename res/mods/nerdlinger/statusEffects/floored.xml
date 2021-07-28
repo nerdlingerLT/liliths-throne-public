@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<statusEffect>
+	<renderingPriority>70</renderingPriority>
+	<renderInEffectsPanel>true</renderInEffectsPanel>
+	<category>DEFAULT</category>
+	<beneficial>DETRIMENTAL</beneficial>
+	<combatEffect>true</combatEffect>
+	<sexEffect>false</sexEffect>
+	<tags></tags>
+	<name><![CDATA[Floored]]></name>
+	<description><![CDATA[
+		[npc.Name] [npc.verb(find)] [npc.himself] exposed and defenseless after having crashed hardly on the floor, struggling to get back on [npc.his] feet!
+	]]></description>
+	<imageName>floored.svg</imageName>
+	
+	<colourPrimary>CLOTHING_GREY</colourPrimary>
+	<colourSecondary/>
+	<colourTertiary/>
+	
+	<attributeModifiers>
+		<modifier value="-2">ACTION_POINTS</modifier>
+	</attributeModifiers>
+	
+	<combatMoves/>
+	
+	<spells/>
+	
+	<extraEffects/>
+	
+	
+	<applicationCondition><![CDATA[
+		false
+	]]></applicationCondition>
+	
+	
+	<applyEffect/>
+	
+	<applyRemovalEffect/>
+	
+	<applyPostRemovalEffect/>
+	
+</statusEffect>

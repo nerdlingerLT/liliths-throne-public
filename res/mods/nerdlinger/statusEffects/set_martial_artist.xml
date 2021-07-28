@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<statusEffect>
+	<renderingPriority>70</renderingPriority>
+	<renderInEffectsPanel>true</renderInEffectsPanel>
+	<category>INVENTORY</category>
+	<beneficial>BENEFICIAL</beneficial>
+	<combatEffect>false</combatEffect>
+	<sexEffect>false</sexEffect>
+	<tags></tags>
+	<name><![CDATA[Budo]]></name>
+	<description><![CDATA[
+		All this time spent training in the 'Way of the Fist' has turned [npc.namePos] body into a lethal weapon. [npc.Name] enjoy nothing more than a good fight and [npc.verb(look)] forward to facing [npc.his] next opponents.
+	]]></description>
+	<imageName>set_martial_artist.svg</imageName>
+	
+	<colourPrimary>CLOTHING_WHITE</colourPrimary>
+	<colourSecondary/>
+	<colourTertiary/>
+	
+	<attributeModifiers>
+		<modifier value="5.0">STRENGTH</modifier>
+		<modifier value="15.0">DAMAGE_UNARMED</modifier>
+	</attributeModifiers>
+	
+	<combatMoves/>
+	
+	<spells/>
+	
+	<extraEffects/>
+	
+	
+	<applicationCondition><![CDATA[
+		#IF(SET_BONUS_nerdlinger_martial_artist.isCharacterWearingCompleteSet(npc))
+			true
+		#ELSE
+			false
+		#ENDIF
+	]]></applicationCondition>
+	
+	
+	<applyEffect/>
+	
+	<applyRemovalEffect/>
+	
+	<applyPostRemovalEffect/>
+	
+</statusEffect>

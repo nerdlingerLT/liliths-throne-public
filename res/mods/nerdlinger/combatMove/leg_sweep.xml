@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<combatMove>
+	
+	<category>SPECIAL</category>
+	
+	<type>ATTACK</type>
+	
+	<equipWeighting>10</equipWeighting>
+	
+	<name><![CDATA[Leg Sweep]]></name>
+	
+	<description><![CDATA[
+		[npc.verb(Sweep)] [npc.his] target's legs with a swift kick from a crouched position, dealing formattedDamageInflicted damage.
+	]]></description>
+	
+	<damageType><![CDATA[
+		PHYSICAL
+	]]></damageType>
+	
+	<baseDamage><![CDATA[
+		#IF(npc.isLegMovementHindered())
+			0
+		#ELSE
+			[#npc.getUnarmedDamage() * 1.0]
+		#ENDIF
+	]]></baseDamage>
+	
+	<blockAmount><![CDATA[
+		0
+	]]></blockAmount>
+	
+	<cooldown><![CDATA[
+		4
+	]]></cooldown>
+	
+	<APcost><![CDATA[
+		2
+	]]></APcost>
+	
+	<canTargetEnemies>true</canTargetEnemies>
+	<canTargetAllies>false</canTargetAllies>
+	<canTargetSelf>false</canTargetSelf>
+	
+	<imageName>leg_sweep.svg</imageName>
+	
+	<colourPrimary>DAMAGE_TYPE_PHYSICAL</colourPrimary>
+	<colourSecondary/>
+	<colourTertiary/>
+	
+	<statusEffects>
+		<effect turnLength="3" onCrit="true">nerdlinger_floored</effect>
+		<effect turnLength="1" onCrit="false">nerdlinger_floored</effect>
+	</statusEffects>
+	
+	
+	
+	<availabilityCondition><![CDATA[
+		[#npc.getLegConfiguration()==LEG_CONFIGURATION_BIPEDAL && npc.hasTraitActivated(PERK_UNARMED_TRAINING) || SET_BONUS_nerdlinger_martial_artist.isCharacterWearingCompleteSet(npc)]
+	]]>
+	</availabilityCondition>
+	
+	<availabilityDescription><![CDATA[
+		Available to characters who have the 'bipedal' leg configuration and undergone 'unarmed combat' training.
+	]]></availabilityDescription>
+	
+	<weighting><![CDATA[
+		#IF(npc.isLegMovementHindered())
+			0
+		#ELSE
+			1.0
+		#ENDIF
+	]]></weighting>
+	
+	<criticalCondition><![CDATA[
+		[#npc2.hasStatusEffect(SE_DAZED)]
+	]]></criticalCondition>
+	
+	<criticalDescription><![CDATA[
+		Always critical on 'Dazed' targets.
+	]]></criticalDescription>
+	
+	<movePredictionDescriptionWithTarget><![CDATA[
+		[npc.verb(Sweep)] [npc2.namePos] legs with [npc.his] foot, dealing formattedDamageInflicted damage.
+		#IF(npc.isLegMovementHindered())
+			 [style.italicsTerrible(Damage is reduced to 0 as [npc.his] legs are hindered!)]
+		#ENDIF
+	]]></movePredictionDescriptionWithTarget>
+	
+	<movePredictionDescriptionNoTarget><![CDATA[
+		[npc.verb(Sweep)] [npc2.namePos] legs with [npc.his] foot, dealing formattedDamageInflicted damage.
+		#IF(npc.isLegMovementHindered())
+			 [style.italicsTerrible(Damage is reduced to 0 as [npc.his] legs are hindered!)]
+		#ENDIF
+	]]></movePredictionDescriptionNoTarget>
+	
+	<performMove>
+		<execute><![CDATA[
+			#IF(npc.isLegMovementHindered())
+				As [npc.his] legs are hindered, [npc.name] [npc.verb(fail)] to perform kicks [npc2.name], and [npc.verb(end)] up doing no damage at all...
+			#ELSE
+				[npc.Name] [npc.verb(get)] down in a crouched position and in a single motion, [npc.verb(sweep)] [npc2.namePos] legs with a circular kick, causing [npc2.him] to crash on the floor!
+			#ENDIF
+			formattedHealthDamage
+		]]></execute>
+		<critDescription><![CDATA[
+			[npc.NamePos] kick was extremely effective!
+		]]></critDescription>
+		<critEffectDescription><![CDATA[
+			[npc2.Name] [npc2.has] been '[style.boldGrey(Floored)]' by the attack!
+		]]></critEffectDescription>
+	</performMove>
+	
+</combatMove>

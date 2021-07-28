@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<setBonus>
+	
+	<name><![CDATA[Martial Artist]]></name>
+	
+	<statusEffect>nerdlinger_set_martial_artist</statusEffect>
+	
+	<numberRequiredForCompleteSet>3</numberRequiredForCompleteSet>
+	
+	<blockedSlotsCountingTowardsFullSet/>
+	
+</setBonus>
