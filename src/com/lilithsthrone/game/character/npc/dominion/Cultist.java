@@ -26,6 +26,8 @@ import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.Attack;
+import com.lilithsthrone.game.combat.spells.Spell;
+import com.lilithsthrone.game.combat.spells.SpellUpgrade;
 import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.npcDialogue.dominion.CultistDialogue;
 import com.lilithsthrone.game.dialogue.responses.Response;
@@ -157,18 +159,31 @@ public class Cultist extends NPC {
 						Perk.FETISH_SEEDER,
 						Perk.ARCANE_COMBATANT),
 				Util.newHashMapOfValues(
-						new Value<>(PerkCategory.PHYSICAL, 0),
-						new Value<>(PerkCategory.LUST, 3),
+						new Value<>(PerkCategory.PHYSICAL, 5),
+						new Value<>(PerkCategory.LUST, 7),
 						new Value<>(PerkCategory.ARCANE, 5)));
+
+			this.addSpell(Spell.ARCANE_AROUSAL);
+			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_1);
+			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2);
+			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_3);
+			
+			this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_2);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_3);
+
+                        this.addSpell(Spell.WITCH_SEAL);
+                        this.addSpell(Spell.WITCH_CHARM);
 	}
 	
 	@Override
-	public void setStartingCombatMoves() {
+	public void resetDefaultMoves() {
 		this.clearEquippedMoves();
-		this.equipMove("strike");
-		this.equipMove("tease");
-		this.equipMove("avert");
-		this.equipMove("block");
+                equipMove("tease");
+                equipMove("oral-tease");
+                equipMove("vaginal-tease");
+                equipMove("anal-tease");
 		this.equipAllKnownMoves();
 		this.equipAllSpellMoves();
 	}

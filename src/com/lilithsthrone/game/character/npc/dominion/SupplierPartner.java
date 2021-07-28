@@ -65,7 +65,7 @@ public class SupplierPartner extends NPC {
 		super(isImported, new NameTriplet("Karl", "Karl", "Karla"), "Hummel",
 				"Karl is the junior partner of the dobermann bounty-hunter duo which you first met at Kay's Textiles.",
 				28, Month.AUGUST, 8,
-				10,
+				7,
 				null, null, null,
 				new CharacterInventory(10),
 				WorldType.TEXTILES_WAREHOUSE,
@@ -107,21 +107,13 @@ public class SupplierPartner extends NPC {
 		this.addSpecialPerk(Perk.SPECIAL_DIRTY_MINDED);
 		
 		PerkManager.initialisePerks(this,
-				Util.newArrayListOfValues(),
+				Util.newArrayListOfValues(
+						Perk.UNARMED_DAMAGE,
+                                                Perk.ENERGY_BOOST),
 				Util.newHashMapOfValues(
-						new Value<>(PerkCategory.PHYSICAL, 3),
+						new Value<>(PerkCategory.PHYSICAL, 10),
 						new Value<>(PerkCategory.LUST, 0),
 						new Value<>(PerkCategory.ARCANE, 0)));
-	}
-
-	@Override
-	public void resetDefaultMoves() {
-		this.clearEquippedMoves();
-		equipMove("strike");
-		equipMove("offhand-strike");
-		equipMove("twin-strike");
-		equipMove("block");
-		this.equipAllSpellMoves();
 	}
 	
 	@Override
@@ -213,7 +205,7 @@ public class SupplierPartner extends NPC {
 		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing(ClothingType.GROIN_BOXERS, PresetColour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_sock_socks", PresetColour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_foot_work_boots", PresetColour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_leg_jeans", PresetColour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_leg_cargo_trousers", PresetColour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_torso_short_sleeved_shirt", PresetColour.CLOTHING_BLACK, false), true, this);
 
 	}
@@ -270,6 +262,17 @@ public class SupplierPartner extends NPC {
 	// Combat:
 
 	@Override
+	public void resetDefaultMoves() {
+		this.clearEquippedMoves();
+                equipMove("twin-strike");
+		equipMove("feral bite");
+                equipMove("dominant-tease");
+		equipMove("oral-tease");
+                equipMove("cum-stud-tease");
+		this.equipAllSpellMoves();
+	}
+
+        @Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
 			return new Response("", "", KaysWarehouse.DOBERMANNS_COMBAT_PLAYER_VICTORY) {

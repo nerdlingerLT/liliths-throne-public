@@ -46,7 +46,6 @@ import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.effects.PerkCategory;
 import com.lilithsthrone.game.character.effects.PerkManager;
 import com.lilithsthrone.game.character.fetishes.Fetish;
-import com.lilithsthrone.game.character.fetishes.FetishDesire;
 import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.NameTriplet;
@@ -57,7 +56,10 @@ import com.lilithsthrone.game.character.quests.Quest;
 import com.lilithsthrone.game.character.quests.QuestLine;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
+import com.lilithsthrone.game.combat.CombatBehaviour;
 import com.lilithsthrone.game.combat.DamageType;
+import com.lilithsthrone.game.combat.spells.Spell;
+import com.lilithsthrone.game.combat.spells.SpellUpgrade;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
 import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.places.dominion.zaranixHome.ZaranixHomeGroundFloorRepeat;
@@ -147,9 +149,6 @@ public class Amber extends NPC {
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.8.5")) {
 			this.setTesticleCount(2);
 		}
-		if(Main.isVersionOlderThan(Game.loadingVersion, "0.4.1")) {
-			this.setFetishDesire(Fetish.FETISH_BONDAGE_APPLIER, FetishDesire.THREE_LIKE);
-		}
 	}
 
 	@Override
@@ -159,11 +158,16 @@ public class Amber extends NPC {
 		PerkManager.initialisePerks(this,
 				Util.newArrayListOfValues(
 						Perk.ORGASMIC_LEVEL_DRAIN,
-						Perk.UNARMED_TRAINING),
+						Perk.UNARMED_TRAINING,
+                                                Perk.RUNNER_2,
+                                                Perk.PHYSIQUE_BOOST_MAJOR,
+                                                Perk.ENERGY_BOOST,
+                                                Perk.UNARMED_DAMAGE,
+                                                Perk.ENERGY_BOOST_DRAIN_DAMAGE),
 				Util.newHashMapOfValues(
-						new Value<>(PerkCategory.PHYSICAL, 3),
-						new Value<>(PerkCategory.LUST, 1),
-						new Value<>(PerkCategory.ARCANE, 2)));
+						new Value<>(PerkCategory.PHYSICAL, 15),
+						new Value<>(PerkCategory.LUST, 3),
+						new Value<>(PerkCategory.ARCANE, 1)));
 	}
 	
 	@Override
@@ -175,16 +179,33 @@ public class Amber extends NPC {
 					PersonalityTrait.SELFISH,
 					PersonalityTrait.BRAVE);
 			
+			this.addSpell(Spell.FIREBALL);
+			this.addSpellUpgrade(SpellUpgrade.FIREBALL_1);
+			this.addSpellUpgrade(SpellUpgrade.FIREBALL_2);
+			this.addSpellUpgrade(SpellUpgrade.FIREBALL_3);
+			
+			this.addSpell(Spell.CLOAK_OF_FLAMES);
+			this.addSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_1);
+			this.addSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_2);
+			this.addSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_3);
+			
+			this.addSpell(Spell.FLASH);
+			this.addSpellUpgrade(SpellUpgrade.FLASH_1);
+			this.addSpellUpgrade(SpellUpgrade.FLASH_2);
+
+                        this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_2);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_3);
+			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			
-			this.setHistory(Occupation.NPC_MAID);
+			this.setHistory(Occupation.MAID);
 	
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_SADIST);
 			this.addFetish(Fetish.FETISH_DEFLOWERING);
 			this.addFetish(Fetish.FETISH_FOOT_GIVING);
-			
-			this.setFetishDesire(Fetish.FETISH_BONDAGE_APPLIER, FetishDesire.THREE_LIKE);
 		}
 		
 		// Body:
@@ -350,6 +371,15 @@ public class Amber extends NPC {
 	
 
 	// Combat:
+	
+	@Override
+	public void resetDefaultMoves() {
+		this.clearEquippedMoves();
+                equipMove("tease");
+                equipMove("dominant-foot-tease");
+		this.equipAllKnownMoves();
+		this.equipAllSpellMoves();
+	}
 	
 	@Override
 	public String getMainAttackDescription(int armRow, GameCharacter target, boolean isHit, boolean critical) {

@@ -99,7 +99,9 @@ public class HarpyDominantCompanion extends NPC {
 		this.addSpecialPerk(Perk.SPECIAL_DIRTY_MINDED);
 		
 		PerkManager.initialisePerks(this,
-				Util.newArrayListOfValues(),
+				Util.newArrayListOfValues(
+                                                Perk.ENERGY_BOOST,
+                                                Perk.UNARMED_DAMAGE),
 				Util.newHashMapOfValues(
 						new Value<>(PerkCategory.PHYSICAL, 1),
 						new Value<>(PerkCategory.LUST, 0),
@@ -254,6 +256,15 @@ public class HarpyDominantCompanion extends NPC {
 	
 	public int getEscapeChance() {
 		return 0;
+	}
+
+        @Override
+	public void resetDefaultMoves() {
+		this.clearEquippedMoves();
+                equipMove("strike");
+                equipMove("block");
+                equipMove("talon slash");
+                this.equipAllSpellMoves();
 	}
 	
 	@Override

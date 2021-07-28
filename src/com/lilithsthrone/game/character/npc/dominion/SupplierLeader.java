@@ -68,7 +68,7 @@ public class SupplierLeader extends NPC {
 		super(isImported, new NameTriplet("Wolfgang", "Wolfgang", "Winifred"), "Meyer",
 				"Wolfgang is the senior partner of the dobermann bounty-hunter duo which you first met at Kay's Textiles.",
 				30, Month.DECEMBER, 4,
-				12,
+				9,
 				null, null, null,
 				new CharacterInventory(10),
 				WorldType.TEXTILES_WAREHOUSE,
@@ -111,21 +111,14 @@ public class SupplierLeader extends NPC {
 		this.addSpecialPerk(Perk.SPECIAL_DIRTY_MINDED);
 		
 		PerkManager.initialisePerks(this,
-				Util.newArrayListOfValues(),
+				Util.newArrayListOfValues(
+						Perk.PHYSIQUE_BOOST_MAJOR,
+                                                Perk.CRITICAL_BOOST,
+                                                Perk.ENERGY_BOOST),
 				Util.newHashMapOfValues(
-						new Value<>(PerkCategory.PHYSICAL, 3),
+						new Value<>(PerkCategory.PHYSICAL, 10),
 						new Value<>(PerkCategory.LUST, 0),
 						new Value<>(PerkCategory.ARCANE, 0)));
-	}
-
-	@Override
-	public void resetDefaultMoves() {
-		this.clearEquippedMoves();
-		equipMove("strike");
-		equipMove("offhand-strike");
-		equipMove("twin-strike");
-		equipMove("block");
-		this.equipAllSpellMoves();
 	}
 	
 	@Override
@@ -213,15 +206,15 @@ public class SupplierLeader extends NPC {
 
 		this.unequipAllClothingIntoVoid(true, true);
 		
-		AbstractClothing aviators = Main.game.getItemGen().generateClothing("innoxia_eye_aviators", PresetColour.CLOTHING_GOLD, false);
-		this.equipClothingFromNowhere(aviators, true, this);
+		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_eye_aviators", PresetColour.CLOTHING_SILVER, false), true, this);
 		this.isAbleToBeDisplaced(this.getClothingInSlot(InventorySlot.EYES), DisplacementType.PULLS_UP, true, true, this);
 		
 		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing(ClothingType.GROIN_BRIEFS, PresetColour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_sock_socks", PresetColour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_sock_socks", PresetColour.CLOTHING_DESATURATED_BROWN_DARK, false), true, this);
 		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_foot_work_boots", PresetColour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_leg_jeans", PresetColour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_torso_short_sleeved_shirt", PresetColour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_leg_jeans", PresetColour.CLOTHING_GREY, false), true, this);
+		this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("innoxia_torso_short_sleeved_shirt", PresetColour.CLOTHING_OLIVE, false), true, this);
+                this.equipClothingFromNowhere(Main.game.getItemGen().generateClothing("dsg_ljacket_ljacket", PresetColour.CLOTHING_BLACK, false), true, this);
 
 	}
 
@@ -277,6 +270,17 @@ public class SupplierLeader extends NPC {
 	// Combat:
 
 	@Override
+	public void resetDefaultMoves() {
+		this.clearEquippedMoves();
+		equipMove("strike");
+                equipMove("twin-strike");
+		equipMove("dominant-tease");
+                equipMove("cum-stud-tease");
+		equipMove("block");
+		this.equipAllSpellMoves();
+	}
+
+        @Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
 			return new Response("", "", KaysWarehouse.DOBERMANNS_COMBAT_PLAYER_VICTORY) {

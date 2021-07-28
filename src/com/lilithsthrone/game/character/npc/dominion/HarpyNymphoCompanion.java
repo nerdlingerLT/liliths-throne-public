@@ -243,6 +243,16 @@ public class HarpyNymphoCompanion extends NPC {
 		return 0;
 	}
 
+        @Override
+	public void resetDefaultMoves() {
+		this.clearEquippedMoves();
+                equipMove("strike");
+                equipMove("block");
+                equipMove("cum-stud-tease");
+                equipMove("talon slash");
+                this.equipAllSpellMoves();
+	}
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
