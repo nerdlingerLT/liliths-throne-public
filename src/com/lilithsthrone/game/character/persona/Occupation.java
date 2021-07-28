@@ -129,7 +129,7 @@ public enum Occupation {
 		}
 	},
 	
-	NPC_MUSICIAN(Perk.JOB_MISC, "musician", "[npc.Name] [npc.verb(work)] as a musician.", OccupationTag.HAS_PREREQUISITES),
+	NPC_MUSICIAN(Perk.JOB_MUSICIAN, "musician", "[npc.Name] [npc.verb(work)] as a musician.", OccupationTag.HAS_PREREQUISITES),
 	
 	NPC_FITNESS_INSTRUCTOR(Perk.JOB_MISC, "fitness instructor", "-", OccupationTag.HAS_PREREQUISITES),
 	
@@ -142,13 +142,13 @@ public enum Occupation {
 
 	NPC_MECHANIC(Perk.JOB_MISC, "mechanic", "-", OccupationTag.HAS_PREREQUISITES),
 	
-	NPC_TEACHER(Perk.JOB_MISC, "teacher", "-", OccupationTag.HAS_PREREQUISITES),
+	NPC_TEACHER(Perk.JOB_TEACHER, "teacher", "-", OccupationTag.HAS_PREREQUISITES),
 	
 	NPC_LIBRARIAN(Perk.JOB_MISC, "librarian", "-"),
 	
-	NPC_UNIVERSITY_STUDENT(Perk.JOB_MISC, "university student", "-", OccupationTag.HAS_PREREQUISITES),
+	NPC_UNIVERSITY_STUDENT(Perk.JOB_STUDENT, "university student", "-", OccupationTag.HAS_PREREQUISITES),
 	
-	NPC_WRITER(Perk.JOB_MISC, "writer", "-"),
+	NPC_WRITER(Perk.JOB_WRITER, "writer", "-"),
 	
 	NPC_ENGINEER(Perk.JOB_MISC, "engineer", "-", OccupationTag.HAS_PREREQUISITES),
 	
@@ -219,9 +219,9 @@ public enum Occupation {
 		}
 	},
 	
-	NPC_CHEF(Perk.JOB_MISC, "chef", "-"),
+	NPC_CHEF(Perk.JOB_CHEF, "chef", "-"),
 	
-	NPC_ATHLETE(Perk.JOB_MISC, "athlete", "-", OccupationTag.HAS_PREREQUISITES),
+	NPC_ATHLETE(Perk.JOB_ATHLETE, "athlete", "-", OccupationTag.HAS_PREREQUISITES),
 	
 	NPC_MODEL(Perk.JOB_MISC, "model", "-"),
 	
