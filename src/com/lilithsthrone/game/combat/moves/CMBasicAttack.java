@@ -31,7 +31,7 @@ public class CMBasicAttack {
 
     public static AbstractCombatMove BASIC_STRIKE = new AbstractCombatMove(CombatMoveCategory.BASIC,
             "strike",
-            0,
+            1,
             1,
             CombatMoveType.ATTACK,
             DamageType.UNARMED,
@@ -295,7 +295,7 @@ public class CMBasicAttack {
     
     public static AbstractCombatMove BASIC_OFFHAND_STRIKE = new AbstractCombatMove(CombatMoveCategory.BASIC,
             "offhand strike",
-            0,
+            1,
             1,
             CombatMoveType.ATTACK,
             DamageType.UNARMED,
@@ -924,7 +924,8 @@ public class CMBasicAttack {
 
         @Override
         public int getBlock(GameCharacter source, boolean isCrit) {
-            return 7 * (isCrit?2:1);
+            int totalBlock = 7 + source.getTrueLevel();
+            return totalBlock * (isCrit?2:1);
         }
 
         @Override
@@ -979,7 +980,7 @@ public class CMBasicAttack {
     
     public static AbstractCombatMove BASIC_TEASE = new AbstractCombatMove(CombatMoveCategory.BASIC,
             "tease",
-            0,
+            1,
             1,
             CombatMoveType.TEASE,
             DamageType.LUST,
@@ -990,7 +991,7 @@ public class CMBasicAttack {
             null){
 
         protected int getBaseDamage(GameCharacter source) {
-            return 7;
+            return Math.round((5 + (source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/10)) * (1 + (1 *(source.getLust()/100))));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean critical) {
@@ -1058,7 +1059,7 @@ public class CMBasicAttack {
 
         @Override
         public int getBlock(GameCharacter source, boolean isCrit) {
-            return 7 * (isCrit?2:1);
+            return 10 * (isCrit?2:1);
         }
 
         @Override
@@ -1139,6 +1140,15 @@ public class CMBasicAttack {
             null){
 
     	@Override
+        public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
+        	float weight = super.getWeight(source, enemies, allies);
+        	if(source.getMana()<0.5f){
+        		weight *= 3f;
+        	}
+        	return weight;
+        }
+
+	@Override
     	public DamageType getDamageType(GameCharacter source) {
             return DamageType.LUST;
     	}

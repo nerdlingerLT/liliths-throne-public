@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.lilithsthrone.game.character.GameCharacter;
+import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.character.body.CoverableArea;
 import com.lilithsthrone.game.character.body.tags.BodyPartTag;
 import com.lilithsthrone.game.character.body.types.ArmType;
@@ -44,11 +45,11 @@ public class CMSpecialAttack {
             false,
             true,
             false,
-			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.DAZED, 1)),
+			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.DAZED, 3)),
             Util.newHashMapOfValues()) {
 
         protected int getBaseDamage(GameCharacter source) {
-            return (int) Math.max(1, (source.getUnarmedDamage() * 2 * (source.isLegMovementHindered()?0.1f:1)));
+            return (int) Math.max(1, (source.getUnarmedDamage() + (10 + (20 * (source.getAttributeValue(Attribute.MAJOR_PHYSIQUE)/100)))) * (source.isLegMovementHindered()?0.1f:1));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target) {
@@ -131,7 +132,7 @@ public class CMSpecialAttack {
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.VULNERABLE, 2))) {
 
         protected int getBaseDamage(GameCharacter source) {
-            return (int) Math.max(1, ((source.getUnarmedDamage()*1.5f) * (source.isArmMovementHindered()?0.5f:1)));
+            return (int) Math.max(1, (source.getUnarmedDamage() + (10 + (10 * (source.getAttributeValue(Attribute.MAJOR_PHYSIQUE)/100)))) * (source.isArmMovementHindered()?0.5f:1));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -187,8 +188,8 @@ public class CMSpecialAttack {
 
 	public static AbstractCombatMove TAIL_SWIPE = new AbstractCombatMove(CombatMoveCategory.SPECIAL,
             "tail swipe",
-            2,
             3,
+            2,
             CombatMoveType.ATTACK,
             DamageType.UNARMED,
             "moves/tail_swipe",
@@ -198,7 +199,7 @@ public class CMSpecialAttack {
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.DAZED, 3))) {
 
         protected int getBaseDamage(GameCharacter source) {
-            return source.getUnarmedDamage()*3;
+            return (int) Math.max(1, (source.getUnarmedDamage()) + (10 + (30 * (source.getAttributeValue(Attribute.MAJOR_PHYSIQUE)/100))));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -261,7 +262,7 @@ public class CMSpecialAttack {
             false,
             true,
             false,
-			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.VULNERABLE, 1))) {
+			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.VULNERABLE, 2))) {
 
         protected int getBaseDamage(GameCharacter source) {
             return (int) Math.max(1, source.getUnarmedDamage() * (source.isArmMovementHindered()?0.5f:1));
@@ -321,8 +322,8 @@ public class CMSpecialAttack {
 
 	public static AbstractCombatMove WOLF_SAVAGE = new AbstractCombatMove(CombatMoveCategory.SPECIAL,
             "savage attack",
-            6,
-            3,
+            4,
+            2,
             CombatMoveType.ATTACK,
             DamageType.UNARMED,
             "moves/savage_attack",
@@ -332,7 +333,7 @@ public class CMSpecialAttack {
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CRIPPLE, 3))) {
 
         protected int getBaseDamage(GameCharacter source) {
-            return (int) Math.max(1, source.getUnarmedDamage() * 4 * (source.isArmMovementHindered()?0.5f:1));
+            return (int) Math.max(1, (source.getUnarmedDamage() + (20 + (30 * (source.getAttributeValue(Attribute.MAJOR_PHYSIQUE)/100)))) * (source.isArmMovementHindered()?0.5f:1));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -388,18 +389,18 @@ public class CMSpecialAttack {
         @Override
         public List<String> getCritRequirements(GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
         	return Util.newArrayListOfValues(
-        			 "Used in the first turn of combat.");
+        			 "Cannot crit.");
         }
         
-        @Override
-        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
-        	return Main.combat.getTurn()==0;
-        }
+//        @Override
+//        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
+//        	return Main.combat.getTurn()==0;
+//        }
     };
 
 	public static AbstractCombatMove ANTLER_HEADBUTT = new AbstractCombatMove(CombatMoveCategory.SPECIAL,
             "antler headbutt",
-            1,
+            3,
             2,
             CombatMoveType.ATTACK,
             DamageType.UNARMED,
@@ -410,7 +411,7 @@ public class CMSpecialAttack {
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.DAZED, 3))) {
 
         protected int getBaseDamage(GameCharacter source) {
-            return source.getUnarmedDamage()*2;
+            return (int) Math.max(1, (source.getUnarmedDamage() + (15 + (30 * (source.getAttributeValue(Attribute.MAJOR_PHYSIQUE)/100)))));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -462,7 +463,7 @@ public class CMSpecialAttack {
 
 	public static AbstractCombatMove COW_HEADBUTT = new AbstractCombatMove(CombatMoveCategory.SPECIAL,
             "horn headbutt",
-            1,
+            3,
             2,
             CombatMoveType.ATTACK,
             DamageType.UNARMED,
@@ -472,7 +473,7 @@ public class CMSpecialAttack {
             false,
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.DAZED, 3))) {
         protected int getBaseDamage(GameCharacter source) {
-            return source.getUnarmedDamage()*2;
+            return (int) Math.max(1, (source.getUnarmedDamage() + (15 + (30 * (source.getAttributeValue(Attribute.MAJOR_PHYSIQUE)/100)))));
         }
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
             DamageType damageType = getDamageType(source);
@@ -518,19 +519,19 @@ public class CMSpecialAttack {
     
     public static AbstractCombatMove BITE = new AbstractCombatMove(CombatMoveCategory.SPECIAL,
             "feral bite",
+            3,
             1,
-            2,
             CombatMoveType.ATTACK,
             DamageType.UNARMED,
             "moves/bite",
             false,
             true,
             false,
-			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CRIPPLE, 2))) {
+			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.VULNERABLE, 3))) {
     	
     	@Override
         public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
-    		Map<AbstractStatusEffect, Integer> effects = Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CRIPPLE, 2));
+    		Map<AbstractStatusEffect, Integer> effects = Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.VULNERABLE, 3));
 
             if(caster.getFaceType().getTags().contains(BodyPartTag.FACE_VENOMOUS_TEETH)) {
             	effects.put(StatusEffect.POISONED, 6);
@@ -554,7 +555,7 @@ public class CMSpecialAttack {
     	}
     	
         protected int getBaseDamage(GameCharacter source) {
-            return source.getUnarmedDamage() * 2 * (!source.isCoverableAreaExposed(CoverableArea.MOUTH)?0:1);
+            return (int) Math.max(1, (source.getUnarmedDamage() + (15 + (20 * (source.getAttributeValue(Attribute.MAJOR_PHYSIQUE)/100)))) * (!source.isCoverableAreaExposed(CoverableArea.MOUTH)?0:1));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -635,7 +636,7 @@ public class CMSpecialAttack {
 
     public static AbstractCombatMove TALON_SLASH = new AbstractCombatMove(CombatMoveCategory.SPECIAL,
             "talon slash",
-            1,
+            3,
             1,
             10,
             CombatMoveType.ATTACK,
