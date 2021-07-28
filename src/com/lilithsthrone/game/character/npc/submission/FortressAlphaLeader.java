@@ -56,6 +56,8 @@ import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.CombatBehaviour;
 import com.lilithsthrone.game.combat.DamageType;
+import com.lilithsthrone.game.combat.spells.Spell;
+import com.lilithsthrone.game.combat.spells.SpellUpgrade;
 import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.places.submission.impFortress.ImpFortressDialogue;
 import com.lilithsthrone.game.dialogue.responses.Response;
@@ -141,11 +143,18 @@ public class FortressAlphaLeader extends NPC {
 	public void setupPerks(boolean autoSelectPerks) {
 		this.addSpecialPerk(Perk.SPECIAL_MARTIAL_BACKGROUND);
 		PerkManager.initialisePerks(this,
-				Util.newArrayListOfValues(Perk.UNARMED_DAMAGE),
+				Util.newArrayListOfValues(
+						Perk.UNARMED_DAMAGE,
+                                                Perk.FEROCIOUS_WARRIOR,
+                                                Perk.BESERK,
+                                                Perk.ENERGY_BOOST,
+                                                Perk.SEDUCTION_BOOST_MAJOR,
+                                                Perk.SPELL_DAMAGE,
+                                                Perk.AURA_BOOST),
 				Util.newHashMapOfValues(
-						new Value<>(PerkCategory.PHYSICAL, 5),
-						new Value<>(PerkCategory.LUST, 1),
-						new Value<>(PerkCategory.ARCANE, 0)));
+						new Value<>(PerkCategory.PHYSICAL, 12),
+						new Value<>(PerkCategory.LUST, 7),
+						new Value<>(PerkCategory.ARCANE, 3)));
 	}
 	
 	@Override
@@ -159,6 +168,11 @@ public class FortressAlphaLeader extends NPC {
 			this.setPersonalityTraits(
 					PersonalityTrait.SELFISH,
 					PersonalityTrait.BRAVE);
+
+                        this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);
+			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_2);
+                        this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_3);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			
@@ -296,8 +310,8 @@ public class FortressAlphaLeader extends NPC {
 		}
 		
 		if(settings.contains(EquipClothingSetting.ADD_WEAPONS)) {
-			this.equipMainWeaponFromNowhere(Main.game.getItemGen().generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_knuckleDusters_knuckle_dusters"), DamageType.PHYSICAL));
-			this.equipOffhandWeaponFromNowhere(Main.game.getItemGen().generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_knuckleDusters_knuckle_dusters"), DamageType.POISON));
+			this.equipMainWeaponFromNowhere(Main.game.getItemGen().generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_knuckleDusters_knuckle_dusters"), DamageType.PHYSICAL, Util.newArrayListOfValues(PresetColour.CLOTHING_SILVER)));
+			this.equipOffhandWeaponFromNowhere(Main.game.getItemGen().generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_knuckleDusters_knuckle_dusters"), DamageType.POISON, Util.newArrayListOfValues(PresetColour.CLOTHING_SILVER)));
 		}
 		
 		if(settings.contains(EquipClothingSetting.ADD_TATTOOS)) {
@@ -433,6 +447,19 @@ public class FortressAlphaLeader extends NPC {
 	}
 	
 	// Combat:
+	
+	@Override
+	public void resetDefaultMoves() {
+		this.clearEquippedMoves();
+                equipMove("strike");
+                equipMove("offhand-strike");
+                equipMove("twin-strike");
+                equipMove("tease");
+                equipMove("horn headbutt");
+                equipMove("oral-tease");
+		this.equipAllKnownMoves();
+		this.equipAllSpellMoves();
+	}
 	
 	@Override
 	public int getEscapeChance() {
