@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <clothing>
 	<coreAttributes>
-	<authorTag><![CDATA[You find a tag printed on the inner wall, "Envisionned for high-performing athletes, by GLIDE.".]]></authorTag>
+		<authorTag><![CDATA[You find a tag printed on the inner liner, "Envisionned for high-performing athletes, by 'GLIDE'."]]></authorTag>
 		<value>800</value>
 		<determiner><![CDATA[a]]></determiner>
 		<name><![CDATA[bike racing helmet]]></name>
@@ -16,6 +15,7 @@
 		<imageName>biking_helmet.svg</imageName>
 		<imageEquippedName/>
 		<enchantmentLimit/>
+		
 		<effects/>
 		
 		<blockedPartsList>
@@ -28,20 +28,22 @@
 				<clothingAccessBlocked/>
 				<concealedSlots/>
 			</blockedParts>
+			
 		</blockedPartsList>
 		
 		<incompatibleSlots/>
 		
-		<primaryColours values="ALL"/> 
+		<primaryColours values="ALL"/>
 		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_BLACK"/> 
+		<secondaryColours values="JUST_BLACK"/>
 		<secondaryColoursDye values="ALL"/>
 		<tertiaryColours values="ALL"/> 
 		<tertiaryColoursDye values="ALL"/>
 	
-		<itemTags> 
-			<tag>SOLD_BY_NYAN</tag>
+		<itemTags>
+			<tag>SOLD_BY_VICKY</tag>
 		</itemTags>
+		
 	</coreAttributes>
 
 	

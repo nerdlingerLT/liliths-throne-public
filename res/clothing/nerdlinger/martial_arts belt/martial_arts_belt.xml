@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clothing>
+	<coreAttributes>
+		<authorTag><![CDATA[You find by reading the prints on the packaging that it was made by 'GLIDE'.]]></authorTag>
+		<value>200</value>
+		<determiner><![CDATA[a]]></determiner>
+		<name><![CDATA[belt]]></name>
+		<namePlural pluralByDefault="false"><![CDATA[belts]]></namePlural>
+		<description><![CDATA[A thick band of cotton worn tied around the waist by martial arts practitioner as part of their uniform. Its colour traditionnally denotes the wearer's experience and seniority.]]></description>
+		<physicalResistance>0</physicalResistance>
+		<femininity>ANDROGYNOUS</femininity>
+		<equipSlots>
+			<slot>HIPS</slot>
+		</equipSlots>
+		<rarity>EPIC</rarity>
+		<clothingSet>nerdlinger_martial_artist</clothingSet>
+		<imageName>martial_arts_belt.svg</imageName>
+		<imageEquippedName>martial_arts_belt_Equipped.svg</imageEquippedName>
+		<enchantmentLimit/>
+		
+		<effects>
+			<effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="CRITICAL_DAMAGE" timer="0"/>
+			<effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="CRITICAL_DAMAGE" timer="0"/>
+		</effects>
+		
+		<blockedPartsList>
+			<blockedParts>
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+				<clothingAccessRequired/>
+				<blockedBodyParts/>
+				<clothingAccessBlocked/>
+				<concealedSlots/>
+			</blockedParts>
+			
+		</blockedPartsList>
+		
+		<incompatibleSlots/>
+		
+		<primaryColours values="ALL"/>
+		<primaryColoursDye values="ALL"/>
+		<secondaryColours/>
+		<secondaryColoursDye/>
+		<tertiaryColours/>
+		<tertiaryColoursDye/>
+		
+		<defaultPatterns patternChance="0" colourNameDerivedFromPattern="true"/>
+		<patternPrimaryColours values="ALL"/>
+		<patternSecondaryColours values="ALL"/>
+		<patternTertiaryColours/>
+		
+		<itemTags>
+			<tag>SOLD_BY_VICKY</tag>
+		</itemTags>
+		
+	</coreAttributes>
+	
+	<displacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(untie)] [npc.his] belt and [npc.verb(put)] it away.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(untie)] [npc2.namePos] belt and [npc.verb(put)] it away.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] impatiently [npc.verb(untie)] [npc2.namePos] belt and [npc.verb(put)] it away.]]>
+		</otherRough>
+	</displacementText>
+	 
+	<replacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(wrap)] the belt around [npc.his] waist, before securing it with a tight knot.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(wrap)] the belt around [npc2.namePos] waist, before securing it with a tight knot.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] [npc.verb(hand)] the belt over to [npc2.name], before ordering [npc2.him] to tie it around [npc2.his] waist.]]>
+		</otherRough>
+	</replacementText>
+
+
+</clothing>

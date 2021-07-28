@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clothing>
+	<coreAttributes>
+		<authorTag><![CDATA[You can read "Distributed by 'Grindware & Supply Co'." printed on the inside.]]></authorTag>
+		<value>500</value>
+		<determiner><![CDATA[a]]></determiner>
+		<name><![CDATA[respirator mask]]></name>
+		<namePlural pluralByDefault="false"><![CDATA[respirator masks]]></namePlural>
+		<description><![CDATA[A protective device that is worn on the face and is used to reduce the wearer's risk of inhalling hazardous airborne particles, gases or vapors.]]></description>
+		<physicalResistance>0</physicalResistance>
+		<femininity>ANDROGYNOUS</femininity>
+		<equipSlots>
+			<slot>MOUTH</slot>
+		</equipSlots>
+		<rarity>COMMON</rarity>
+		<clothingSet/>
+		<imageName>respirator_mask.svg</imageName>
+		<imageEquippedName/>
+		<enchantmentLimit/>
+		
+		<effects>
+			<effect limit="0" mod1="CLOTHING_ATTRIBUTE" mod2="RESISTANCE_POISON" potency="MAJOR_BOOST" timer="397" type="CLOTHING"/>
+			<effect limit="0" mod1="CLOTHING_ATTRIBUTE" mod2="RESISTANCE_POISON" potency="MAJOR_BOOST" timer="397" type="CLOTHING"/>
+		</effects>
+		
+		<blockedPartsList slot="MOUTH">
+			<blockedParts>
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+				<clothingAccessRequired>
+					<clothingAccess>MOUTH</clothingAccess>
+				</clothingAccessRequired>
+				<blockedBodyParts>
+					<bodyPart>MOUTH</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked/>
+				<concealedSlots>
+					<slot>PIERCING_LIP</slot>
+					<slot>PIERCING_TONGUE</slot>
+				</concealedSlots>
+			</blockedParts>
+			
+			<blockedParts>
+				<displacementType>PULLS_DOWN</displacementType>
+				<clothingAccessRequired>
+					<clothingAccess>MOUTH</clothingAccess>
+				</clothingAccessRequired>
+				<blockedBodyParts>
+					<bodyPart>MOUTH</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked/>
+				<concealedSlots>
+					<slot>PIERCING_LIP</slot>
+					<slot>PIERCING_TONGUE</slot>
+				</concealedSlots>
+			</blockedParts>
+
+		</blockedPartsList>
+		
+		<incompatibleSlots/>
+		
+		<primaryColours values="ALL"/>
+		<primaryColoursDye/>
+		<secondaryColours>
+			<colour>CLOTHING_WHITE</colour>
+		</secondaryColours>
+		<secondaryColoursDye values="ALL"/>
+		<tertiaryColours>
+			<colour>CLOTHING_BLACK</colour>
+		</tertiaryColours>
+		<tertiaryColoursDye values="ALL"/>
+		
+		<defaultPatterns patternChance="0" colourNameDerivedFromPattern="true"/>
+		<patternPrimaryColours values="ALL"/>
+		<patternSecondaryColours values="ALL"/>
+		<patternTertiaryColours/>
+		
+		<itemTags>
+			<tag>SOLD_BY_VICKY</tag>
+		</itemTags>
+		
+	</coreAttributes>
+
+
+</clothing>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clothing>
+	<coreAttributes>
+		<value>750</value>
+		<determiner><![CDATA[a]]></determiner>
+		<name><![CDATA['Laughing Demon' mask]]></name>
+		<namePlural pluralByDefault="false"><![CDATA['Laughing Demon' masks]]></namePlural>
+		<description><![CDATA[A traditional Japanese mask depicting the face of a gruesome grinning Demon.]]></description>
+		<physicalResistance>0</physicalResistance>
+		<femininity>ANDROGYNOUS</femininity>
+		<equipSlots>
+			<slot>MOUTH</slot>
+		</equipSlots>
+		<rarity>EPIC</rarity>
+		<clothingSet>RONIN</clothingSet>
+		<imageName>demon_mask.svg</imageName>
+		<imageEquippedName/>
+		<enchantmentLimit/>
+		
+		<effects>
+              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="STRENGTH" timer="0"/>
+		</effects>
+		
+		<blockedPartsList slot="MOUTH">
+			<blockedParts>
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+				<clothingAccessRequired>
+					<clothingAccess>MOUTH</clothingAccess>
+				</clothingAccessRequired>
+				<blockedBodyParts>
+					<bodyPart>MOUTH</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked/>
+				<concealedSlots>
+					<slot>PIERCING_LIP</slot>
+					<slot>PIERCING_TONGUE</slot>
+				</concealedSlots>
+			</blockedParts>
+
+		</blockedPartsList>
+		
+		<incompatibleSlots>
+			<slot>EYES</slot>
+		</incompatibleSlots>
+		
+		<primaryColours values="ALL_WITH_METALS"/>
+		<primaryColoursDye/>
+		<secondaryColours>
+			<colour>CLOTHING_YELLOW</colour>
+		</secondaryColours>
+		<secondaryColoursDye values="ALL"/>
+		<tertiaryColours/>
+		<tertiaryColoursDye/>
+		
+		<defaultPatterns patternChance="0" colourNameDerivedFromPattern="true"/>
+		<patternPrimaryColours values="ALL"/>
+		<patternSecondaryColours values="ALL"/>
+		<patternTertiaryColours/>
+		
+		<itemTags>
+			<tag>REINDEER_GIFT</tag>
+			<tag>SOLD_BY_NYAN</tag>
+		</itemTags>
+		
+	</coreAttributes>
+
+
+</clothing>

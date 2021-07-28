@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clothing>
+	<coreAttributes>
+		<authorTag><![CDATA[You can read on the tag inside that it was made by 'GLIDE'.]]></authorTag>
+		<value>1000</value>
+		<determiner><![CDATA[a]]></determiner>
+		<name><![CDATA[martial arts gi]]></name>
+		<namePlural pluralByDefault="false"><![CDATA[martial arts gi]]></namePlural>
+		<description><![CDATA[A jacket cut from a light canvas style cloth worn during martial arts practice and competitions.]]></description>
+		<physicalResistance>0</physicalResistance>
+		<femininity>ANDROGYNOUS</femininity>
+		<slot>TORSO_UNDER</slot>
+		<rarity>EPIC</rarity>
+		<clothingSet>nerdlinger_martial_artist</clothingSet>
+		<imageName>martial_arts_gi.svg</imageName>
+		<imageEquippedName/>
+		<enchantmentLimit/>
+		
+		<effects>
+              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="STRENGTH" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="DAMAGE_UNARMED" timer="0"/>
+		</effects>
+		
+		<blockedPartsList>
+			<blockedParts>
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+				<clothingAccessRequired>
+					<clothingAccess>ARMS_UP_TO_SHOULDER</clothingAccess>
+				</clothingAccessRequired>
+				<blockedBodyParts>
+					<bodyPart>BACK</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked/>
+				<concealedSlots/>
+			</blockedParts>
+			
+			<blockedParts>
+				<displacementType>SHIFTS_ASIDE</displacementType>
+				<clothingAccessRequired/>
+				<blockedBodyParts>
+					<bodyPart>NIPPLES</bodyPart>
+					<bodyPart>STOMACH</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked>
+					<clothingAccess>CHEST</clothingAccess>
+					<clothingAccess>WAIST</clothingAccess>
+				</clothingAccessBlocked>
+				<concealedSlots values="CONCEALED_PARTIAL_TORSO"/>
+			</blockedParts>
+			
+		</blockedPartsList>
+		
+		<incompatibleSlots/>
+		
+		<primaryColours>
+			<colour>CLOTHING_PURPLE_DARK</colour>
+			<colour>CLOTHING_BLACK</colour>
+			<colour>CLOTHING_BLUE</colour>
+			<colour>CLOTHING_WHITE</colour>
+		</primaryColours>
+		<primaryColoursDye values="ALL"/>
+		<secondaryColours>
+			<colour>CLOTHING_BLACK</colour>
+		</secondaryColours>
+		<secondaryColoursDye values="ALL"/>
+		<tertiaryColours/>
+		<tertiaryColoursDye/>
+		
+		<itemTags>
+			<tag>SOLD_BY_VICKY</tag>
+		</itemTags>
+		
+	</coreAttributes>
+	
+	<displacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] off [npc.his] gi.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] off [npc2.namePos] gi.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] [npc.verb(yank)] [npc2.namePos] gi off.]]>
+		</otherRough>
+	</displacementText>
+	 
+	<replacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] on [npc.his] gi before adjusting it at the front.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(guide)] [npc2.namePos] [npc2.arms] through the gi's sleeves and [npc.verb(pull)] the rest of it over [npc.his] shoulders before adjusting it at the front.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[CDATA[[npc.Name] [npc.verb(force)] [npc2.namePos] [npc2.arms] through the gi's sleeves and [npc.verb(yank)] the rest of it over [npc.his] shoulders before making [npc2.him] adjusting it at the front.]]>
+		</otherRough>
+	</replacementText>
+	
+	
+	<displacementText type="SHIFTS_ASIDE">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] [npc.his] gi open.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] [npc2.namePos] gi open.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] [npc.verb(yank)] [npc2.namePos] gi open.]]>
+		</otherRough>
+	</displacementText>
+	
+	<replacementText type="SHIFTS_ASIDE">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(adjust)] [npc.his] gi.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(adjust)] [npc2.namePos] gi.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] [npc.verb(make)] [npc2.name] adjust [npc2.his] jacket.]]>
+		</otherRough>
+	</replacementText>
+
+
+</clothing>

@@ -1,67 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <clothing>
 	<coreAttributes>
-		<value>400</value> 
-		
+		<authorTag><![CDATA[A tag discreetly attached on the inside informs you that it was "Distributed by 'Grindware & Supply Co'."]]></authorTag>
+		<value>400</value>
 		<determiner><![CDATA[a]]></determiner>
-		
 		<name><![CDATA[utility jacket]]></name>
-		
-		<namePlural pluralByDefault="false"><![CDATA[utility jackets]]></namePlural> 
-		
-		<description><![CDATA[A sleeveless jacket made from a thick, wear-resistant fabric. It's lined with multiple pockets, making it any handyman's favourite.]]></description> 
-		
-		<physicalResistance>0.5</physicalResistance> 
-		
-		<femininity>MASCULINE</femininity> 
-		
-		<slot>TORSO_OVER</slot> 
-		
-		<rarity>COMMON</rarity> 
-		
+		<namePlural pluralByDefault="false"><![CDATA[utility jackets]]></namePlural>
+		<description><![CDATA[A sleeveless jacket made from a thick, wear-resistant fabric. It's lined with multiple pockets, making it any handyman's favourite.]]></description>
+		<physicalResistance>0.5</physicalResistance>
+		<femininity>MASCULINE</femininity>
+		<slot>TORSO_OVER</slot>
+		<rarity>COMMON</rarity>
 		<clothingSet/>
-		
 		<imageName>utility_jacket.svg</imageName> 
-		
-		<imageEquippedName/> 
-		
+		<imageEquippedName/>
 		<enchantmentLimit/>
 		
 		<effects/>
 		
-		<blockedPartsList> 
+		<blockedPartsList>
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType>
-				<clothingAccessRequired> 
+				<clothingAccessRequired>
 					<clothingAccess>ARMS_UP_TO_SHOULDER</clothingAccess>
 				</clothingAccessRequired>
 				<blockedBodyParts>
 					<bodyPart>BACK</bodyPart>
 				</blockedBodyParts>
-				<clothingAccessBlocked> 
+				<clothingAccessBlocked>
 					<clothingAccess>ARMS_UP_TO_SHOULDER</clothingAccess>
 				</clothingAccessBlocked>
 				<concealedSlots/>
 			</blockedParts>
 			
-			
 		</blockedPartsList>
 		
-		<incompatibleSlots/> 
+		<incompatibleSlots/>
 		
-		<primaryColours values="ALL"/> 
+		<primaryColours values="ALL"/>
 		<primaryColoursDye values="ALL"/>
 		<secondaryColours>
 			<colour>CLOTHING_ORANGE_DARK</colour>
 		</secondaryColours>
 		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours/> 
+		<tertiaryColours/>
 		<tertiaryColoursDye/>
 		
 		<itemTags> 
 			<tag>SOLD_BY_NYAN</tag>
 		</itemTags>
+		
 	</coreAttributes>
 
-	
+
 </clothing>

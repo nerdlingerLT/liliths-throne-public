@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clothing>
+	<coreAtributes>
+		<authorTag><![CDATA[You can read on the tag inside: "Crafstmanship proudly brought to you by 'The Gilded Derringer Co'.".]]></authorTag>
+		<value>1200</value>
+		<determiner><![CDATA[a]]></determiner>
+		<name><![CDATA[men's leather jacket]]></name>
+		<namePlural pluralByDefault="false"><![CDATA[men's leather jackets]]></namePlural>
+		<description><![CDATA[A style of motorcycle jacket popular among racers and bikers originally made for travelling now worn as a fashionable casual piece of clothing.]]></description>
+		<physicalResistance>2.0</physicalResistance>
+		<femininity>MASCULINE</femininity>
+		<slot>TORSO_OVER</slot>
+		<rarity>COMMON</rarity>
+		<clothingSet/>
+		<imageName>mens_leather_jacket.svg</imageName>
+		<imageEquippedName/>
+		<enchantmentLimit/>
+		
+		<effects/>
+		
+		<blockedPartsList>
+			<blockedParts>
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+				<clothingAccessRequired>
+					<clothingAccess>ARMS_UP_TO_SHOULDER</clothingAccess>
+				</clothingAccessRequired>
+				<blockedBodyParts>
+					<bodyPart>BACK</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked>
+					<clothingAccess>ARMS_UP_TO_SHOULDER</clothingAccess>
+				</clothingAccessBlocked>
+				<concealedSlots/>
+			</blockedParts>
+			
+			<blockedParts>
+				<displacementType>UNZIPS</displacementType>
+				<clothingAccessRequired/>
+				<blockedBodyParts>
+					<bodyPart>BREASTS</bodyPart>
+					<bodyPart>NIPPLES</bodyPart>
+					<bodyPart>STOMACH</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked>
+					<clothingAccess>CHEST</clothingAccess>
+					<clothingAccess>WAIST</clothingAccess>
+				</clothingAccessBlocked>
+				<concealedSlots values="CONCEALED_FULL_TORSO"/>
+			</blockedParts>
+			
+		</blockedPartsList>
+		
+		<incompatibleSlots/>
+		
+		<primaryColours>
+			<colour>CLOTHING_BROWN_DARK</colour>
+			<colour>CLOTHING_BLACK</colour>
+		</primaryColours>
+		<primaryColoursDye values="ALL"/>
+		<secondaryColours>
+			<colour>CLOTHING_GREY_DARK</colour>
+		</secondaryColours>
+		<secondaryColoursDye values="ALL"/>
+		<tertiaryColours values="JUST_STEEL"/>
+		<tertiaryColoursDye values="ALL_METAL"/>
+		
+		<itemTags>
+			<tag>SOLD_BY_NYAN</tag>
+		</itemTags>
+		
+	</coreAtributes>
+
+	<displacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(unzip)] before pulling off [npc.his] jacket.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(unzip)] before pulling off [npc2.namePos] jacket.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] practically [npc.verb(rip)] the zipper of [npc2.namePos] jacket apart before pulling it off.]]>
+		</otherRough>
+	</displacementText>
+	 
+	<replacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] on [npc.his] jacket before zipping it up.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(guide)] [npc2.namePos] [npc2.arms] through the jacket's sleeves and [npc.verb(pull)] the rest of it over [npc.his] shoulders before zipping it up.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[CDATA[[npc.Name] [npc.verb(force)] [npc2.namePos] [npc2.arms] through the jacket's sleeves and [npc.verb(yank)] the rest of it over [npc2.his] shoulders before making [npc2.him] zip it up.]]>
+		</otherRough>
+	</replacementText>
+	
+	
+	<displacementText type="UNZIPS">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(unzip)] [npc.his] jacket.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(unzip)] [npc2.namePos] jacket.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] [npc.verb(pop)] the zipper on [npc2.namePos] jacket open.]]>
+		</otherRough>
+	</displacementText>
+	
+	<replacementText type="UNZIPS">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(zip)] up [npc.his] jacket.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(zip)] up [npc2.namePos] jacket.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] roughly [npc.verb(order)] [npc2.name] zip up [npc2.his] jacket.]]>
+		</otherRough>
+	</replacementText>
+
+
+</clothing>

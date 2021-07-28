@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <clothing>
 	<coreAttributes>
+		<authorTag><![CDATA[A tag discreetly sewn onto the inner liner informs you that it was part of the "Casual Classics line, by 'GLIDE'."]]></authorTag>
 		<value>350</value>
 		<determiner><![CDATA[a pair of]]></determiner>
 		<name><![CDATA[high-top skater shoes]]></name>
@@ -8,33 +9,35 @@
 		<description><![CDATA[A pair of high-top skater shoes, suitable for casual wear. They are primarily constructed of stitched cotton canvas, and have toe caps and soles that are made from flexible rubber.]]></description>
 		<physicalResistance>0</physicalResistance>
 		<femininity>ANDROGYNOUS</femininity>
-		<slot>FOOT</slot> 
+		<slot>FOOT</slot>
 		<rarity>COMMON</rarity>
-		<clothingSet/> 
+		<clothingSet/>
 		<imageName>hi_top_canvas_sneakers.svg</imageName>
 		<imageEquippedName/>
 		<enchantmentLimit/>
+		
 		<effects/>
 		
 		<blockedPartsList>
 			<blockedParts>
-				<displacementType>REMOVE_OR_EQUIP</displacementType> 
-				<clothingAccessRequired> 
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+				<clothingAccessRequired>
 					<clothingAccess>FEET</clothingAccess>
 				</clothingAccessRequired>
 				<blockedBodyParts>
 					<bodyPart>FEET</bodyPart>
 				</blockedBodyParts>
-				<clothingAccessBlocked> 
+				<clothingAccessBlocked>
 					<clothingAccess>FEET</clothingAccess>
 				</clothingAccessBlocked>
 				<concealedSlots/>
 			</blockedParts>
+			
 		</blockedPartsList>
 		
-		<incompatibleSlots/> 
+		<incompatibleSlots/>
 		
-		<primaryColours values="ALL"/> 
+		<primaryColours values="ALL"/>
 		<primaryColoursDye/>
 		<secondaryColours>
 			<colour>CLOTHING_WHITE</colour>
@@ -45,9 +48,10 @@
 		</tertiaryColours>
 		<tertiaryColoursDye values="ALL_METAL"/>
 		
-		<itemTags> 
+		<itemTags>
 			<tag>SOLD_BY_NYAN</tag>
 		</itemTags>
+		
 	</coreAttributes>
 
   <replacementText type="REMOVE_OR_EQUIP">
@@ -73,5 +77,6 @@
       <![CDATA[[npc.Name] roughly [npc.verb(untie)] the laces of [npc2.namePos] sneakers, before tugging them off.]]>
     </otherRough>
   </displacementText>
-	
+
+
 </clothing>

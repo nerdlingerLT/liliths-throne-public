@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clothing>
+	<coreAttributes>
+		<authorTag><![CDATA[You can read on the tag inside that it was made by 'GLIDE'.]]></authorTag>
+		<value>600</value>
+		<determiner><![CDATA[a pair of]]></determiner>
+		<name><![CDATA[martial arts shorts]]></name>
+		<namePlural pluralByDefault="true"><![CDATA[martial arts shorts]]></namePlural>
+		<description><![CDATA[A pair of lightweight shorts designed for combat sports.]]></description>
+		<physicalResistance>0</physicalResistance>
+		<femininity>ANDROGYNOUS</femininity>
+		<slot>LEG</slot>
+		<rarity>EPIC</rarity>
+		<clothingSet>nerdlinger_martial_artist</clothingSet>
+		<imageName>martial_arts_shorts.svg</imageName>
+		<imageEquippedName/>
+		<enchantmentLimit/>
+		
+		<effects>
+              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="CRITICAL_DAMAGE" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="DAMAGE_UNARMED" timer="0"/>
+		</effects>
+		
+		<blockedPartsList>
+			<blockedParts>
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+				<clothingAccessRequired>
+					<clothingAccess>LEGS_UP_TO_GROIN</clothingAccess>
+				</clothingAccessRequired>
+				<blockedBodyParts/>
+				<clothingAccessBlocked>
+					<clothingAccess>LEGS_UP_TO_GROIN</clothingAccess>
+				</clothingAccessBlocked>
+				<concealedSlots/>
+			</blockedParts>
+			
+			<blockedParts>
+				<displacementType>PULLS_DOWN</displacementType>
+				<clothingAccessRequired/>
+				<blockedBodyParts>
+					<bodyPart>ANUS</bodyPart>
+					<bodyPart>PENIS</bodyPart>
+					<bodyPart>VAGINA</bodyPart>
+					<bodyPart>THIGHS</bodyPart>
+				</blockedBodyParts>
+				<clothingAccessBlocked>
+					<clothingAccess>GROIN</clothingAccess>
+					<clothingAccess>ANUS</clothingAccess>
+				</clothingAccessBlocked>
+				<concealedSlots values="CONCEALED_GROIN"/>
+			</blockedParts>
+			
+		</blockedPartsList>
+		
+		<incompatibleSlots/>
+		
+		<primaryColours>
+			<colour>CLOTHING_PURPLE_DARK</colour>
+			<colour>CLOTHING_BLACK</colour>
+			<colour>CLOTHING_BLUE</colour>
+			<colour>CLOTHING_WHITE</colour>
+		</primaryColours>
+		<primaryColoursDye values="ALL"/>
+		<secondaryColours>
+			<colour>CLOTHING_RED</colour>
+		</secondaryColours>
+		<secondaryColoursDye values="ALL"/>
+		<tertiaryColours>
+			<colour>CLOTHING_GOLD</colour>
+		</tertiaryColours>
+		<tertiaryColoursDye values="ALL_METAL"/>
+		
+		<itemTags>
+			<tag>SOLD_BY_VICKY</tag>
+		</itemTags>
+		
+	</coreAttributes>
+	
+	<displacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(loosen)] the waistband on [npc.his] shorts by lifting the velcro flap at the front, before slipping them off.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(loosen)] the waistband on [npc2.namePos] shorts by lifting the velcro flap at the front, before slipping them off.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] forcefully [npc.verb(pull)] on the velcro flap at the front og [npc2.namePos] shorts to looesen the waistband, before yanking them off.]]>
+		</otherRough>
+	</displacementText>
+	 
+	<replacementText type="REMOVE_OR_EQUIP">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(step)] into the shorts, before pulling them up at [npc.his] waist to secure them by closing the velcro flap at the front.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(get)] [npc2.name] to step into the shorts, before pulling them up at [npc2.his] waist to secure them by closing the velcro flap at the front.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] [npc.verb(make)] [npc2.name] step into and wear the shorts.]]>
+		</otherRough>
+	</replacementText>
+	
+	
+	<displacementText type="PULLS_DOWN">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(lift)] the velcro flap on [npc.his] shorts open, before pulling them down.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(lift)] the velcro flap on [npc2.namePos] shorts open, before pulling them down.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] forcefully [npc.verb(rip)] [npc2.namePos] shorts open, before yanking them down.]]>
+		</otherRough>
+	</displacementText>
+	 
+	<replacementText type="PULLS_DOWN">
+		<self>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] the shorts on, before securing them at [npc.his] waist by closing the velcro flap at the front.]]>
+		</self>
+		<other>
+		  <![CDATA[[npc.Name] [npc.verb(pull)] the shorts on [npc2.name], before securing them at [npc2.his] waist by closing the velcro flap at the front.]]>
+		</other>
+		<otherRough>
+		  <![CDATA[[npc.Name] roughly [npc.verb(order)] [npc2.name] to adjust [npc2.his] shorts.]]>
+		</otherRough>
+	</replacementText>
+
+
+</clothing>
