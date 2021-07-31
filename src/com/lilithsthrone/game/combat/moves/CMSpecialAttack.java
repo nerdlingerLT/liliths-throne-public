@@ -389,13 +389,13 @@ public class CMSpecialAttack {
         @Override
         public List<String> getCritRequirements(GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
         	return Util.newArrayListOfValues(
-        			 "Cannot crit.");
+        			 "Used in the first turn of combat.");
         }
         
-//        @Override
-//        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
-//        	return Main.combat.getTurn()==0;
-//        }
+        @Override
+        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
+        	return Main.combat.getTurn()==0;
+        }
     };
 
 	public static AbstractCombatMove ANTLER_HEADBUTT = new AbstractCombatMove(CombatMoveCategory.SPECIAL,
