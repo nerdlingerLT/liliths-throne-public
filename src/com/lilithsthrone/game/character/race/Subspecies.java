@@ -136,10 +136,9 @@ public class Subspecies {
 			null,
 			"Humans have a much higher resistance to the arousing effects of the arcane than any other race.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
-					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 10f),
-					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, 10f),
+					new Value<>(Attribute.MAJOR_ARCANE, 0f),
+					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
 					new Value<>(Attribute.RESISTANCE_LUST, 5f)),
 			null,
 			"Concerning Humans",
@@ -397,7 +396,6 @@ public class Subspecies {
 			null,
 			"Due to the fact that demons are very easily able to harness arcane power, [npc.namePos] spell-casting abilities are truly a terrifying force to behold!",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 75f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 25f),
 					new Value<>(Attribute.MAJOR_ARCANE, 30f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 100f),
@@ -413,9 +411,9 @@ public class Subspecies {
 			"DEMON_ADVANCED",
 			Race.DEMON,
 			Util.newHashMapOfValues(
-					new Value<>(PerkCategory.PHYSICAL, 10),
-					new Value<>(PerkCategory.LUST, 5),
-					new Value<>(PerkCategory.ARCANE, 2)),
+					new Value<>(PerkCategory.PHYSICAL, 2),
+					new Value<>(PerkCategory.LUST, 10),
+					new Value<>(PerkCategory.ARCANE, 5)),
 			Util.newHashMapOfValues(
 					new Value<>(PerkCategory.PHYSICAL, 10),
 					new Value<>(PerkCategory.LUST, 2),
@@ -574,7 +572,6 @@ public class Subspecies {
 			null,
 			"Half-demons are almost as capable as regular demons at harnessing arcane power, and as a result, [npc.namePos] spell-casting abilities are exceptionally powerful!",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 10f),
 					new Value<>(Attribute.MAJOR_ARCANE, 20f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 50f),
@@ -724,7 +721,7 @@ public class Subspecies {
 			null,
 			"[npc.NamePos] impish body has a deep, insatiable craving for sex. Due to imps' uncouth mannerisms and reputation as being on the very bottom rung of society, [npc.she] [npc.verb(find)] it difficult to seduce others...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, -50f),
+					new Value<>(Attribute.HEALTH_MAXIMUM, -50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, -5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 200f),
@@ -798,7 +795,7 @@ public class Subspecies {
 			null,
 			"[npc.NamePos] impish body has a deep, insatiable craving for sex. Due to imps' uncouth mannerisms and reputation as being on the very bottom rung of society, [npc.she] [npc.verb(find)] it difficult to seduce others...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, -50f),
+					new Value<>(Attribute.HEALTH_MAXIMUM, -50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, -5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 200f),
@@ -885,7 +882,6 @@ public class Subspecies {
 					4, false),
 			"Although [npc.namePos] body possesses a great strength and toughness, [npc.her] mind isn't exactly the quickest...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 60f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 30f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -965,7 +961,6 @@ public class Subspecies {
 			"[npc.Name] always [npc.has] lots of energy, and [npc.she] [npc.verb(get)] excited about new things very easily."
 					+ " [npc.She] also [npc.has] an instinctive desire to display [npc.her] dominance over innocent cat-morphs...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 20f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 10f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -1060,11 +1055,11 @@ public class Subspecies {
 			"[npc.NameIsFull] more intelligent than an average dog-morph, and [npc.has] strong urges to try and herd people around."
 					+ " [npc.She] also [npc.has] an instinctive desire to display [npc.her] dominance over innocent sheep-morphs...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 25f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 10f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
 					new Value<>(Attribute.SPELL_COST_MODIFIER, 5f),
+					new Value<>(Attribute.HEALTH_MAXIMUM, 5f),
 					new Value<>(Attribute.getRacialDamageAttribute(Race.getRaceFromId("innoxia_sheep")), 25f)),
 			null,
 			"Canine Culture",
@@ -1173,7 +1168,6 @@ public class Subspecies {
 			"[npc.NameIsFull] always ready to defend those [npc.she] [npc.verb(call)] [npc.her] friend, and, thanks to [npc.her] powerful dobermann's body, [npc.sheIs] able to do just that."
 					+ " [npc.She] also [npc.has] an instinctive desire to display [npc.her] dominance over innocent cat-morphs...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 30f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 15f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -1296,11 +1290,11 @@ public class Subspecies {
 					1, false),
 			"[npc.NameHasFull] a primitive, wolf-like appearance, and possesses levels of strength and intelligence above that of most other dog-morphs.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 35f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 15f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
-					new Value<>(Attribute.DAMAGE_PHYSICAL, 5f)),
+					new Value<>(Attribute.DAMAGE_PHYSICAL, 5f),
+					new Value<>(Attribute.HEALTH_MAXIMUM, 5f)),
 			null,
 			"Canine Culture",
 			"Canine Cultures",
@@ -1404,7 +1398,6 @@ public class Subspecies {
 					1, false),
 			"[npc.NamePos] wolf-like body is very strong, and [npc.she] often [npc.verb(get)] powerful urges to try and dominate people [npc.she] [npc.verb(meet)].",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 40f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 20f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 5f),
@@ -1535,7 +1528,6 @@ public class Subspecies {
 					1, false),
 			"[npc.NameIsFull] very sly and nimble, and [npc.sheIs] able to use [npc.her] heightened senses to detect opportune moments in which to attack.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -1607,7 +1599,6 @@ public class Subspecies {
 			"[npc.NameIsFull] very sly and nimble, and [npc.sheIs] able to use [npc.her] heightened senses to detect opportune moments in which to attack."
 					+ " As [npc.sheIsFull] adapted to arctic conditions, [npc.sheIs] also better able to resist incoming cold damage.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -1686,7 +1677,6 @@ public class Subspecies {
 					1, false),
 			"[npc.NameIsFull] very sly and nimble, and [npc.sheIs] able to use [npc.her] heightened senses to detect opportune moments in which to attack.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -2191,7 +2181,6 @@ public class Subspecies {
 			"[npc.NamePos] body is incredibly agile, and [npc.she] [npc.verb(possess)] lightning reflexes."
 					+ " [npc.She] also [npc.has] an instinctive desire to display [npc.her] dominance over innocent harpies and rodent-morphs...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -2293,7 +2282,6 @@ public class Subspecies {
 			"[npc.NamePos] body is incredibly agile, and [npc.she] [npc.verb(possess)] lightning reflexes."
 					+ " [npc.She] also [npc.has] an instinctive desire to display [npc.her] dominance over innocent harpies and rodent-morphs...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 20f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 10f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -2395,7 +2383,6 @@ public class Subspecies {
 					1, false),
 			"[npc.NameIsFull] extremely fast, and in short bursts, is capable of running at speeds far greater than any other race.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -2501,7 +2488,6 @@ public class Subspecies {
 			"[npc.NamePos] body is incredibly agile, and [npc.she] [npc.verb(possess)] lightning reflexes."
 					+ " [npc.She] also [npc.has] an instinctive desire to display [npc.her] dominance over innocent harpies and rodent-morphs...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -2981,7 +2967,6 @@ public class Subspecies {
 					true),
 			"While [npc.namePos] body possesses remarkable strength and speed, [npc.sheIs] not the sharpest tool in the shed, and [npc.verb(struggle)] more than most when it comes to harnessing the arcane.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 25f),
 					new Value<>(Attribute.MAJOR_ARCANE, -5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3081,7 +3066,6 @@ public class Subspecies {
 					true),
 			"Although physically weaker than a regular horse-morph, [npc.nameHasFull] a special bond with the arcane, and [npc.is] able to cast many spells before exhausting [npc.her] aura.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 40f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 20f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3185,7 +3169,6 @@ public class Subspecies {
 					true),
 			"Although physically weaker than a regular horse-morph, [npc.nameIsFull] a lot more agile, allowing [npc.herHim] to avoid incoming damage.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 30f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 15f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3284,7 +3267,6 @@ public class Subspecies {
 					true),
 			"Possessing both feathered wings and a unicorn horn, [npc.nameIsFull] classified as a powerful alicorn, and [npc.verb(find)] it almost effortlessly trivial to cast spells.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 30f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 15f),
 					new Value<>(Attribute.MAJOR_ARCANE, 15f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3377,7 +3359,6 @@ public class Subspecies {
 			null,
 			"Thanks to having the lower body of a horse, [npc.nameIsFull] capable of running at great speed, and [npc.is] also capable of dealing significant physical damage.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 70f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 35f),
 					new Value<>(Attribute.MAJOR_ARCANE, -5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3459,7 +3440,6 @@ public class Subspecies {
 			null,
 			"Although physically weaker than a regular centaur, [npc.nameIsFull] a lot more agile, allowing [npc.herHim] to avoid incoming damage.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 60f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 30f),
 					new Value<>(Attribute.MAJOR_ARCANE, 5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3540,7 +3520,6 @@ public class Subspecies {
 			null,
 			"Although physically weaker than a regular horse-morph, [npc.nameHasFull] a special bond with the arcane, and [npc.is] able to cast many spells before exhausting [npc.her] aura.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 25f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3625,7 +3604,6 @@ public class Subspecies {
 			null,
 			"Possessing both feathered wings and a unicorn horn, [npc.nameIsFull] classified as a powerful alicorn, and [npc.verb(find)] it almost effortlessly trivial to cast spells.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 25f),
 					new Value<>(Attribute.MAJOR_ARCANE, 15f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3727,7 +3705,6 @@ public class Subspecies {
 			"While [npc.namePos] body possesses an impressive level of both strength and speed, [npc.sheIs] not the sharpest tool in the shed, and [npc.verb(struggle)] more than most when it comes to harnessing the arcane."
 					+ " [npc.She] also [npc.has] a high resistance to both natural and arcane heat.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 25f),
 					new Value<>(Attribute.MAJOR_ARCANE, -5f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3842,7 +3819,6 @@ public class Subspecies {
 					4, false),
 			"[npc.NamePos] body is very well suited to resisting both natural and arcane cold, and is also particularly strong and hardy.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 50f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 25f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -3905,7 +3881,6 @@ public class Subspecies {
 					1, false),
 			"[npc.NamePos] body is incredibly tough, and [npc.she] [npc.verb(possess)] lightning reflexes, as well as the strength required to make the most of any sudden attacks.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 60f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 30f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -4155,7 +4130,7 @@ public class Subspecies {
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 0f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
-					new Value<>(Attribute.ENERGY_SHIELDING, 10f)),
+					new Value<>(Attribute.ENERGY_SHIELDING, 1f)),
 			null,
 			"Chasing Squirrels",
 			"Chasing Squirrels'",
@@ -4280,7 +4255,6 @@ public class Subspecies {
 			"[npc.NameIsFull] very agile and alert, and [npc.is] capable of short bursts of incredible speed."
 					+ " [npc.Her] body, whether [npc.she] [npc.verb(like)] it or not, is also adapted for producing as many offspring as possible.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -4369,7 +4343,6 @@ public class Subspecies {
 			"[npc.NameIsFull] very agile and alert, and [npc.is] capable of short bursts of incredible speed."
 					+ " [npc.Her] body, whether [npc.she] [npc.verb(like)] it or not, is also adapted for producing as many offspring as possible.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -4469,7 +4442,6 @@ public class Subspecies {
 			"Due to their unique echolocation ability, all bat-morphs have a natural desire to talk as much as possible."
 					+ " Due to this, [npc.name] continuously [npc.verb(play)] out conversations in [npc.her] head, allowing [npc.herHim] to think up new and exciting ways to seduce people before having ever met them.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 0f),
@@ -4877,7 +4849,6 @@ public class Subspecies {
 			},
 			"[npc.NameIsFull] obsessed with [npc.her] appearance, and wouldn't think it unusual for someone to want to spend at least half of their waking hours preening themselves in order to look as attractive as possible.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 0f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 5f),
@@ -4994,7 +4965,6 @@ public class Subspecies {
 			"While just as obsessed with [npc.her] looks as other harpies, [npc.nameIsFull] also naturally talented at harnessing the arcane, allowing [npc.herHim] to learn and cast spells with relative ease."
 				+ " In particular, [npc.she] [npc.has] an exceptionally high affinity with arcane fire...",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.MAJOR_ARCANE, 10f),
 					new Value<>(Attribute.MAJOR_CORRUPTION, 10f),
@@ -5094,7 +5064,6 @@ public class Subspecies {
 			null,
 			"[npc.NameIsFull] a summoned elemental, currently bound to the school of Fire.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 30f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 15f),
 					new Value<>(Attribute.DAMAGE_FIRE, 50f),
 					new Value<>(Attribute.RESISTANCE_FIRE, 50f)),
@@ -5176,7 +5145,6 @@ public class Subspecies {
 			null,
 			"[npc.NameIsFull] a summoned elemental, currently bound to the school of Earth.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 100f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 50f),
 					new Value<>(Attribute.DAMAGE_PHYSICAL, 50f),
 					new Value<>(Attribute.RESISTANCE_PHYSICAL, 50f)),
@@ -5256,7 +5224,6 @@ public class Subspecies {
 			null,
 			"[npc.NameIsFull] a summoned elemental, currently bound to the school of Water.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 30f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 15f),
 					new Value<>(Attribute.DAMAGE_ICE, 50f),
 					new Value<>(Attribute.RESISTANCE_ICE, 50f)),
@@ -5335,7 +5302,6 @@ public class Subspecies {
 			null,
 			"[npc.NameIsFull] a summoned elemental, currently bound to the school of Air.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 10f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 5f),
 					new Value<>(Attribute.DAMAGE_POISON, 50f),
 					new Value<>(Attribute.RESISTANCE_POISON, 50f)),
@@ -5414,7 +5380,6 @@ public class Subspecies {
 			null,
 			"[npc.NameIsFull] a summoned elemental, currently bound to the school of Arcane.",
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.HEALTH_MAXIMUM, 30f),
 					new Value<>(Attribute.MAJOR_PHYSIQUE, 15f),
 					new Value<>(Attribute.DAMAGE_LUST, 50f),
 					new Value<>(Attribute.RESISTANCE_LUST, 50f)),
