@@ -1150,15 +1150,15 @@ public class CMBasicAttack {
 
 	@Override
     	public DamageType getDamageType(GameCharacter source) {
-            return DamageType.LUST;
+            return DamageType.HEALTH;
     	}
     	
         protected int getBaseDamage(GameCharacter source) {
-            return (int) Math.max(1, getManaGain(source)*0.1f);
+            return (int) Math.max(1, 10 * (source.getAttributeValue(Attribute.MAJOR_ARCANE)/100) + (source.getLevel()/5));
         }
 
         private int getManaGain(GameCharacter source) {
-            return source.getLevel()*2;
+            return (int)(source.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f);
         }
         
         protected int getDamage(GameCharacter source, GameCharacter target) {
