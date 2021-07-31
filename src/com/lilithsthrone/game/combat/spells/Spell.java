@@ -2719,7 +2719,7 @@ public enum Spell {
 			SpellSchool.ARCANE,
 			SpellType.DEFENSIVE_STATUS_EFFECT,
 			DamageType.MISC,
-			true,
+			false,
 			"Witch's Charm",
 			"spell_witch_charm",
 			"Places an arcane enchantment upon the target, causing them to appear irresistibly beautiful to anyone who looks upon them.",
