@@ -343,7 +343,7 @@ public abstract class AbstractCombatMove {
 		if(target!=null && damageType==DamageType.LUST && targetWasAtMaximumLust) {
 			damageType = DamageType.HEALTH;
 			if(damageHasBeenApplied) {
-				damage /= 2;
+				damage /= 1;
 			}
 			return "<span style='color:" + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + String.valueOf(damage*2) + " " + damageType.getName() + "</span>"
 					+ " and <span style='color:" + PresetColour.DAMAGE_TYPE_MANA.toWebHexString() + ";'>" + String.valueOf(damage) + " " + Attribute.MANA_MAXIMUM.getName() + "</span>";
