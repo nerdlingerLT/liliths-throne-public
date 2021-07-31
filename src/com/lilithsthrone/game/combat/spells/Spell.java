@@ -222,7 +222,7 @@ public enum Spell {
 		@Override
 		public String getBasicEffectsString(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FLASH_1)) {
-				return "Dazzles for [style.colourTerrible(-1)] action points!";
+				return "Dazzles for [style.colourTerrible(-2)] action points!";
 			}
 			return "Dazzles for [style.colourTerrible(-1)] action points!";
 		}
@@ -324,16 +324,16 @@ public enum Spell {
 		@Override
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_3)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_3, 4));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_3, 3));
 				
 			} else if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_2)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_2, 4));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_2, 3));
 				
 			} else if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_1)) {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_1, 4));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_1, 3));
 				
 			} else {
-				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES, 4));
+				return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES, 3));
 			}
 		}
 		
@@ -748,12 +748,10 @@ public enum Spell {
 				return new Value<>(true, UtilText.parse(owner, target, description+"<br/>"+cost));
 			}
 		}
-
 		@Override
 		public String getBasicEffectsString(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
 			return "Heals the target.";
 		}
-
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies, boolean isHit, boolean isCritical) {
 
@@ -799,10 +797,10 @@ public enum Spell {
 						for(GameCharacter combatant : alliesPlusCaster) {
 							descriptionSB.append("<br/>"
 									+ UtilText.parse(combatant, "One of the small orbs flies towards [npc.name], healing [npc.herHim] for a total of "
-																+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-																+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!"));
+																+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
+																+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!"));
 							descriptionSB.append(applyDamage(caster, combatant, -combatant.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f));
-							combatant.incrementMana(combatant.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
+							combatant.incrementMana(combatant.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f);
 							if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_1_CLEAN)) {
 								descriptionSB.append(UtilText.parse(combatant, "<br/>[npc.NamePos] body and all of [npc.her] worn clothing is [style.colourAqua(cleaned)] by the spell!"));
 								combatant.cleanAllClothing(false, false);
@@ -824,26 +822,26 @@ public enum Spell {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<br/>"
 								+ "The orb of water heals "+UtilText.parse(target,"[npc.name]")+" for a total of "
-									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*1f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
+									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
 									+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!");
-					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*1f));
+					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_1)) {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<br/>"
 								+"The orb of water heals "+UtilText.parse(target,"[npc.name]")+" for a total of "
-									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
+									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
 									+(int)(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f)+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!");
-					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f));
+					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
 					
 				} else {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<br/>"
 								+ "The orb of water heals "+UtilText.parse(target,"[npc.name]")+" for a total of "
-									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+"!");
-					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.6f));
+									+(int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f)+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+"!");
+					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f));
 				}
 				if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_1_CLEAN)) {
 					descriptionSB.append(UtilText.parse(target, "<br/>[npc.NamePos] body and all of [npc.her] worn clothing is [style.colourAqua(cleaned)] by the spell!"));
@@ -1208,16 +1206,16 @@ public enum Spell {
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_3)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 8));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 5));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_2)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 4));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 3));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_1)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_GUIDING_WIND, 4));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_GUIDING_WIND, 3));
 					
 				} else {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS, 4));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS, 3));
 				}
 			}
 			return new HashMap<>();
@@ -1594,16 +1592,16 @@ public enum Spell {
 		public Map<AbstractStatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_3)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_EXPLOSIVE_FINISH, 4));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_EXPLOSIVE_FINISH, 3));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_2)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_HARDENED_CARAPACE, 4));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_HARDENED_CARAPACE, 3));
 					
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_1)) {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_SHIFTING_SANDS, 4));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL_SHIFTING_SANDS, 3));
 					
 				} else {
-					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL, 4));
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.STONE_SHELL, 3));
 				}
 			}
 			return new HashMap<>();
@@ -1792,7 +1790,10 @@ public enum Spell {
 				if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_3)) {
 					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_DIRTY_PROMISES, 3));
 					
-				} else 	return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_LUSTFUL_DISTRACTION, 3));
+				} else if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2)) {
+					return Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_LUSTFUL_DISTRACTION, 2));
+					
+				}
 			}
 			return new HashMap<>();
 		}
@@ -1800,9 +1801,9 @@ public enum Spell {
 		@Override
 		public int getDamage(GameCharacter caster) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_1)) {
-				return 20;
+				return 30;
 			}
-			return 10;
+			return 15;
 		}
 		
 		@Override
@@ -1898,7 +1899,7 @@ public enum Spell {
 			}
 			return new HashMap<>();
 		}
-
+		
 		@Override
 		public String getBasicEffectsString(GameCharacter caster, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
 			return "Speak directly into the target's mind.";
@@ -2716,9 +2717,9 @@ public enum Spell {
 	
 	WITCH_CHARM(false,
 			SpellSchool.ARCANE,
-			SpellType.OFFENSIVE_STATUS_EFFECT,
+			SpellType.DEFENSIVE_STATUS_EFFECT,
 			DamageType.MISC,
-			false,
+			true,
 			"Witch's Charm",
 			"spell_witch_charm",
 			"Places an arcane enchantment upon the target, causing them to appear irresistibly beautiful to anyone who looks upon them.",
@@ -2797,28 +2798,13 @@ public enum Spell {
 			"Unleashes a reverberating scream, the power of which causes the ground to split open. From this fissure, poisonous vapours rise to choke and stifle all nearby enemies.",
 			70,
 			DamageVariance.NONE,
-			70,
+			200,
 			Util.newHashMapOfValues(new Value<AbstractStatusEffect, Integer>(StatusEffect.BANEFUL_FISSURE, 10)),
 			null,
 			null,
 			Util.newArrayListOfValues(
-					"<b>50</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(10 turns)]",
+					"<b>25</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(10 turns)]",
 					"Affects [style.colourExcellent(all enemies)]")) {
-
-		@Override
-		public int getAPCost() {
-			return 1;
-                }
-
-                @Override
-		public int getCooldown() {
-			return 5;
-		}
-		
-		@Override
-                public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
-                        return 10;
-                }
 
 		@Override
 		public boolean isSpellBook() {
