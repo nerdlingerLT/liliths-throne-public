@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sexManager>
 	<title/>
+	<wallName><![CDATA[bins]]></wallName>
+	<deskName><![CDATA[bins]]></deskName>
 	<consensual><![CDATA[true]]></consensual>
-	<subHasEqualControl><![CDATA[true]]></subHasEqualControl>
+	<subHasEqualControl><![CDATA[false]]></subHasEqualControl>
 	<canSkipSex><![CDATA[true]]></canSkipSex>
 	<washingScene><![CDATA[false]]></washingScene>
-	<sadisticActionsAllowed><![CDATA[false]]></sadisticActionsAllowed>
+	<sadisticActionsAllowed><![CDATA[true]]></sadisticActionsAllowed>
 	<canItemsBeUsed><![CDATA[false]]></canItemsBeUsed>
 	<exposingReactions><![CDATA[false]]></exposingReactions>
 	<positionsAvailable exclusive="false">
-		<position><![CDATA[STANDING]]></position>
+		<position><![CDATA[OVER_DESK]]></position>
 	</positionsAvailable>
 	<publicSex>
 		<isPublic><![CDATA[false]]></isPublic>
@@ -20,21 +22,22 @@
 		<characterInformation>
 			<characterId>pc</characterId>
 			<slotsAvailable excluded="false">
-				<slot><![CDATA[PERFORMING_ORAL]]></slot>
+				<slot><![CDATA[OVER_DESK_BETWEEN_LEGS]]></slot>
 			</slotsAvailable>
-			<canStopSex><![CDATA[false]]></canStopSex>
+			<canStopSex><![CDATA[true]]></canStopSex>
+			<canChangePositions><![CDATA[false]]></canChangePositions>
 			<endSexAffectionChanges><![CDATA[false]]></endSexAffectionChanges>
 			<showStartingExposedDescriptions><![CDATA[false]]></showStartingExposedDescriptions>
 			<sexPace/>
 			<canSelfTransform><![CDATA[true]]></canSelfTransform>
 			<hidden><![CDATA[false]]></hidden>
 			<control/>
-			<sexClothingEquippable><![CDATA[true]]></sexClothingEquippable>
+			<sexClothingEquippable><![CDATA[false]]></sexClothingEquippable>
 			<selfClothingRemoval><![CDATA[true]]></selfClothingRemoval>
 			<partnerClothingRemoval><![CDATA[false]]></partnerClothingRemoval>
 			<startNaked><![CDATA[false]]></startNaked>
 			<exposeAtStart preferRemoval="false">
-				<coverableArea><![CDATA[MOUTH]]></coverableArea>
+				<coverableArea><![CDATA[PENIS]]></coverableArea>
 			</exposeAtStart>
 			<forcedCreampiesDisabled/>
 			<orgasmBehaviour><![CDATA[DEFAULT]]></orgasmBehaviour>
@@ -43,7 +46,14 @@
 			<orgasmEncourageBehaviours/>
 			<concealedSlots/>
 			<preferredTarget/>
-			<preferences/>
+			<preferences>
+				<character id="pc">
+					<foreplay copyForMain="true">
+						<performing><![CDATA[PENETRATION_PENIS]]></performing>
+						<targeted><![CDATA[ORIFICE_VAGINA]]></targeted>
+					</foreplay>
+				</character>
+			</preferences>
 			<uniqueSexActions/>
 			<sexTypesBanned/>
 			<areasBanned/>
@@ -52,58 +62,47 @@
 		</characterInformation>
 		
 		<characterInformation>
-			<characterId>vronti</characterId>
-			<slotsAvailable exclusive="false">
-				<slot><![CDATA[STANDING_DOMINANT]]></slot>
+			<characterId>nizhoni</characterId>
+			<slotsAvailable excluded="false">
+				<slot><![CDATA[OVER_DESK_OVER_DESK_ON_FRONT]]></slot>
 			</slotsAvailable>
 			<canStopSex><![CDATA[true]]></canStopSex>
 			<canChangePositions><![CDATA[false]]></canChangePositions>
 			<endSexAffectionChanges><![CDATA[false]]></endSexAffectionChanges>
 			<showStartingExposedDescriptions><![CDATA[false]]></showStartingExposedDescriptions>
 			<sexPace/>
-			<canSelfTransform><![CDATA[false]]></canSelfTransform>
+			<canSelfTransform><![CDATA[true]]></canSelfTransform>
 			<hidden><![CDATA[false]]></hidden>
 			<control/>
 			<sexClothingEquippable><![CDATA[false]]></sexClothingEquippable>
 			<selfClothingRemoval><![CDATA[false]]></selfClothingRemoval>
 			<partnerClothingRemoval><![CDATA[false]]></partnerClothingRemoval>
 			<startNaked><![CDATA[false]]></startNaked>
-			<exposeAtStart/>
+			<exposeAtStart preferRemoval="false">
+				<coverableArea><![CDATA[VAGINA]]></coverableArea>
+			</exposeAtStart>
 			<forcedCreampiesDisabled/>
 			<orgasmBehaviour><![CDATA[DEFAULT]]></orgasmBehaviour>
 			<orgasmCumTarget/>
+			<orgasmCumTargetsBlocked/>
 			<orgasmEncourageBehaviours/>
 			<concealedSlots/>
 			<preferredTarget/>
-			<uniqueSexActions/>
 			<preferences>
 				<character id="pc">
-					<foreplay>
-						<performing><![CDATA[PENETRATION_PENIS]]></performing>
-						<targeted><![CDATA[ORIFICE_MOUTH]]></targeted>
+					<foreplay copyForMain="true">
+						<performing><![CDATA[ORIFICE_VAGINA]]></performing>
+						<targeted><![CDATA[PENETRATION_PENIS]]></targeted>
 					</foreplay>
-					<mainSex>
-						<performing><![CDATA[PENETRATION_PENIS]]></performing>
-						<targeted><![CDATA[ORIFICE_MOUTH]]></targeted>
-					</mainSex>
 				</character>
 			</preferences>
+			<uniqueSexActions/>
 			<sexTypesBanned/>
 			<areasBanned/>
-			<stopSexCondition><![CDATA[
-				[#sex.isSatisfiedFromOrgasms(vronti, true)]
-			]]></stopSexCondition>
-			<dirtyTalk>
-				<character id="pc">
-					<standard additionToDefault="false">
-						<line><![CDATA[Keep going...]]></line>
-						<line><![CDATA[More...]]></line>
-						<line><![CDATA[You're good at this...]]></line>
-						<line><![CDATA[That's it... Like that...]]></line>
-					</standard>
-				</character>
-			</dirtyTalk>
+			<stopSexCondition/>
+			<dirtyTalk/>
 		</characterInformation>
+		
 	</characterInformationContainer>
 		
 </sexManager>

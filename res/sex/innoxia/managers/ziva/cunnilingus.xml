@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sexManager>
 	<title/>
+	<wallName><![CDATA[crates]]></wallName>
+	<deskName><![CDATA[crate]]></deskName>
 	<consensual><![CDATA[true]]></consensual>
 	<subHasEqualControl><![CDATA[true]]></subHasEqualControl>
 	<canSkipSex><![CDATA[true]]></canSkipSex>
 	<washingScene><![CDATA[false]]></washingScene>
-	<sadisticActionsAllowed><![CDATA[false]]></sadisticActionsAllowed>
+	<sadisticActionsAllowed><![CDATA[true]]></sadisticActionsAllowed>
 	<canItemsBeUsed><![CDATA[false]]></canItemsBeUsed>
 	<exposingReactions><![CDATA[false]]></exposingReactions>
 	<positionsAvailable exclusive="false">
 		<position><![CDATA[STANDING]]></position>
+		<position><![CDATA[AGAINST_WALL]]></position>
 	</positionsAvailable>
 	<publicSex>
 		<isPublic><![CDATA[false]]></isPublic>
 		<startingDescription/>
 		<randomDescriptions/>
 	</publicSex>
+	
 	<characterInformationContainer>
 		<characterInformation>
 			<characterId>pc</characterId>
 			<slotsAvailable excluded="false">
-				<slot><![CDATA[PERFORMING_ORAL]]></slot>
+				<slot><![CDATA[STANDING_PERFORMING_ORAL]]></slot>
+				<slot><![CDATA[AGAINST_WALL_PERFORMING_ORAL_WALL]]></slot>
 			</slotsAvailable>
 			<canStopSex><![CDATA[false]]></canStopSex>
+			<canChangePositions><![CDATA[false]]></canChangePositions>
 			<endSexAffectionChanges><![CDATA[false]]></endSexAffectionChanges>
 			<showStartingExposedDescriptions><![CDATA[false]]></showStartingExposedDescriptions>
 			<sexPace/>
@@ -46,29 +52,37 @@
 			<preferences/>
 			<uniqueSexActions/>
 			<sexTypesBanned/>
-			<areasBanned/>
+			<areasBanned appliesToSelf="false">
+				<sexArea><![CDATA[PENETRATION_TAIL]]></sexArea>
+				<sexArea><![CDATA[PENETRATION_TENTACLE]]></sexArea>
+			</areasBanned>
 			<stopSexCondition/>
 			<dirtyTalk/>
 		</characterInformation>
 		
 		<characterInformation>
-			<characterId>vronti</characterId>
+			<characterId>ziva</characterId>
 			<slotsAvailable exclusive="false">
-				<slot><![CDATA[STANDING_DOMINANT]]></slot>
+				<slot><![CDATA[STANDING_STANDING_DOMINANT]]></slot>
+				<slot><![CDATA[AGAINST_WALL_BACK_TO_WALL]]></slot>
+				<slot><![CDATA[AGAINST_WALL_FACE_TO_WALL]]></slot>
 			</slotsAvailable>
 			<canStopSex><![CDATA[true]]></canStopSex>
 			<canChangePositions><![CDATA[false]]></canChangePositions>
 			<endSexAffectionChanges><![CDATA[false]]></endSexAffectionChanges>
 			<showStartingExposedDescriptions><![CDATA[false]]></showStartingExposedDescriptions>
-			<sexPace/>
+			<sexPace locked="true"><![CDATA[DOM_NORMAL]]></sexPace>
 			<canSelfTransform><![CDATA[false]]></canSelfTransform>
 			<hidden><![CDATA[false]]></hidden>
-			<control/>
+			<control><![CDATA[ONGOING_ONLY]]></control>
 			<sexClothingEquippable><![CDATA[false]]></sexClothingEquippable>
 			<selfClothingRemoval><![CDATA[false]]></selfClothingRemoval>
 			<partnerClothingRemoval><![CDATA[false]]></partnerClothingRemoval>
 			<startNaked><![CDATA[false]]></startNaked>
-			<exposeAtStart/>
+			<exposeAtStart preferRemoval="false">
+				<coverableArea><![CDATA[VAGINA]]></coverableArea>
+				<coverableArea><![CDATA[NIPPLES]]></coverableArea>
+			</exposeAtStart>
 			<forcedCreampiesDisabled/>
 			<orgasmBehaviour><![CDATA[DEFAULT]]></orgasmBehaviour>
 			<orgasmCumTarget/>
@@ -78,31 +92,18 @@
 			<uniqueSexActions/>
 			<preferences>
 				<character id="pc">
-					<foreplay>
-						<performing><![CDATA[PENETRATION_PENIS]]></performing>
-						<targeted><![CDATA[ORIFICE_MOUTH]]></targeted>
+					<foreplay copyForMain="true">
+						<performing><![CDATA[ORIFICE_VAGINA]]></performing>
+						<targeted><![CDATA[PENETRATION_TONGUE]]></targeted>
 					</foreplay>
-					<mainSex>
-						<performing><![CDATA[PENETRATION_PENIS]]></performing>
-						<targeted><![CDATA[ORIFICE_MOUTH]]></targeted>
-					</mainSex>
 				</character>
 			</preferences>
 			<sexTypesBanned/>
 			<areasBanned/>
 			<stopSexCondition><![CDATA[
-				[#sex.isSatisfiedFromOrgasms(vronti, true)]
+				[#sex.isSatisfiedFromOrgasms(ziva, true) && (sex.isSatisfiedFromOrgasms(pc, true) || sex.getNumberOfOrgasms(ziva)>=3)]
 			]]></stopSexCondition>
-			<dirtyTalk>
-				<character id="pc">
-					<standard additionToDefault="false">
-						<line><![CDATA[Keep going...]]></line>
-						<line><![CDATA[More...]]></line>
-						<line><![CDATA[You're good at this...]]></line>
-						<line><![CDATA[That's it... Like that...]]></line>
-					</standard>
-				</character>
-			</dirtyTalk>
+			<dirtyTalk/>
 		</characterInformation>
 	</characterInformationContainer>
 		
