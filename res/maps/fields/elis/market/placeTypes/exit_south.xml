@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <placeType>
 	<worldRegion>FIELD_CITY</worldRegion>
-	<name><![CDATA[The Third Eye]]></name>
-	<tooltipDescription><![CDATA[Behind the curtains of this stall, a rabbit-girl offers to tell people their fortune in exchange for a Faire ticket.]]></tooltipDescription>
-	<virginityLossDescription><![CDATA[in the Farmer's Market in Elis]]></virginityLossDescription>
+	<name><![CDATA[Exit]]></name>
+	<tooltipDescription><![CDATA[Along each of the four sides of the market, the road leads off into the rest of Elis.]]></tooltipDescription>
+	<virginityLossDescription><![CDATA[in Elis's Farmer's Market]]></virginityLossDescription>
 	<sexBlockedReason/>
 	<sexBlockedFromCharacterPresent>true</sexBlockedFromCharacterPresent>
-	<svgName>fortunes</svgName>
-	<colour>BASE_PURPLE</colour>
+	<colour>BASE_RED</colour>
 	<backgroundColour>MAP_BACKGROUND</backgroundColour>
 	<encounterType>null</encounterType>
-	<dialogue>innoxia_places_fields_elis_market_fortunes</dialogue>
-	<populationPresent/>
+	<dialogue>innoxia_places_fields_elis_market_exit</dialogue>
+	<populationPresent copyPlaceType="innoxia_fields_elis_market_path"/>
+	<furniturePresent>false</furniturePresent>
 	<globalMapTile>false</globalMapTile>
 	<dangerous><![CDATA[false]]></dangerous>
 	<itemsDisappear><![CDATA[true]]></itemsDisappear>
-	<furniturePresent deskName="table">true</furniturePresent>
-	<wallsPresent wallName="shelving">true</wallsPresent>
 	<aquatic><![CDATA[LAND]]></aquatic>
 	<darkness><![CDATA[ALWAYS_LIGHT]]></darkness>
 	<teleportPermissions>BOTH</teleportPermissions>
