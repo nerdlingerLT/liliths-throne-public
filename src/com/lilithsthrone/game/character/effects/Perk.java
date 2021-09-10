@@ -651,8 +651,8 @@ public class Perk {
 			"perks/jobs/npc_slime_queen_guard",
 			PresetColour.RACE_REINDEER_MORPH,
 			Util.newHashMapOfValues(
-					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 25),
-					new Value<>(Attribute.HEALTH_MAXIMUM, 25)),
+					new Value<>(Attribute.HEALTH_MAXIMUM, 25),
+                                        new Value<>(Attribute.DAMAGE_MELEE_WEAPON, 10)),
 			null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -2555,8 +2555,8 @@ public class Perk {
 			PresetColour.ATTRIBUTE_LUST,
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.MAJOR_ARCANE, 25),
-					new Value<>(Attribute.HEALTH_MAXIMUM, 100),
-					new Value<>(Attribute.MANA_MAXIMUM, 100),
+					new Value<>(Attribute.HEALTH_MAXIMUM, 150),
+					new Value<>(Attribute.MANA_MAXIMUM, 150),
 					new Value<>(Attribute.ENCHANTMENT_LIMIT, 100)),
 			null) {
 

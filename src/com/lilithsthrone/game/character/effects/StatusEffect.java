@@ -1433,7 +1433,7 @@ public class StatusEffect {
 			"weatherDayStorm",
 			PresetColour.CLOTHING_WHITE,
 			false,
-			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_LUST, -5f)),
+			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_LUST, -10f)),
 			Util.newArrayListOfValues("<b style='color: "+ PresetColour.GENERIC_ARCANE.toWebHexString()+ ";'>Enhanced libido</b>",
 					"[style.boldExcellent(Double)] all <b style='color: "+ PresetColour.GENERIC_ARCANE.toWebHexString()+ ";'>Essence gains</b> from sex & combat")) {
 		@Override
@@ -7796,7 +7796,7 @@ public class StatusEffect {
 			PresetColour.BASE_PINK,
 			true,
 			Util.newHashMapOfValues(new Value<>(Attribute.DAMAGE_LUST, 15f),
-					new Value<>(Attribute.MAJOR_CORRUPTION, 5f)),
+					new Value<>(Attribute.MAJOR_CORRUPTION, 10f)),
 			null) {
 		@Override
 		public StatusEffectCategory getCategory() {
@@ -8346,8 +8346,8 @@ public class StatusEffect {
 			false,
 			null,
 			Util.newArrayListOfValues("Incoming <b style='color:"+PresetColour.ATTRIBUTE_LUST.toWebHexString()+";'>Lust damage</b> dealt as"
-							+ " <b style='color:"+PresetColour.ATTRIBUTE_HEALTH.toWebHexString()+";'>2*Energy damage</b>"
-							+ " and <b style='color:"+PresetColour.ATTRIBUTE_MANA.toWebHexString()+";'>1*Aura damage</b>",
+							+ " <b style='color:"+PresetColour.ATTRIBUTE_HEALTH.toWebHexString()+";'>Energy damage</b>"
+							+ " and <b style='color:"+PresetColour.ATTRIBUTE_MANA.toWebHexString()+";'>Aura damage</b>",
 					"<b style='color: " + PresetColour.GENERIC_TERRIBLE.toWebHexString() + "'>Incoming damage ignores all shielding</b>")) {
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -8950,10 +8950,10 @@ public class StatusEffect {
 			PresetColour.DAMAGE_TYPE_POISON,
 			false,
 			null,
-			Util.newArrayListOfValues("<b>25</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" per turn</b>")) {
+			Util.newArrayListOfValues("<b>35</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" per turn</b>")) {
 		@Override
 		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> damageValue = DamageType.POISON.damageTarget(null, target, 25);
+			Value<String, Integer> damageValue = DamageType.POISON.damageTarget(null, target, 35);
 
 			return UtilText.parse(target, "[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue()+ "</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+"!")+damageValue.getKey();
 		}
@@ -9002,7 +9002,9 @@ public class StatusEffect {
 			false,
 			Util.newHashMapOfValues(
                                         new Value<>(Attribute.DAMAGE_UNARMED, -20f)),
-			Util.newArrayListOfValues("<b>Severe</b> [style.boldFire(Fire Damage)] per turn</b>")) {
+			Util.newArrayListOfValues(
+                                        "<b>Severe</b> [style.boldFire(Fire Damage)] per turn</b>",
+                                        "[style.colourGood(Instant thawing effect)]")) {
 
 		@Override
 		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
@@ -9054,7 +9056,7 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect FLASH_1 = new AbstractStatusEffect(10,
-			"Blinded (Secondary Sparks)",
+			"Secondary Sparks",
 			null,
 			PresetColour.DAMAGE_TYPE_FIRE,
 			false,
@@ -9069,7 +9071,7 @@ public class StatusEffect {
 		}
 		@Override
 		public String getSVGString(GameCharacter owner) {
-			return SpellUpgrade.FLASH_1.getSVGString();
+			return SpellUpgrade.FLASH_3.getSVGString();
 		}
 		@Override
 		public boolean isCombatEffect() {
@@ -9084,7 +9086,8 @@ public class StatusEffect {
 			Util.newHashMapOfValues(
                                         new Value<>(Attribute.RESISTANCE_FIRE, 15f),
 					new Value<>(Attribute.RESISTANCE_ICE, 20f)),
-			null) {
+			Util.newArrayListOfValues(
+                                        "[style.colourGood(Instant thawing effect)]")) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -9093,7 +9096,7 @@ public class StatusEffect {
 		}
 		@Override
 		public String getSVGString(GameCharacter owner) {
-			return SpellUpgrade.CLOAK_OF_FLAMES_1.getSVGString();
+			return Spell.CLOAK_OF_FLAMES.getSVGString();
 		}
 		@Override
 		public boolean isCombatEffect() {
@@ -9102,14 +9105,13 @@ public class StatusEffect {
 	};
 	
 	public static AbstractStatusEffect CLOAK_OF_FLAMES_1 = new AbstractStatusEffect(10,
-			"Cloak of Flames (Incendiary)",
+			"Incendiary",
 			null,
 			PresetColour.DAMAGE_TYPE_FIRE,
 			true,
-			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.RESISTANCE_FIRE, 15f),
-					new Value<>(Attribute.RESISTANCE_ICE, 20f)),
-			Util.newArrayListOfValues("Unarmed attacks deal [style.boldFire(Fire Damage)]")) {
+			null,
+			Util.newArrayListOfValues(
+                                        "Unarmed attacks deal [style.boldFire(fire damage)]")) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -9129,15 +9131,13 @@ public class StatusEffect {
 	};
 	
 	public static AbstractStatusEffect CLOAK_OF_FLAMES_2 = new AbstractStatusEffect(10,
-			"Cloak of Flames (Inferno)",
+			"Inferno",
 			null,
 			PresetColour.DAMAGE_TYPE_FIRE,
 			true,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.DAMAGE_FIRE, 25f),
-					new Value<>(Attribute.RESISTANCE_FIRE, 15f),
-					new Value<>(Attribute.RESISTANCE_ICE, 20f)),
-			Util.newArrayListOfValues("Unarmed attacks deal [style.boldFire(Fire Damage)]")) {
+                                        new Value<>(Attribute.DAMAGE_FIRE, 25f)),
+			null) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -9157,15 +9157,12 @@ public class StatusEffect {
 	};
 	
 	public static AbstractStatusEffect CLOAK_OF_FLAMES_3 = new AbstractStatusEffect(10,
-			"Cloak of Flames (Ring of Fire)",
+			"Ring of Fire",
 			null,
 			PresetColour.DAMAGE_TYPE_FIRE,
 			true,
-			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.DAMAGE_FIRE, 25f),
-					new Value<>(Attribute.RESISTANCE_FIRE, 15f),
-					new Value<>(Attribute.RESISTANCE_ICE, 20f)),
-			Util.newArrayListOfValues("Unarmed attacks deal [style.boldFire(Fire Damage)]",
+			null,
+			Util.newArrayListOfValues(
 					"Attackers take <b>15</b> [style.colourFire(Fire Damage)]")) {
 
 		@Override
@@ -9400,13 +9397,11 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect RAIN_CLOUD_DEEP_CHILL = new AbstractStatusEffect(10,
-			"Rain Cloud (Deep Chill)",
+			"Deep Chill",
 			null,
 			PresetColour.DAMAGE_TYPE_COLD,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.SPELL_COST_MODIFIER, -25f),
-					new Value<>(Attribute.DAMAGE_FIRE, -25f),
 					new Value<>(Attribute.RESISTANCE_ICE, -25f)),
 			null) {
 
@@ -9433,8 +9428,7 @@ public class StatusEffect {
 			Util.newHashMapOfValues(
                                         new Value<>(Attribute.SPELL_COST_MODIFIER, -25f),
 					new Value<>(Attribute.DAMAGE_FIRE, -50f),
-					new Value<>(Attribute.DAMAGE_POISON, -15f),
-					new Value<>(Attribute.RESISTANCE_ICE, -25f)),
+					new Value<>(Attribute.DAMAGE_POISON, -15f)),
 			null) {
 
 		@Override
@@ -9461,8 +9455,7 @@ public class StatusEffect {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.SPELL_COST_MODIFIER, -25f),
 					new Value<>(Attribute.DAMAGE_FIRE, -50f),
-					new Value<>(Attribute.DAMAGE_POISON, -15f),
-					new Value<>(Attribute.RESISTANCE_ICE, -25f)),
+					new Value<>(Attribute.DAMAGE_POISON, -15f)),
 			null) {
 
 		@Override
@@ -9489,8 +9482,7 @@ public class StatusEffect {
 			Util.newHashMapOfValues(
 					new Value<>(Attribute.SPELL_COST_MODIFIER, -50f),
 					new Value<>(Attribute.DAMAGE_FIRE, -50f),
-					new Value<>(Attribute.DAMAGE_POISON, -15f),
-					new Value<>(Attribute.RESISTANCE_ICE, -25f)),
+					new Value<>(Attribute.DAMAGE_POISON, -15f)),
 			null) {
 
 		@Override
@@ -9656,8 +9648,7 @@ public class StatusEffect {
 			null,
 			PresetColour.DAMAGE_TYPE_POISON,
 			false,
-			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.MAJOR_PHYSIQUE, -12f)),
+			null,
 			Util.newArrayListOfValues("<b>Minimal</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" per turn</b>")) {
 
 		@Override
@@ -9689,16 +9680,9 @@ public class StatusEffect {
 			PresetColour.DAMAGE_TYPE_POISON,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.MAJOR_PHYSIQUE, -12f),
-                                        new Value<>(Attribute.MAJOR_ARCANE, -6f)),
-			Util.newArrayListOfValues("<b>Minimal</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" per turn</b>")) {
-
-		@Override
-		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> damageValue = DamageType.POISON.damageTarget(null, target, (int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*.08f));
-
-			return UtilText.parse(target, "[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue() + "</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+"!")+damageValue.getKey();
-		}
+                                        new Value<>(Attribute.MAJOR_ARCANE, -6f),
+                                        new Value<>(Attribute.DAMAGE_SPELLS, -20f)),
+			null) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -9722,21 +9706,20 @@ public class StatusEffect {
 			PresetColour.DAMAGE_TYPE_POISON,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.MAJOR_PHYSIQUE,-12f),
-                                        new Value<>(Attribute.MAJOR_ARCANE, -6f)),
-			Util.newArrayListOfValues("<b>Minimal</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" per turn</b>",
-					"<b>25</b> "+Attribute.MANA_MAXIMUM.getColouredName("b")+" [style.boldTerrible(drained)] per turn</b>")) {
+                                        new Value<>(Attribute.SPELL_COST_MODIFIER, -20f)),
+			Util.newArrayListOfValues(
+                                        "<b>25</b> "+Attribute.MANA_MAXIMUM.getColouredName("b")+" [style.boldTerrible(drained)] per turn</b>")) {
 
 		@Override
 		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> damageValue = DamageType.POISON.damageTarget(null, target, (int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*.08f));
+//			Value<String, Integer> damageValue = DamageType.POISON.damageTarget(null, target, (int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*.08f));
 
 			int lustDamage = 25;
 			target.incrementMana(-lustDamage);
 			
 			return UtilText.parse(target,
-					"[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue() + "</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" and [npc.verb(lose)] <b>" + lustDamage + "</b> "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!")
-					+ damageValue.getKey();
+					"[npc.Name] [npc.verb(lose)] <b>" + lustDamage + "</b> "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!");
+//					+ damageValue.getKey();
 		}
 
 		@Override
@@ -9762,22 +9745,8 @@ public class StatusEffect {
 			false,
 			Util.newHashMapOfValues(
                                         new Value<>(Attribute.MAJOR_PHYSIQUE, -12f),
-                                        new Value<>(Attribute.MAJOR_ARCANE, -6f),
 					new Value<>(Attribute.CRITICAL_DAMAGE, -25f)),
-			Util.newArrayListOfValues("<b>Minimal</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" per turn</b>",
-					"<b>Minimal</b> "+Attribute.MANA_MAXIMUM.getColouredName("b")+" [style.boldTerrible(drained)] per turn</b>")) {
-
-		@Override
-		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> damageValue = DamageType.POISON.damageTarget(null, target, (int)(target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*.08f));
-
-			int lustDamage = 25;
-			target.incrementMana(-lustDamage);
-			
-			return UtilText.parse(target,
-					"[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue() + "</b> "+Attribute.DAMAGE_POISON.getColouredName("b")+" and [npc.verb(lose)] <b>" + lustDamage + "</b> "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!")
-					+ damageValue.getKey();
-		}
+			null) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -9801,7 +9770,7 @@ public class StatusEffect {
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.ENERGY_SHIELDING, -5f),
+                                        new Value<>(Attribute.ENERGY_SHIELDING, -10f),
 					new Value<>(Attribute.DAMAGE_UNARMED, -25f),
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, -25f),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, -25f),
@@ -9823,17 +9792,16 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect VACUUM_SECONDARY_VOIDS = new AbstractStatusEffect(10,
-			"Vacuum (Secondary Voids)",
+			"Twin Voids",
 			null,
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.ENERGY_SHIELDING, -10f),
+                                        new Value<>(Attribute.ENERGY_SHIELDING, -20f),
 					new Value<>(Attribute.DAMAGE_UNARMED, -50f),
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, -50f),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, -50f),
-					new Value<>(Attribute.DAMAGE_SPELLS, -50f),
-					new Value<>(Attribute.CRITICAL_DAMAGE, -25f)),
+					new Value<>(Attribute.DAMAGE_SPELLS, -50f)),
 			null) {
 
 		@Override
@@ -9853,17 +9821,16 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect VACUUM_SUCTION = new AbstractStatusEffect(10,
-			"Vacuum (Suction)",
+			"Suction",
 			null,
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.ENERGY_SHIELDING, -10f),
+                                        new Value<>(Attribute.ENERGY_SHIELDING, -20f),
 					new Value<>(Attribute.DAMAGE_UNARMED, -50f),
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, -50f),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, -50f),
-					new Value<>(Attribute.DAMAGE_SPELLS, -50f),
-					new Value<>(Attribute.CRITICAL_DAMAGE, -25f)),
+					new Value<>(Attribute.DAMAGE_SPELLS, -50f)),
 			Util.newArrayListOfValues("<b>10%</b> chance per turn of [style.boldExcellent(stripping)] clothing")) {
 
 		@Override
@@ -9905,17 +9872,16 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect VACUUM_TOTAL_VOID = new AbstractStatusEffect(10,
-			"Vacuum (Total Void)",
+			"Total Void",
 			null,
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.ENERGY_SHIELDING, -10f),
+                                        new Value<>(Attribute.ENERGY_SHIELDING, -20f),
 					new Value<>(Attribute.DAMAGE_UNARMED, -50f),
 					new Value<>(Attribute.DAMAGE_MELEE_WEAPON, -50f),
 					new Value<>(Attribute.DAMAGE_RANGED_WEAPON, -50f),
-					new Value<>(Attribute.DAMAGE_SPELLS, -50f),
-					new Value<>(Attribute.CRITICAL_DAMAGE, -25f)),
+					new Value<>(Attribute.DAMAGE_SPELLS, -50f)),
 			Util.newArrayListOfValues("<b>25%</b> chance per turn of [style.boldExcellent(stripping)] clothing")) {
 
 		@Override
@@ -9982,14 +9948,13 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect PROTECTIVE_GUSTS_GUIDING_WIND = new AbstractStatusEffect(10,
-			"Protective Gusts (Guiding Wind)",
+			"Guiding Wind",
 			null,
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			true,
 			Util.newHashMapOfValues(
                                         new Value<>(Attribute.MAJOR_PHYSIQUE, 10f),
-					new Value<>(Attribute.RESISTANCE_POISON, 15f),
-					new Value<>(Attribute.ENERGY_SHIELDING, 15f)),
+					new Value<>(Attribute.CRITICAL_DAMAGE, 25f)),
 			null) {
 
 		@Override
@@ -10009,16 +9974,14 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect PROTECTIVE_GUSTS_FOCUSED_BLAST = new AbstractStatusEffect(10,
-			"Protective Gusts (Focused Blast)",
+			"Focused Blast",
 			null,
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			true,
-			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.MAJOR_PHYSIQUE, 10f),
-					new Value<>(Attribute.RESISTANCE_POISON, 15f),
-					new Value<>(Attribute.ENERGY_SHIELDING, 20f),
-					new Value<>(Attribute.CRITICAL_DAMAGE, 25f)),
-			null) {
+			null,
+			Util.newArrayListOfValues(
+                                        "[style.colourActionPoints(Strikes)] [style.boldExcellent(critically hit)]",
+                                        "the target")) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -10271,7 +10234,7 @@ public class StatusEffect {
 	};
 	
 	public static AbstractStatusEffect TELEKENETIC_SHOWER_PRECISION_STRIKES = new AbstractStatusEffect(10,
-			"Telekinetic Shower (Precision Strikes)",
+			"Precision Strikes",
 			null,
 			PresetColour.DAMAGE_TYPE_PHYSICAL,
 			false,
@@ -10425,7 +10388,7 @@ public class StatusEffect {
 			true,
 			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_PHYSICAL, 25f),
 					new Value<>(Attribute.ENERGY_SHIELDING, 10f)),
-			Util.newArrayListOfValues("[style.colourExcellent(All enemies)] take <b>200</b> "+Attribute.DAMAGE_PHYSICAL.getColouredName("b")+" when Stone Shell ends")) {
+			Util.newArrayListOfValues("[style.colourExcellent(All enemies)] take <b>100</b> "+Attribute.DAMAGE_PHYSICAL.getColouredName("b")+" when Stone Shell ends")) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -10440,7 +10403,7 @@ public class StatusEffect {
 			
 			boolean first=true;
 			for(GameCharacter combatant : Main.combat.getEnemies(target)) {
-				Value<String, Integer> damageValue = DamageType.PHYSICAL.damageTarget(target, combatant, 200);
+				Value<String, Integer> damageValue = DamageType.PHYSICAL.damageTarget(target, combatant, 100);
 				sb.append(UtilText.parse(combatant,
 						target, (first?"":"<br/>")+"<br/>[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue() + "</b> "+Attribute.DAMAGE_PHYSICAL.getColouredName("b")+" as [npc2.namePos] Stone Shell explodes!")
 						+damageValue.getKey());
@@ -10608,20 +10571,41 @@ public class StatusEffect {
 			PresetColour.DAMAGE_TYPE_LUST,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.ENERGY_SHIELDING, -10f)),
-			Util.newArrayListOfValues(
-					"<b>10</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn</b>")) {
-
-		@Override
-		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> lustDamageValue = DamageType.LUST.damageTarget(null, target, 10);
-
-			return UtilText.parse(target, "<br/>[npc.Name] additionally [npc.verb(take)] <b>" + lustDamageValue.getValue() + "</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+"!")+lustDamageValue.getKey();
-		}
+                                        new Value<>(Attribute.ENERGY_SHIELDING, -20f),
+                                        new Value<>(Attribute.RESISTANCE_LUST, -10f)),
+			null) {
 
 		@Override
 		public String getDescription(GameCharacter target) {
 			return UtilText.parse(target, "Arousing images and thoughts keep on pushing their way to the front of [npc.namePos] mind, causing [npc.herHim] to lose focus on what it is [npc.sheIs] trying to hit, but also getting uncontrollably turned on in the process!");
+		}
+
+		@Override
+		public String getSVGString(GameCharacter owner) {
+			return SpellUpgrade.ARCANE_AROUSAL_1.getSVGString();
+		}
+
+		@Override
+		public boolean isCombatEffect() {
+			return true;
+		}
+	};
+	
+	public static AbstractStatusEffect ARCANE_AROUSAL_DIRTY_PROMISES = new AbstractStatusEffect(10,
+			"Dirty Promises",
+			null,
+			PresetColour.DAMAGE_TYPE_LUST,
+			false,
+			Util.newHashMapOfValues(
+                                        new Value<>(Attribute.MAJOR_CORRUPTION, 10f),
+                                        new Value<>(Attribute.MAJOR_ARCANE, -6f)),
+			null) {
+
+		@Override
+		public String getDescription(GameCharacter target) {
+			return UtilText.parse(target,
+						"Arousing images keep on pushing their way into [npc.namePos] mind, causing [npc.herHim] to lose focus on what it is [npc.sheIs] trying to hit."
+								+ " [npc.She] [npc.verb(hear)] the occasional phantasmal whisper in [npc.her] [npc.ear], promising that [npc.she]'ll have a good time if [npc.she] simply submits.");
 		}
 
 		@Override
@@ -10635,52 +10619,20 @@ public class StatusEffect {
 		}
 	};
 	
-	public static AbstractStatusEffect ARCANE_AROUSAL_DIRTY_PROMISES = new AbstractStatusEffect(10,
-			"Lustful Distraction (Dirty Promises)",
-			null,
-			PresetColour.DAMAGE_TYPE_LUST,
-			false,
-			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.ENERGY_SHIELDING, -20f)),
-			Util.newArrayListOfValues(
-					"<b>10</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn</b>")) {
-
-		@Override
-		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> lustDamageValue = DamageType.LUST.damageTarget(null, target, 10);
-
-			return UtilText.parse(target, "<br/>[npc.Name] additionally [npc.verb(take)] <b>" + lustDamageValue.getValue() + "</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+"!")+lustDamageValue.getKey();
-		}
-
-		@Override
-		public String getDescription(GameCharacter target) {
-			return UtilText.parse(target,
-						"Arousing images keep on pushing their way into [npc.namePos] mind, causing [npc.herHim] to lose focus on what it is [npc.sheIs] trying to hit."
-								+ " [npc.She] [npc.verb(hear)] the occasional phantasmal whisper in [npc.her] [npc.ear], promising that [npc.she]'ll have a good time if [npc.she] simply submits.");
-		}
-
-		@Override
-		public String getSVGString(GameCharacter owner) {
-			return SpellUpgrade.ARCANE_AROUSAL_3.getSVGString();
-		}
-
-		@Override
-		public boolean isCombatEffect() {
-			return true;
-		}
-	};
-	
 	public static AbstractStatusEffect TELEPATHIC_COMMUNICATION = new AbstractStatusEffect(10,
 			"Telepathic Communication",
 			null,
 			PresetColour.DAMAGE_TYPE_LUST,
 			true,
-			Util.newHashMapOfValues(new Value<>(Attribute.DAMAGE_LUST, 15f)),
-			null) {
+			Util.newHashMapOfValues(
+                                        new Value<>(Attribute.DAMAGE_LUST, 15f)),
+			Util.newArrayListOfValues(
+                                        "[style.boldLust(Tease )][style.colourExcellent(critically hits)] on target")) {
+
 		@Override
 		public String getDescription(GameCharacter target) {
 			return UtilText.parse(target,
-						"[npc.NameIsFull] able to project [npc.her] seductive taunts and [npc.moans+] directly into a person's mind!");
+						"[npc.NameIsFull] being subject to seductive taunts and hearing [npc.moans+] directly into [npc.her] mind!");
 		}
 		@Override
 		public String getSVGString(GameCharacter owner) {
@@ -10697,17 +10649,18 @@ public class StatusEffect {
 			null,
 			PresetColour.DAMAGE_TYPE_LUST,
 			true,
-			Util.newHashMapOfValues(new Value<>(Attribute.DAMAGE_LUST, 30f)),
-			null) {
+			Util.newHashMapOfValues(new Value<>(Attribute.MAJOR_CORRUPTION, 25f)),
+			Util.newArrayListOfValues(
+                                        "[style.boldLust(Tease)] [style.boldExcellent(ignores)] [style.boldBad(Negative Attraction)]")) {
 		@Override
 		public String getDescription(GameCharacter target) {
 			return UtilText.parse(target,
-						"[npc.NameIsFull] able to project [npc.her] seductive taunts and [npc.moans+] directly into a person's mind!"
-								+ " In addition to this, [npc.she] can deliver phantasmal kisses and gropes to [npc.her] target.");
+						"[npc.NamePos] mind is being filled with lewd imagery and dirty thoughts, increasing [npc.his] corruptive powers!"
+								+ " In addition to this, [npc.she] can enter [npc.her] target's mind to deliver phantasmal kisses and gropes.");
 		}
 		@Override
 		public String getSVGString(GameCharacter owner) {
-			return SpellUpgrade.TELEPATHIC_COMMUNICATION_2.getSVGString();
+			return SpellUpgrade.TELEPATHIC_COMMUNICATION_1.getSVGString();
 		}
 		@Override
 		public boolean isCombatEffect() {
@@ -10720,13 +10673,18 @@ public class StatusEffect {
 			null,
 			PresetColour.DAMAGE_TYPE_LUST,
 			true,
-			Util.newHashMapOfValues(new Value<>(Attribute.DAMAGE_LUST, 30f)),
-			Util.newArrayListOfValues("[style.boldLust(Tease)] [style.boldExcellent(applies)] -25 "+Attribute.RESISTANCE_PHYSICAL.getColouredName("b")+" to the target for [style.boldGood(2 turns)]")) {
+			null,
+			Util.newArrayListOfValues(
+                                        "[style.boldLust(Tease)] [style.boldExcellent(applies)]",
+                                        "[style.boldGood(+25)] "+Attribute.MAJOR_CORRUPTION.getColouredName("b")+"",
+                                        "[style.boldBad(-6)] "+Attribute.MAJOR_ARCANE.getColouredName("b")+"",
+                                        "to the target for [style.boldGood(3 turns)]")) {
+
 		@Override
 		public String getDescription(GameCharacter target) {
 			return UtilText.parse(target,
 						"[npc.NameIsFull] able to project [npc.her] seductive taunts and suggestive phrases directly into a person's mind!"
-								+ " In addition to this, [npc.she] can deliver phantasmal kisses and gropes to [npc.her] target.");
+								+" In addition to this, [npc.she] can deliver phantasmal kisses and gropes to [npc.her] target.");
 		}
 		@Override
 		public String getSVGString(GameCharacter owner) {
@@ -10744,8 +10702,8 @@ public class StatusEffect {
 			PresetColour.DAMAGE_TYPE_LUST,
 			false,
 			Util.newHashMapOfValues(
-                                        new Value<>(Attribute.MAJOR_ARCANE, -12f),
-					new Value<>(Attribute.MAJOR_CORRUPTION, 25f)),
+					new Value<>(Attribute.MAJOR_CORRUPTION, 25f),
+                                        new Value<>(Attribute.MAJOR_ARCANE, -6f)),
 			null) {
 
 		@Override
@@ -10766,7 +10724,7 @@ public class StatusEffect {
 			null,
 			PresetColour.DAMAGE_TYPE_LUST,
 			false,
-			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_LUST, -25f)),
+			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_LUST, -10f)),
 			null) {
 		@Override
 		public String getDescription(GameCharacter target) {
@@ -10784,15 +10742,15 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect ARCANE_CLOUD_ARCANE_LIGHTNING = new AbstractStatusEffect(10,
-			"Arcane Cloud (Arcane Lightning)",
+			"Arcane Lightning",
 			null,
 			PresetColour.DAMAGE_TYPE_LUST,
 			false,
-			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_LUST, -25f)),
-			Util.newArrayListOfValues("<b>5</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn</b>")) {
+			null,
+			Util.newArrayListOfValues("<b>10</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn</b>")) {
 		@Override
 		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> damageValue = DamageType.LUST.damageTarget(null, target, 5);
+			Value<String, Integer> damageValue = DamageType.LUST.damageTarget(null, target, 10);
 
 			return UtilText.parse(target, "[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue() + "</b> [style.boldLust(lust damage)]!")+damageValue.getKey();
 		}
@@ -10803,7 +10761,7 @@ public class StatusEffect {
 		}
 		@Override
 		public String getSVGString(GameCharacter owner) {
-			return SpellUpgrade.ARCANE_CLOUD_1.getSVGString();
+			return SpellUpgrade.ARCANE_CLOUD_2.getSVGString();
 		}
 		@Override
 		public boolean isCombatEffect() {
@@ -10812,18 +10770,12 @@ public class StatusEffect {
 	};
 
 	public static AbstractStatusEffect ARCANE_CLOUD_ARCANE_THUNDER = new AbstractStatusEffect(10,
-			"Arcane Cloud (Arcane Thunder)",
+			"Arcane Thunder",
 			null,
 			PresetColour.DAMAGE_TYPE_LUST,
 			false,
 			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_LUST, -25f)),
-			Util.newArrayListOfValues("<b>15</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn</b>")) {
-		@Override
-		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
-			Value<String, Integer> damageValue = DamageType.LUST.damageTarget(null, target, 15);
-
-			return UtilText.parse(target, "[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue() + "</b> [style.boldLust(lust damage)]!")+damageValue.getKey();
-		}
+			null) {
 		@Override
 		public String getDescription(GameCharacter target) {
 			return UtilText.parse(target,
@@ -10831,7 +10783,7 @@ public class StatusEffect {
 		}
 		@Override
 		public String getSVGString(GameCharacter owner) {
-			return SpellUpgrade.ARCANE_CLOUD_2.getSVGString();
+			return SpellUpgrade.ARCANE_CLOUD_1.getSVGString();
 		}
 		@Override
 		public boolean isCombatEffect() {
@@ -10840,12 +10792,14 @@ public class StatusEffect {
 	};
 	
 	public static AbstractStatusEffect ARCANE_CLOUD_LOCALISED_STORM = new AbstractStatusEffect(10,
-			"Arcane Cloud (Localised Storm)",
+			"Localised Storm",
 			null,
 			PresetColour.DAMAGE_TYPE_LUST,
 			false,
-			Util.newHashMapOfValues(new Value<>(Attribute.RESISTANCE_LUST, -25f)),
-			Util.newArrayListOfValues("[style.boldTerrible(All party members)] take <b>15</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn</b>")) {
+			null,
+			Util.newArrayListOfValues(
+                                        "[style.boldExcellent(Critically)] [style.boldTerrible(vulnerable)]",
+                                        "to [style.boldArcane(Lightning spells)]")) {
 		@Override
 		public String applyEffect(GameCharacter target, int secondsPassed, long totalSecondsPassed) {
 			StringBuilder sb = new StringBuilder();
@@ -10855,7 +10809,7 @@ public class StatusEffect {
 			affectedCombatants.addAll(Main.combat.getAllies(target));
 			
 			for(GameCharacter combatant : affectedCombatants) {
-				Value<String, Integer> damageValue = DamageType.LUST.damageTarget(null, combatant, 15);
+				Value<String, Integer> damageValue = DamageType.LUST.damageTarget(null, combatant, 10);
 				
 				sb.append(UtilText.parse(combatant, "<br/>[npc.Name] [npc.verb(take)] <b>" + damageValue.getValue() + "</b> [style.boldLust(lust damage)]!")+damageValue.getKey());
 			}
