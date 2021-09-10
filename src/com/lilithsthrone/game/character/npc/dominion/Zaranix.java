@@ -143,19 +143,12 @@ public class Zaranix extends NPC {
 			this.addSpell(Spell.SLAM);
 			
 			this.addSpell(Spell.TELEKENETIC_SHOWER);
-			this.addSpellUpgrade(SpellUpgrade.TELEKENETIC_SHOWER_1);
-			this.addSpellUpgrade(SpellUpgrade.TELEKENETIC_SHOWER_2);
-                        this.addSpellUpgrade(SpellUpgrade.TELEKENETIC_SHOWER_3);
-
+                        
                         this.addSpell(Spell.ARCANE_AROUSAL);
-			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_1);
-			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2);
-			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_3);
 
                         this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
 			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);
 			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_2);
-                        this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_3);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			

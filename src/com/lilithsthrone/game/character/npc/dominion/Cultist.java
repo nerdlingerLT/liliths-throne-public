@@ -157,11 +157,12 @@ public class Cultist extends NPC {
 				Util.newArrayListOfValues(
 						Perk.LUSTPYRE,
 						Perk.FETISH_SEEDER,
-						Perk.ARCANE_COMBATANT),
+						Perk.ARCANE_COMBATANT,
+                                                Perk.ENERGY_BOOST),
 				Util.newHashMapOfValues(
-						new Value<>(PerkCategory.PHYSICAL, 5),
-						new Value<>(PerkCategory.LUST, 7),
-						new Value<>(PerkCategory.ARCANE, 5)));
+						new Value<>(PerkCategory.PHYSICAL, 4),
+						new Value<>(PerkCategory.LUST, 11),
+						new Value<>(PerkCategory.ARCANE, 7)));
 
 			this.addSpell(Spell.ARCANE_AROUSAL);
 			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_1);

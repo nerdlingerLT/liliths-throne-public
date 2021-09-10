@@ -182,21 +182,20 @@ public class Amber extends NPC {
 			this.addSpell(Spell.FIREBALL);
 			this.addSpellUpgrade(SpellUpgrade.FIREBALL_1);
 			this.addSpellUpgrade(SpellUpgrade.FIREBALL_2);
-			this.addSpellUpgrade(SpellUpgrade.FIREBALL_3);
+                        
+                        this.addSpell(Spell.FLASH);
+			this.addSpellUpgrade(SpellUpgrade.FLASH_1);
+			this.addSpellUpgrade(SpellUpgrade.FLASH_2);
 			
 			this.addSpell(Spell.CLOAK_OF_FLAMES);
 			this.addSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_1);
 			this.addSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_2);
 			this.addSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_3);
 			
-			this.addSpell(Spell.FLASH);
-			this.addSpellUpgrade(SpellUpgrade.FLASH_1);
-			this.addSpellUpgrade(SpellUpgrade.FLASH_2);
 
                         this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
 			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);
 			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_2);
-			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_3);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			

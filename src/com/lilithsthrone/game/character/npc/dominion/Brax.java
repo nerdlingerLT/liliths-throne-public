@@ -451,8 +451,8 @@ public class Brax extends NPC {
 		this.clearEquippedMoves();
                 equipMove("strike");
                 equipMove("twin-strike");
-                equipMove("savage attack");
-		equipMove("feral bite");
+//                equipMove("savage-attack");
+//		equipMove("feral bite");
                 equipMove("dominant-tease");
 		this.equipAllSpellMoves();
 	}
