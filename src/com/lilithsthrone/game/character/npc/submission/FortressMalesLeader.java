@@ -256,7 +256,7 @@ public class FortressMalesLeader extends NPC {
 
 		if(settings.contains(EquipClothingSetting.ADD_WEAPONS)) {
 			this.equipMainWeaponFromNowhere(Main.game.getItemGen().generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_japaneseSwords_katana"), DamageType.PHYSICAL));
-			this.equipOffhandWeaponFromNowhere(Main.game.getItemGen().generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_japaneseSwords_wakizashi"), DamageType.FIRE));
+			this.equipOffhandWeaponFromNowhere(Main.game.getItemGen().generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_japaneseSwords_katana"), DamageType.FIRE));
 		}
 	}
 	
@@ -361,7 +361,8 @@ public class FortressMalesLeader extends NPC {
 	@Override
 	public void resetDefaultMoves() {
 		this.clearEquippedMoves();
-                equipMove("twin-strike");
+                equipMove("strike");
+                equipMove("offhand-strike");
                 equipMove("horn headbutt");
                 equipMove("block");
 		this.equipAllKnownMoves();

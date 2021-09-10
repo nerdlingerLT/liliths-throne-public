@@ -131,9 +131,6 @@ public class FortressFemalesLeader extends NPC {
 					PersonalityTrait.LEWD);
 			
 			this.addSpell(Spell.ARCANE_AROUSAL);
-			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_1);
-			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2);
-			this.addSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_3);
 			
 			this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
 			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);

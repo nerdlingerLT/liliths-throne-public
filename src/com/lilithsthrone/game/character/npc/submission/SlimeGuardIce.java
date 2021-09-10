@@ -121,7 +121,7 @@ public class SlimeGuardIce extends NPC {
 
 	@Override
 	public void setupPerks(boolean autoSelectPerks) {
-		this.addSpecialPerk(Perk.SPECIAL_MARTIAL_BACKGROUND);
+//		this.addSpecialPerk(Perk.SPECIAL_MARTIAL_BACKGROUND);
 		this.addSpecialPerk(Perk.SPECIAL_DIRTY_MINDED);
 		
 		PerkManager.initialisePerks(this,
@@ -136,14 +136,15 @@ public class SlimeGuardIce extends NPC {
 				Util.newHashMapOfValues(
 						new Value<>(PerkCategory.PHYSICAL, 8),
 						new Value<>(PerkCategory.LUST, 0),
-						new Value<>(PerkCategory.ARCANE, 9)));
+						new Value<>(PerkCategory.ARCANE, 10)));
 	}
 	
 	@Override
 	public void setStartingCombatMoves() {
 		this.clearEquippedMoves();
-                this.equipMove("strike");
+                this.equipMove("offhand-strike");
                 this.equipMove("twin-strike");
+                this.equipMove("tease");
                 this.equipMove("arcane-strike");
 		this.equipMove("block");
 		this.equipAllKnownMoves();

@@ -454,7 +454,6 @@ public class FortressAlphaLeader extends NPC {
                 equipMove("strike");
                 equipMove("offhand-strike");
                 equipMove("twin-strike");
-                equipMove("tease");
                 equipMove("horn headbutt");
                 equipMove("oral-tease");
 		this.equipAllKnownMoves();

@@ -144,7 +144,8 @@ public class SlimeGuardFire extends NPC {
 	public void setStartingCombatMoves() {
 		this.clearEquippedMoves();
                 this.equipMove("strike");
-                this.equipMove("twin-strike");
+                this.equipMove("offhand-strike");
+//                this.equipMove("twin-strike");
                 this.equipMove("tease");
 		this.equipMove("block");
 		this.equipAllKnownMoves();
@@ -160,8 +161,10 @@ public class SlimeGuardFire extends NPC {
 			this.setPersonalityTraits(
 					PersonalityTrait.BRAVE);
 			
-			this.addSpell(Spell.FIREBALL);
-			this.addSpellUpgrade(SpellUpgrade.FIREBALL_1);
+//			this.addSpell(Spell.FIREBALL);
+//			this.addSpellUpgrade(SpellUpgrade.FIREBALL_1);
+
+                        this.addSpell(Spell.FLASH);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			

@@ -119,14 +119,11 @@ public class SlimeRoyalGuard extends NPC {
 				Util.newArrayListOfValues(
 						Perk.COMBAT_REGENERATION,
                                                 Perk.ENERGY_BOOST_DRAIN_DAMAGE,
-                                                Perk.MELEE_DAMAGE,
-                                                Perk.PHYSIQUE_BOOST_MAJOR,
-                                                Perk.PHYSICAL_DAMAGE,
                                                 Perk.AURA_BOOST),
 				Util.newHashMapOfValues(
-						new Value<>(PerkCategory.PHYSICAL, 23),
-						new Value<>(PerkCategory.LUST, 0),
-						new Value<>(PerkCategory.ARCANE, 4)));
+						new Value<>(PerkCategory.PHYSICAL, 13),
+						new Value<>(PerkCategory.LUST, 7),
+						new Value<>(PerkCategory.ARCANE, 7)));
 	}
 	
 	@Override
@@ -136,10 +133,10 @@ public class SlimeRoyalGuard extends NPC {
 		if(setPersona) {
 			this.addSpell(Spell.SLAM);
 
-			this.addSpell(Spell.STONE_SHELL);
-			this.addSpellUpgrade(SpellUpgrade.STONE_SHELL_1);
-			this.addSpellUpgrade(SpellUpgrade.STONE_SHELL_2);
-			this.addSpellUpgrade(SpellUpgrade.STONE_SHELL_3);
+//			this.addSpell(Spell.STONE_SHELL);
+//			this.addSpellUpgrade(SpellUpgrade.STONE_SHELL_1);
+//			this.addSpellUpgrade(SpellUpgrade.STONE_SHELL_2);
+//			this.addSpellUpgrade(SpellUpgrade.STONE_SHELL_3);
 
                         this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
 			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);
