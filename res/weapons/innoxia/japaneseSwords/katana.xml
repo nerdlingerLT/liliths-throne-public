@@ -58,19 +58,19 @@
 		
 		<extraEffects>
 			<effect><![CDATA[
-				[style.boldGood(Moderate chances)] of applying [style.boldExcellent(extra)] '[style.boldPhysical(Precision Strikes)]' damage on hit.
+				[style.boldExcellent(High chances)] of unleashing a '[style.boldActionPoints(Focused Blast)]' on the [style.boldExcellent(next)] hit.
 			]]></effect>
 		</extraEffects>
 		
 		<onHitEffect><![CDATA[
-			#IF (RND.nextInt(100)<35)
-			#THEN [##npc2.addStatusEffect(SE_TELEKENETIC_SHOWER_PRECISION_STRIKES, 1)] [Npc.Name] [style.boldExcellent(expertly)] lands a few '[style.boldPhysical(Precision Strikes)]' past [npc2.namePos] defense!
+			#IF (RND.nextInt(100)<40)
+			#THEN [##npc.addStatusEffect(SE_PROTECTIVE_GUSTS_FOCUSED_BLAST, 2)] Getting a good read on [npc2.NamePos] moves, [Npc.name] prepares to deliver a '[style.boldActionPoints(Focused Blast)]' past [npc2.namePos] defense next!
 			#ENDIF
 		]]></onHitEffect>
 		
 		<onCriticalHitEffect><![CDATA[
-			#IF (RND.nextInt(100)<55)
-			#THEN [##npc2.addStatusEffect(SE_TELEKENETIC_SHOWER_PRECISION_STRIKES, 1)] [Npc.Name] [style.boldExcellent(expertly)] lands a few '[style.boldPhysical(Precision Strikes)]' past [npc2.namePos] defense!
+			#IF (RND.nextInt(100)<50)
+			#THEN [##npc.addStatusEffect(SE_PROTECTIVE_GUSTS_FOCUSED_BLAST, 2)] Getting a good read on [npc2.NamePos] moves, [Npc.name] prepares to deliver a '[style.boldActionPoints(Focused Blast)]' past [npc2.namePos] defense next!
 			#ENDIF
 		]]></onCriticalHitEffect>
 		
