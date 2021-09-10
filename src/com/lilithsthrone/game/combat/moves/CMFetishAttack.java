@@ -41,13 +41,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -149,13 +149,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -247,13 +247,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -348,13 +348,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative() || !this.getPreferredTarget(source, enemies, allies).hasVagina()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -450,13 +450,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative() || !this.getPreferredTarget(source, enemies, allies).isRelatedTo(source)) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5* (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -599,13 +599,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -699,13 +699,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative() || !this.getPreferredTarget(source, enemies, allies).hasPenis()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -804,13 +804,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative() || !this.getPreferredTarget(source, enemies, allies).hasPenis()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -905,13 +905,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1001,13 +1001,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1098,13 +1098,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1194,13 +1194,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1292,13 +1292,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1392,13 +1392,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1491,13 +1491,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1600,13 +1600,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative() || !this.getPreferredTarget(source, enemies, allies).hasBreasts()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1717,13 +1717,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1826,13 +1826,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative() || this.getPreferredTarget(source, enemies, allies).getBreastRawMilkStorageValue()==0) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -1954,13 +1954,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -2086,13 +2086,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -2221,13 +2221,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -2348,13 +2348,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {
@@ -2457,13 +2457,13 @@ public class CMFetishAttack {
     	@Override
     	public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
     		if(this.getPreferredTarget(source, enemies, allies).getFetishDesire(oppositeFetish).isNegative()) {
-    			return 0;
+    			return 0.5f;
     		}
     		return super.getWeight(source, enemies, allies);
     	}
 
         private int getBaseDamage(GameCharacter source, boolean isCrit) {
-            return Math.round(3 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (1 + (1 *(source.getLust()/100))) * (isCrit?3:2));
+            return Math.round(5 * (1 + (1 *(source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/100))) * (isCrit?3:2));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean isCrit) {

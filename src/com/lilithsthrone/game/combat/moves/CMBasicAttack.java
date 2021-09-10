@@ -291,6 +291,13 @@ public class CMBasicAttack {
         	int essenceCost = getArcaneCost(source);
         	source.incrementEssenceCount(essenceCost, false);
         }
+
+        //Strike now crits when 'Precision Strikes' is active:
+        @Override
+        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
+		return source.hasStatusEffect(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST) || Main.combat.getStatusEffectsToApply().get(source).containsKey(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST);
+	}
+
     };
     
     public static AbstractCombatMove BASIC_OFFHAND_STRIKE = new AbstractCombatMove(CombatMoveCategory.BASIC,
@@ -597,6 +604,13 @@ public class CMBasicAttack {
         	int essenceCost = getArcaneCost(source);
         	source.incrementEssenceCount(essenceCost, false);
         }
+
+        //Offhand-Strike now crits when 'Precision Strikes' is active:
+        @Override
+        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
+		return source.hasStatusEffect(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST) || Main.combat.getStatusEffectsToApply().get(source).containsKey(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST);
+	}
+
     };
     
     public static AbstractCombatMove BASIC_TWIN_STRIKE = new AbstractCombatMove(CombatMoveCategory.BASIC,
@@ -907,6 +921,13 @@ public class CMBasicAttack {
         public void performOnDeselection(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
         	source.incrementEssenceCount(getArcaneCost(source), false);
         }
+
+        //All-out Strike now crits when 'Precision Strikes' is active:
+        @Override
+        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
+		return source.hasStatusEffect(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST) || Main.combat.getStatusEffectsToApply().get(source).containsKey(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST);
+	}
+
     };
     
     public static AbstractCombatMove BASIC_BLOCK = new AbstractCombatMove(CombatMoveCategory.BASIC,
@@ -980,8 +1001,8 @@ public class CMBasicAttack {
     
     public static AbstractCombatMove BASIC_TEASE = new AbstractCombatMove(CombatMoveCategory.BASIC,
             "tease",
-            1,
-            1,
+            0,
+            2,
             CombatMoveType.TEASE,
             DamageType.LUST,
             "moves/tease",
@@ -991,7 +1012,7 @@ public class CMBasicAttack {
             null){
 
         protected int getBaseDamage(GameCharacter source) {
-            return Math.round((5 + (source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/10)) * (1 + (1 *(source.getLust()/100))));
+            return Math.round((10 + (source.getAttributeValue(Attribute.MAJOR_CORRUPTION)/10)));
         }
 
         protected int getDamage(GameCharacter source, GameCharacter target, boolean critical) {
@@ -1014,35 +1035,43 @@ public class CMBasicAttack {
 
         @Override
         public String getDescription(GameCharacter source) {
-            return "Tease your enemy, dealing base "
+            return "Tease your enemies, dealing base "
                     + getFormattedDamage(getDamageType(source), getBaseDamage(source), null, false, false)
                     + " damage to them.";
         }
 
         @Override
         public String perform(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
-        	StringBuilder sb = new StringBuilder("");
-
-    		DamageType finalDt = getDamageType(source);
+        
+                StringBuilder sb = new StringBuilder("");
+                
+                for(GameCharacter combatant : Main.combat.getEnemies(source)) {
+                        DamageType finalDt = getDamageType(source);
         	
-    		boolean isCrit = canCrit(turnIndex, source, target, enemies, allies);
-			boolean maxLust = isTargetAtMaximumLust(target);
-			Value<String, Integer> damageValue = getDamageType(source).damageTarget(source, target, getDamage(source, target, isCrit));
+                        boolean isCrit = canCrit(turnIndex, source, combatant, enemies, allies);
+			boolean maxLust = isTargetAtMaximumLust(combatant);
+			Value<String, Integer> damageValue = getDamageType(source).damageTarget(source, combatant, getDamage(source, combatant, isCrit));
 			int lustDamage = damageValue.getValue();
 			
-            sb.append(formatAttackOutcome(source, target,
-            		source.getSeductionDescription(target)+damageValue.getKey(),
-    				"[npc2.Name] took " + getFormattedDamage(finalDt, lustDamage, target, true, maxLust) + " damage!",
+                        sb.append(formatAttackOutcome(source, combatant,
+            		source.getSeductionDescription(combatant)+damageValue.getKey(),
+    				"[npc2.Name] took " + getFormattedDamage(finalDt, lustDamage, combatant, true, maxLust) + " damage!",
     				isCrit?"":null,
     				isCrit?"[npc2.Name] [npc2.verb(feel)] incredibly turned-on!":""));
-            
-    		if(source.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION)) {
-    			Main.combat.addStatusEffectToApply(target, StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION_TARGETED, 3);
-    			sb.append(Spell.getBasicStatusEffectApplication(target, false, Util.newHashMapOfValues(new Value<>(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION_TARGETED, 2))));
-    		}
-    		
-    		return sb.toString();
+        
+                        if(source.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION)) {
+    			Main.combat.addStatusEffectToApply(combatant, StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION_TARGETED, 3);
+    			sb.append(Spell.getBasicStatusEffectApplication(combatant, false, Util.newHashMapOfValues(new Value<>(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION_TARGETED, 3))));
+                        }
+                }
+                return sb.toString();
         }
+
+        //Tease now crits on characters inflicted by 'Telepathic Communication':
+        @Override
+        public boolean canCrit(int turnIndex, GameCharacter source, GameCharacter target, List<GameCharacter> enemies, List<GameCharacter> allies) {
+		return source.hasStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION) || Main.combat.getStatusEffectsToApply().get(source).containsKey(StatusEffect.TELEPATHIC_COMMUNICATION);
+	}
     };
     
     public static AbstractCombatMove BASIC_TEASE_BLOCK = new AbstractCombatMove(CombatMoveCategory.BASIC,
@@ -1143,9 +1172,9 @@ public class CMBasicAttack {
         public float getWeight(GameCharacter source, List<GameCharacter> enemies, List<GameCharacter> allies) {
         	float weight = super.getWeight(source, enemies, allies);
         	if(source.getMana()<0.5f){
-        		weight *= 3f;
+        		weight = 4;
         	}
-        	return weight;
+        	return 0;
         }
 
 	@Override
