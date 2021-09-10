@@ -345,7 +345,7 @@ public abstract class AbstractCombatMove {
 			if(damageHasBeenApplied) {
 				damage /= 1;
 			}
-			return "<span style='color:" + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + String.valueOf(damage*2) + " " + damageType.getName() + "</span>"
+			return "<span style='color:" + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + String.valueOf(damage*1) + " " + damageType.getName() + "</span>"
 					+ " and <span style='color:" + PresetColour.DAMAGE_TYPE_MANA.toWebHexString() + ";'>" + String.valueOf(damage) + " " + Attribute.MANA_MAXIMUM.getName() + "</span>";
 		}
 		return "<span style='color:" + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + String.valueOf(damage) + " " + damageType.getName() + "</span>";
