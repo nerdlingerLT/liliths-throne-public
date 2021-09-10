@@ -59,13 +59,13 @@
 		
 		<onHitEffect><![CDATA[
 			#IF (RND.nextInt(100)<45)
-			#THEN [##npc2.addStatusEffect(SE_LINGERING_FLAMES, 2)] A [style.boldTerrible(cry of distress)] leaves [npc2.Name] as the '[style.boldFire(Lingering Flames)]' light [npc2.his] body on fire!
+			#THEN [##npc2.addStatusEffect(SE_LINGERING_FLAMES, 2) && npc2.removeStatusEffect(SE_FROZEN)] A [style.boldTerrible(cry of distress)] leaves [npc2.Name] as the '[style.boldFire(Lingering Flames)]' light [npc2.his] body on fire!
 			#ENDIF
 		]]></onHitEffect>
 		
 		<onCriticalHitEffect><![CDATA[
-			#IF (RND.nextInt(100)<55)
-			#THEN [##npc2.addStatusEffect(SE_LINGERING_FLAMES, 2)] A [style.boldTerrible(cry of distress)] leaves [npc2.Name] as the '[style.boldFire(Lingering Flames)]' light [npc2.his] body on fire!
+			#IF (RND.nextInt(100)<65)
+			#THEN [##npc2.addStatusEffect(SE_LINGERING_FLAMES, 2) && npc2.removeStatusEffect(SE_FROZEN)] A [style.boldTerrible(cry of distress)] leaves [npc2.Name] as the '[style.boldFire(Lingering Flames)]' light [npc2.his] body on fire!
 			#ENDIF
 		]]></onCriticalHitEffect>
 		

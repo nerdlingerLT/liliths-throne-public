@@ -58,13 +58,13 @@
 		</extraEffects>
 		
 		<onHitEffect><![CDATA[
-			#IF (RND.nextInt(100)<65)
+			#IF (!npc2.hasStatusEffect(SE_LINGERING_FLAMES) && RND.nextInt(100)<65)
 			#THEN [##npc2.addStatusEffect(SE_FROZEN, 3)] A resounding [style.boldTerrible(crack)] fills the air as [npc.his] attack '[style.boldCold([npc2.verb(Freeze)])]' [npc2.name] dry on contact!
 			#ENDIF
 		]]></onHitEffect>
 		
 		<onCriticalHitEffect><![CDATA[
-			#IF (RND.nextInt(100)<75)
+			#IF (!npc2.hasStatusEffect(SE_LINGERING_FLAMES) && RND.nextInt(100)<75)
 			#THEN [##npc2.addStatusEffect(SE_FROZEN, 4)] A resounding [style.boldTerrible(crack)] fills the air as [npc.his] attack '[style.boldCold([npc2.verb(Freeze)])]' [npc2.name] dry on contact!
 			#ENDIF
 		]]></onCriticalHitEffect>
